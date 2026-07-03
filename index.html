@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>KOR — King of Route (UAT v0.9)</title>
+<title>KOR — King of Route (UAT v0.10)</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -441,7 +441,7 @@ body.sun .arenabanner{background:#fff}
 <body>
 
 <div id="loginScreen">
-  <div class="uatchip">UAT v0.9</div>
+  <div class="uatchip">UAT v0.10</div>
   <div>
     <div class="logo">King<br>of <em>Route</em></div>
     <div class="tag">ทุกเส้นทางคือสนามแข่ง โค่นบัลลังก์ ขิงให้สุด<br>ฟีเจอร์ครบเท่าเดิม แต่แอปจะค่อยๆ โตไปพร้อมคุณ — เริ่มจากแค่ วิ่ง แข่ง ขิง</div>
@@ -508,6 +508,7 @@ body.sun .arenabanner{background:#fff}
     </div>
     <div id="map"></div>
     <button class="expander satBtnTxt" style="border-style:solid;margin-top:10px" onclick="toggleSat()">🛰️ สลับมุมมองดาวเทียม</button>
+    <button class="expander" style="border-style:solid;border-color:rgba(200,241,53,.4);color:var(--volt)" onclick="openImportGPX()">📥 สร้างสนามจากไฟล์วิ่งจริง (GPX)</button>
     <div class="st">สนามวิ่ง <small id="routeCount"></small></div>
     <div class="chiprow" id="filterChips">
       <button class="chip on" data-f="all" onclick="setFilter('all',this)">ทั้งหมด</button>
@@ -1163,6 +1164,43 @@ function matchRouteFromTrack(run, routes, threshold){
   return {route: null, sim: best? best.sim : 0, nearest: best? best.route : null};
 }
 
+
+/* ===== v0.10 Real GPX ===== */
+
+function makeRng(seed){ let x=(seed>>>0)||1; return ()=>{ x=(x*48271)%2147483647; return x/2147483647; }; }
+
+/* อ่านพิกัดจากไฟล์ GPX (Apple Watch/Garmin/Strava) — เส้นเป๊ะเท่าที่นาฬิกาบันทึก */
+function parseGPX(text){
+  const pts = [];
+  let m;
+  const re = /<(?:trkpt|rtept)\b[^>]*\blat="(-?[\d.]+)"[^>]*\blon="(-?[\d.]+)"/g;
+  while((m = re.exec(text))) pts.push([+m[1], +m[2]]);
+  if(!pts.length){
+    const re2 = /<(?:trkpt|rtept)\b[^>]*\blon="(-?[\d.]+)"[^>]*\blat="(-?[\d.]+)"/g;
+    while((m = re2.exec(text))) pts.push([+m[2], +m[1]]);
+  }
+  return pts;
+}
+
+/* ทำให้เส้นที่วาดมือดูเป็น GPS recording จริง:
+   จุดถี่ทุก ~35 ม. + ส่ายตั้งฉากเบาๆ ตามทางเดินจริง (deterministic) */
+function naturalizeTrack(pts, stepKm, ampM, seed){
+  stepKm = stepKm || 0.035; ampM = ampM==null? 6 : ampM;
+  const base = resampleTrack(pts, stepKm);
+  if(base.length < 3) return pts.slice();
+  const rnd = makeRng(seed||1);
+  const out = [base[0]];
+  for(let i=1; i<base.length-1; i++){
+    const dy = base[i+1][0]-base[i-1][0], dx = base[i+1][1]-base[i-1][1];
+    const len = Math.sqrt(dy*dy+dx*dx) || 1e-9;
+    const px = -dy/len, py = dx/len;
+    const off = (Math.sin(i*0.6) + (rnd()*2-1)*0.7) * (ampM/111320);
+    out.push([base[i][0]+px*off, base[i][1]+py*off]);
+  }
+  out.push(base[base.length-1]);
+  return out.map(p=>[+p[0].toFixed(6), +p[1].toFixed(6)]);
+}
+
 const API = {hashStr, generateAlias, fmtTime, paceOf, rankBoard, calcPoints, improvementReward, haversineKm,
   simulateWatchResult, riegelPredict, beatKingPlan, difficultyScore, difficultyLabel, levelOf, matchScore,
   bestRunWindow, questProgress, calcStreak, sparkPath,
@@ -1173,7 +1211,8 @@ const API = {hashStr, generateAlias, fmtTime, paceOf, rankBoard, calcPoints, imp
   UNLOCK_DEFS, unlockMet, unlockedKeys, nextUnlocks, todayPlan,
   nearestRoute, challengeBrief, searchRoutes,
   polylineKm, pointAtKm, kmMarkers, polyCenter,
-  resampleTrack, jitterTrack, coverage, trackSimilarity, matchRouteFromTrack};
+  resampleTrack, jitterTrack, coverage, trackSimilarity, matchRouteFromTrack,
+  makeRng, parseGPX, naturalizeTrack};
 if (typeof module!=="undefined" && module.exports) module.exports = API;
 root.AppLogic = API;
 })(typeof window!=="undefined" ? window : globalThis);
@@ -1255,7 +1294,7 @@ const DB = {
       dists:[5,10], boards:{}},
     {id:"r6", name:"สวนรถไฟ · ลูปบึงใหญ่–สวนผีเสื้อ", park:"สวนวชิรเบญจทัศ (สวนรถไฟ)", patternRun:true, lat:0, lng:0, loopKm:0, surface:"ทางเรียบ/สวน", src:"Apple Watch import", isNew:false,
       elev:[2,3,4,3,2,3,4,2], elevGain:7,
-      poly:[[13.8150,100.5525],[13.8156,100.5540],[13.8145,100.5550],[13.8135,100.5540],[13.8140,100.5525],[13.8130,100.5512],[13.8118,100.5505],[13.8105,100.5498],[13.8092,100.5490],[13.8080,100.5480],[13.8068,100.5468],[13.8055,100.5455],[13.8042,100.5448],[13.8030,100.5455],[13.8020,100.5468],[13.8012,100.5482],[13.8008,100.5498],[13.8012,100.5512],[13.8022,100.5522],[13.8035,100.5528],[13.8050,100.5530],[13.8065,100.5525],[13.8078,100.5515],[13.8090,100.5505],[13.8102,100.5512],[13.8112,100.5522],[13.8122,100.5530],[13.8132,100.5535]],
+      poly:[[13.8152,100.5522],[13.8158,100.5535],[13.8150,100.5546],[13.8140,100.5540],[13.8142,100.5526],[13.8132,100.5514],[13.8120,100.5506],[13.8108,100.5500],[13.8096,100.5492],[13.8084,100.5484],[13.8072,100.5477],[13.8060,100.5472],[13.8049,100.5477],[13.8041,100.5487],[13.8037,100.5499],[13.8038,100.5512],[13.8044,100.5523],[13.8054,100.5531],[13.8066,100.5535],[13.8079,100.5533],[13.8091,100.5527],[13.8102,100.5519],[13.8113,100.5514],[13.8124,100.5518],[13.8134,100.5525],[13.8144,100.5530]],
       dists:[5], boards:{}},
   ],
   league: [
@@ -1282,6 +1321,7 @@ const DB = {
   ]
 };
 DB.routes.forEach(rt=>{
+  rt.poly = L_.naturalizeTrack(rt.poly, 0.035, 6, L_.hashStr(rt.id));
   rt.loopKm = L_.polylineKm(rt.poly);              // วัดจากเส้นทางจริง ไม่ใช่ตัวเลขที่พิมพ์เอง
   const c = L_.polyCenter(rt.poly); rt.lat = c[0]; rt.lng = c[1];
   if(rt.patternRun) rt.dists = [Math.max(1, Math.round(rt.loopKm))];   // แพทเทิร์นวิ่งจริง = ระยะตามเส้นจริง
@@ -1810,7 +1850,9 @@ function renderBoard(){
   if(curDiv!=="all") board = fullBoard.filter(r=>L_.divisionOf(r.timeSec/curDist).key===curDiv);
   const kingT = board.length? board[0].timeSec : 0;
   const worstGap = board.length? Math.max(1, board[board.length-1].timeSec - kingT) : 1;
-  $("board").innerHTML = board.length? "" : "<div class='empty'>ยังไม่มีนักวิ่งในสายนี้<br>เป็นจ่าฝูงคนแรกของสายเลย!</div>";
+  $("board").innerHTML = board.length? "" : (curDiv==="all"
+    ? "<div class='empty'>ยังไม่มีใครพิชิตสนามนี้<br>วิ่งจบเป็นคนแรก ขึ้นครองบัลลังก์ King ทันที 👑</div>"
+    : "<div class='empty'>ยังไม่มีนักวิ่งในสายนี้<br>เป็นจ่าฝูงคนแรกของสายเลย!</div>");
   const key = curRoute.id+":"+curDist+":"+curDiv;
   const me = fullBoard.find(r=>r.me);
   board.forEach((r,di)=>{
@@ -2534,6 +2576,63 @@ function pickSug(id){
   $("sugBox").classList.add("hidden"); $("sugBox").innerHTML="";
   $("searchBox").value=""; renderRouteList();
   openDetail(id);
+}
+
+
+/* ============ v0.10 GPX Import — เส้นวิ่งจริงของคุณกลายเป็นสนาม ============ */
+function openImportGPX(){
+  sheet("<h3>📥 สร้างสนามจากไฟล์วิ่งจริง (GPX)</h3>"+
+  "<p>ส่งออก .gpx จาก Apple Watch (ผ่าน Strava / HealthFit / WorkOutDoors), Garmin หรือแอปวิ่งใดก็ได้ — เส้นสนามจะเป๊ะเท่าที่นาฬิกาบันทึกทุกจุด และระบบเช็คให้ก่อนว่าแพทเทิร์นนี้มีสนามอยู่แล้วหรือยัง</p>"+
+  "<input id='gpxName' type='text' placeholder='ตั้งชื่อสนาม เช่น สวนรถไฟ ลูปเช้าวันเสาร์' style='width:100%;padding:13px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);font-family:inherit;font-size:14px;margin-bottom:10px'>"+
+  "<input id='gpxFile' type='file' accept='.gpx,.xml' style='width:100%;color:var(--tx2);font-size:12px;margin-bottom:10px'>"+
+  "<textarea id='gpxPaste' placeholder='หรือวางเนื้อหาไฟล์ GPX ตรงนี้ (เปิดไฟล์ด้วยแอป Notes แล้วคัดลอกมาได้เลย)' style='width:100%;height:90px;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);font-family:monospace;font-size:11px;margin-bottom:10px'></textarea>"+
+  "<label class='consent'><input type='checkbox' id='gpxPz' checked><span><b>🔒 Privacy Zone</b><br>ตัดจุดเริ่ม-จบ 250 ม. อัตโนมัติ กันเปิดเผยหน้าบ้าน</span></label>"+
+  "<label class='consent'><input type='checkbox' id='gpxPdpa'><span><b>ยินยอมเผยแพร่เส้นทาง (PDPA)</b><br>เส้นทาง ชื่อ และสถิติจะแสดงต่อผู้ใช้ทุกคน ถอนความยินยอมได้ทุกเมื่อ</span></label>"+
+  "<button class='btn-main' onclick='importGPXFromModal()'>ตรวจสอบแพทเทิร์น & สร้างสนาม</button>");
+}
+function importGPXFromModal(){
+  const name = $("gpxName").value, pz = $("gpxPz").checked, consent = $("gpxPdpa").checked;
+  const f = $("gpxFile").files && $("gpxFile").files[0];
+  if(f){
+    const rd = new FileReader();
+    rd.onload = ()=> importGPXText(name, rd.result, pz, consent);
+    rd.readAsText(f);
+  } else {
+    importGPXText(name, $("gpxPaste").value, pz, consent);
+  }
+}
+function importGPXText(name, text, usePz, consent){
+  if(!consent){ toast("โปรดติ๊กยินยอม PDPA ก่อนสร้างสนามสาธารณะ","alert"); return "consent"; }
+  const pts = L_.parseGPX(text||"");
+  if(pts.length < 10){ toast("อ่านพิกัดไม่ได้ — ต้องเป็นไฟล์ GPX ที่มีจุด trkpt อย่างน้อย 10 จุด","alert"); return "parse"; }
+  const m = L_.matchRouteFromTrack(pts, DB.routes);
+  if(m.route){
+    openModal("แพทเทิร์นนี้มีสนามอยู่แล้ว 🧠",
+      "เส้นที่นำเข้าตรงกับ <b>\""+esc(m.route.name)+"\"</b> ถึง <b>"+Math.round(m.sim*100)+"%</b> — ระบบไม่สร้างสนามซ้ำ เพื่อไม่ให้ตารางอันดับของแพทเทิร์นเดียวกันแตกเป็นหลายกระดาน",
+      [{label:"ไปที่สนามนั้น ➜", main:true, fn:()=>{closeModal(); openDetail(m.route.id);}},
+       {label:"ปิด", fn:closeModal}]);
+    return "dupe";
+  }
+  let poly = pts, pzNote = "";
+  if(usePz){
+    const tz = L_.applyPrivacyZone(pts, 0.25);
+    poly = tz.points;
+    pzNote = " · 🔒 ตัดหัว-ท้ายแล้ว "+(tz.trimmedStart+tz.trimmedEnd).toFixed(2)+" กม.";
+  }
+  const rt = {id:"r"+(DB.routes.length+1), name:(name||"สนามจากเส้นวิ่งของฉัน").trim(), park:"นำเข้าจากนาฬิกา",
+    patternRun:true, src:"GPX import (เส้นจริงจากนาฬิกา)", isNew:true, privacyApplied:!!usePz,
+    elev:[3,4,3,5,4,3,4,3], elevGain:10, poly, dists:[1], boards:{}};
+  rt.loopKm = L_.polylineKm(poly);
+  rt.dists = [Math.max(1, Math.round(rt.loopKm))];
+  rt.boards[rt.dists[0]] = [];
+  const c = L_.polyCenter(poly); rt.lat = c[0]; rt.lng = c[1];
+  rt.diff = L_.difficultyScore(rt.loopKm, rt.elevGain);
+  DB.routes.push(rt);
+  if(map) drawRoutesOnMap();
+  closeModal(); burstConfetti();
+  toast("✅ สร้างสนามจากเส้นวิ่งจริง: "+rt.loopKm+" กม. · "+poly.length+" จุด GPS"+pzNote);
+  openDetail(rt.id);
+  return "ok";
 }
 
 function kudos(i){

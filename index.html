@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>KOR — King of Route (UAT v0.8)</title>
+<title>KOR — King of Route (UAT v0.9)</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -441,7 +441,7 @@ body.sun .arenabanner{background:#fff}
 <body>
 
 <div id="loginScreen">
-  <div class="uatchip">UAT v0.8</div>
+  <div class="uatchip">UAT v0.9</div>
   <div>
     <div class="logo">King<br>of <em>Route</em></div>
     <div class="tag">ทุกเส้นทางคือสนามแข่ง โค่นบัลลังก์ ขิงให้สุด<br>ฟีเจอร์ครบเท่าเดิม แต่แอปจะค่อยๆ โตไปพร้อมคุณ — เริ่มจากแค่ วิ่ง แข่ง ขิง</div>
@@ -465,6 +465,7 @@ body.sun .arenabanner{background:#fff}
   <!-- DASHBOARD -->
   <div class="page" id="dashPage">
     <div id="starterCard"></div>
+    <div class="ticker"><div class="live"><i></i>LIVE</div><div class="tk" id="tickerTk"></div></div>
     <div id="todayCard" class="todaycard"></div>
     <div class="minirow">
       <div class="mini" id="miniLeague" onclick="tabTo('leaguePage',document.querySelector('[data-p=leaguePage]'))"></div>
@@ -473,7 +474,6 @@ body.sun .arenabanner{background:#fff}
     <div id="questMini"></div>
     <button class="expander" id="moreBtn" onclick="toggleMore()">⌄ ดูเพิ่มเติม (หีบรางวัล · อากาศ · ก๊วนวิ่ง · สนามแนะนำ)</button>
     <div id="moreWrap" class="hidden">
-      <div class="ticker"><div class="live"><i></i>LIVE</div><div class="tk" id="tickerTk"></div></div>
       <div class="chest">
         <div class="ic">🎁</div>
         <div><b>หีบรางวัลรายวัน</b><span id="chestTxt">เช็คอินรับพอยต์ฟรีทุกวัน — วันติดกันยิ่งได้เยอะ</span></div>
@@ -551,6 +551,7 @@ body.sun .arenabanner{background:#fff}
     <div class="divchips" id="divChips"></div>
     <div id="board"></div>
     <button class="btn-ghost" style="font-size:12px" onclick="simulateCheat()">🛵 ทดสอบระบบกันโกง (จำลองวิ่งด้วยมอเตอร์ไซค์)</button>
+    <button class="btn-ghost" style="font-size:12px" onclick="syncWrongPattern()">🧭 ทดสอบ: นาฬิกาส่งเส้นวิ่งคนละแพทเทิร์น</button>
   </div>
 
   <!-- LEAGUE -->
@@ -1110,6 +1111,58 @@ function polyCenter(pts){
   return [+la.toFixed(5), +lo.toFixed(5)];
 }
 
+
+/* ===== v0.9 Route Pattern Memory ===== */
+
+/* แตกเส้นทางเป็นจุดถี่ๆ ทุก stepKm เพื่อเทียบแพทเทิร์น */
+function resampleTrack(pts, stepKm){
+  stepKm = stepKm || 0.05;
+  const total = polylineKm(pts);
+  if(total === 0) return pts.slice();
+  const out = [];
+  for(let k=0; k<total; k+=stepKm) out.push(pointAtKm(pts, k));
+  out.push(pts[pts.length-1]);
+  return out;
+}
+
+/* จำลองสัญญาณ GPS จริง: จุดถี่ + สั่นตามความคลาดเคลื่อนนาฬิกา */
+function jitterTrack(pts, meters, rnd){
+  rnd = rnd || Math.random;
+  const deg = meters / 111320;
+  return pts.map(p => [p[0] + (rnd()*2-1)*deg, p[1] + (rnd()*2-1)*deg]);
+}
+
+/* % ของจุดใน a ที่อยู่ใกล้เส้น b ภายใน tolKm */
+function coverage(a, b, tolKm){
+  if(!a.length || !b.length) return 0;
+  let ok = 0;
+  a.forEach(p=>{
+    for(const q of b){ if(haversineKm(p[0],p[1],q[0],q[1]) <= tolKm){ ok++; return; } }
+  });
+  return ok / a.length;
+}
+
+/* ความคล้ายของแพทเทิร์น: ต้องทับกัน "ทั้งสองทาง"
+   (กันเคสวิ่งแค่บางส่วน หรือวิ่งเกินไปเส้นอื่น) */
+function trackSimilarity(run, route, tolKm){
+  tolKm = tolKm || 0.06;
+  const ra = resampleTrack(run, 0.05), rb = resampleTrack(route, 0.05);
+  return +Math.min(coverage(ra, rb, tolKm), coverage(rb, ra, tolKm)).toFixed(2);
+}
+
+/* ความจำของระบบ: เทียบ track ที่ส่งเข้ามากับ "ทุกเส้นทางในคลัง"
+   คืนสนามที่แพทเทิร์นตรง หรือบอกว่าเป็นแพทเทิร์นใหม่ */
+function matchRouteFromTrack(run, routes, threshold){
+  threshold = threshold || 0.75;
+  let best = null;
+  routes.forEach(rt=>{
+    const sim = trackSimilarity(run, rt.poly);
+    if(!best || sim > best.sim) best = {route: rt, sim};
+  });
+  if(best && best.sim >= threshold) return best;
+  return {route: null, sim: best? best.sim : 0, nearest: best? best.route : null};
+}
+
 const API = {hashStr, generateAlias, fmtTime, paceOf, rankBoard, calcPoints, improvementReward, haversineKm,
   simulateWatchResult, riegelPredict, beatKingPlan, difficultyScore, difficultyLabel, levelOf, matchScore,
   bestRunWindow, questProgress, calcStreak, sparkPath,
@@ -1119,7 +1172,8 @@ const API = {hashStr, generateAlias, fmtTime, paceOf, rankBoard, calcPoints, imp
   insuranceTier, cityHeat, shopReward, talentScan, carbonSaved, streakWithRest,
   UNLOCK_DEFS, unlockMet, unlockedKeys, nextUnlocks, todayPlan,
   nearestRoute, challengeBrief, searchRoutes,
-  polylineKm, pointAtKm, kmMarkers, polyCenter};
+  polylineKm, pointAtKm, kmMarkers, polyCenter,
+  resampleTrack, jitterTrack, coverage, trackSimilarity, matchRouteFromTrack};
 if (typeof module!=="undefined" && module.exports) module.exports = API;
 root.AppLogic = API;
 })(typeof window!=="undefined" ? window : globalThis);
@@ -1179,26 +1233,30 @@ const DB = {
     {ic:"📉", msg:"คุณหล่นจากอันดับ 4 → 6 ที่สวนรถไฟ 10K มีคนทำเวลาแซง", unread:true, routeId:"r2"},
   ],
   routes: [
-    {id:"r1", name:"สวนลุมพินี ลูป", lat:13.7314, lng:100.5414, loopKm:2.5, surface:"ทางเรียบ/สวน", src:"Strava import", isNew:false,
+    {id:"r1", name:"สวนลุมพินี ลูป", park:"สวนลุมพินี", lat:13.7314, lng:100.5414, loopKm:2.5, surface:"ทางเรียบ/สวน", src:"Strava import", isNew:false,
       elev:[3,4,3,5,4,3,4,3], elevGain:8,
       poly:[[13.7275,100.5385],[13.7290,100.5382],[13.7310,100.5381],[13.7322,100.5384],[13.7327,100.5395],[13.7328,100.5410],[13.7327,100.5425],[13.7323,100.5436],[13.7312,100.5440],[13.7295,100.5441],[13.7280,100.5439],[13.7272,100.5430],[13.7270,100.5415],[13.7271,100.5400],[13.7275,100.5385]],
       dists:[5,10,21], boards:{}},
-    {id:"r2", name:"สวนรถไฟ วชิรเบญจทัศ", lat:13.8033, lng:100.5528, loopKm:3.2, surface:"ทางเรียบ/สวน", src:"Garmin import", isNew:false,
-      elev:[2,3,2,4,3,2,3,2], elevGain:6,
-      poly:[[13.8060,100.5487],[13.8082,100.5482],[13.8105,100.5482],[13.8124,100.5490],[13.8133,100.5505],[13.8134,100.5520],[13.8128,100.5533],[13.8114,100.5541],[13.8095,100.5544],[13.8076,100.5541],[13.8061,100.5533],[13.8052,100.5519],[13.8051,100.5504],[13.8060,100.5487]],
-      dists:[5,10,21,42], boards:{}},
-    {id:"r3", name:"สวนเบญจกิติ สกายวอล์ก", lat:13.7222, lng:100.5580, loopKm:2.0, surface:"ทางยกระดับ", src:"Nike Run import", isNew:false,
+    {id:"r2", name:"สวนรถไฟ · ลูปคลาสสิก 3 สวน", park:"สวนวชิรเบญจทัศ (สวนรถไฟ)", patternRun:true, lat:0, lng:0, loopKm:0, surface:"ทางเรียบ/สวน", src:"Apple Watch import", isNew:false,
+      elev:[2,3,2,4,3,2,4,3,2,3], elevGain:9,
+      poly:[[13.8150,100.5525],[13.8158,100.5536],[13.8153,100.5549],[13.8141,100.5546],[13.8138,100.5531],[13.8145,100.5512],[13.8150,100.5494],[13.8145,100.5476],[13.8136,100.5461],[13.8126,100.5449],[13.8114,100.5441],[13.8102,100.5438],[13.8096,100.5449],[13.8101,100.5459],[13.8092,100.5466],[13.8082,100.5474],[13.8086,100.5486],[13.8092,100.5496],[13.8084,100.5503],[13.8074,100.5496],[13.8068,100.5484],[13.8060,100.5474],[13.8052,100.5462],[13.8044,100.5450],[13.8034,100.5444],[13.8026,100.5452],[13.8030,100.5464],[13.8020,100.5452],[13.8010,100.5440],[13.7999,100.5430],[13.7989,100.5420],[13.7981,100.5407],[13.7984,100.5394],[13.7996,100.5389],[13.8009,100.5392],[13.8020,100.5400],[13.8026,100.5412],[13.8021,100.5426],[13.8012,100.5438],[13.8017,100.5452],[13.8028,100.5464],[13.8041,100.5477],[13.8055,100.5489],[13.8069,100.5500],[13.8083,100.5509],[13.8097,100.5515],[13.8111,100.5520],[13.8124,100.5522]],
+      dists:[10], boards:{}},
+    {id:"r3", name:"สวนเบญจกิติ สกายวอล์ก", park:"สวนเบญจกิติ", lat:13.7222, lng:100.5580, loopKm:2.0, surface:"ทางยกระดับ", src:"Nike Run import", isNew:false,
       elev:[4,9,14,10,6,9,13,5], elevGain:24,
       poly:[[13.7258,100.5566],[13.7262,100.5578],[13.7260,100.5590],[13.7252,100.5598],[13.7240,100.5601],[13.7226,100.5600],[13.7214,100.5596],[13.7207,100.5587],[13.7205,100.5575],[13.7209,100.5565],[13.7220,100.5559],[13.7234,100.5557],[13.7247,100.5559],[13.7258,100.5566]],
       dists:[5,10], boards:{}},
-    {id:"r4", name:"บางกะเจ้า ปอดกรุงเทพ", lat:13.6786, lng:100.5717, loopKm:10.0, surface:"เทรล/ชุมชน", src:"Strava import", isNew:false,
+    {id:"r4", name:"บางกะเจ้า ปอดกรุงเทพ", park:"บางกะเจ้า", lat:13.6786, lng:100.5717, loopKm:10.0, surface:"เทรล/ชุมชน", src:"Strava import", isNew:false,
       elev:[5,8,12,7,15,22,11,6], elevGain:95,
       poly:[[13.6975,100.5675],[13.6950,100.5770],[13.6900,100.5840],[13.6845,100.5870],[13.6780,100.5855],[13.6720,100.5810],[13.6675,100.5745],[13.6660,100.5670],[13.6690,100.5605],[13.6750,100.5565],[13.6820,100.5560],[13.6890,100.5585],[13.6940,100.5620],[13.6975,100.5675]],
       dists:[10,21,42], boards:{}},
-    {id:"r5", name:"สะพานพระราม 8 – ริมน้ำ", lat:13.7690, lng:100.4930, loopKm:5.0, surface:"ริมแม่น้ำ/สะพาน", src:"Adidas Running import", isNew:false,
+    {id:"r5", name:"สะพานพระราม 8 – ริมน้ำ", park:"สวนหลวงพระราม 8", lat:13.7690, lng:100.4930, loopKm:5.0, surface:"ริมแม่น้ำ/สะพาน", src:"Adidas Running import", isNew:false,
       elev:[3,7,18,26,17,8,4,3], elevGain:52,
       poly:[[13.7625,100.4952],[13.765,100.4948],[13.7672,100.4943],[13.7695,100.4936],[13.7712,100.493],[13.7735,100.4922],[13.7758,100.4915],[13.778,100.491],[13.7802,100.4905],[13.7825,100.4901],[13.7845,100.4898],[13.7825,100.4901],[13.7802,100.4905],[13.778,100.491],[13.7758,100.4915],[13.7735,100.4922],[13.7712,100.493],[13.7695,100.4936],[13.7672,100.4943],[13.765,100.4948],[13.7625,100.4952]],
       dists:[5,10], boards:{}},
+    {id:"r6", name:"สวนรถไฟ · ลูปบึงใหญ่–สวนผีเสื้อ", park:"สวนวชิรเบญจทัศ (สวนรถไฟ)", patternRun:true, lat:0, lng:0, loopKm:0, surface:"ทางเรียบ/สวน", src:"Apple Watch import", isNew:false,
+      elev:[2,3,4,3,2,3,4,2], elevGain:7,
+      poly:[[13.8150,100.5525],[13.8156,100.5540],[13.8145,100.5550],[13.8135,100.5540],[13.8140,100.5525],[13.8130,100.5512],[13.8118,100.5505],[13.8105,100.5498],[13.8092,100.5490],[13.8080,100.5480],[13.8068,100.5468],[13.8055,100.5455],[13.8042,100.5448],[13.8030,100.5455],[13.8020,100.5468],[13.8012,100.5482],[13.8008,100.5498],[13.8012,100.5512],[13.8022,100.5522],[13.8035,100.5528],[13.8050,100.5530],[13.8065,100.5525],[13.8078,100.5515],[13.8090,100.5505],[13.8102,100.5512],[13.8112,100.5522],[13.8122,100.5530],[13.8132,100.5535]],
+      dists:[5], boards:{}},
   ],
   league: [
     {name:"Nott S.", pts:310},{name:"Ploy T.", pts:265},{name:"Kanya P.", pts:240},
@@ -1217,11 +1275,16 @@ const DB = {
     {who:"Beam W.", what:"พัฒนาอันดับขึ้น 6 ขั้นที่บางกะเจ้า 21K รับกล่องกำลังใจ", ic:"🎁", kudos:8, liked:false},
     {who:"Anan R.", what:"เปิด Route ใหม่ย่านอารีย์ 4.2 กม. รอ Announce", ic:"🛰️", kudos:5, liked:false},
     {who:"Nott S.", what:"ขึ้นนำ Volt League สัปดาห์นี้ด้วย 310 pt", ic:"🏆", kudos:9, liked:false},
+  ],
+  liveNow: [
+    {who:"Kanya P.", where:"สวนรถไฟ", km:4.2},
+    {who:"Beam W.", where:"สวนลุมพินี", km:1.8},
   ]
 };
 DB.routes.forEach(rt=>{
   rt.loopKm = L_.polylineKm(rt.poly);              // วัดจากเส้นทางจริง ไม่ใช่ตัวเลขที่พิมพ์เอง
   const c = L_.polyCenter(rt.poly); rt.lat = c[0]; rt.lng = c[1];
+  if(rt.patternRun) rt.dists = [Math.max(1, Math.round(rt.loopKm))];   // แพทเทิร์นวิ่งจริง = ระยะตามเส้นจริง
   rt.diff = L_.difficultyScore(rt.loopKm, rt.elevGain);
 });
 
@@ -1440,7 +1503,8 @@ function renderDash(){
   const qp = L_.questProgress(first.cur, first.target);
   $("questMini").innerHTML = "<div class='quest"+(qp.done?" done":"")+"'><div class='qh'><span>"+(qp.done?"✅ ":"🎯 ")+first.t+"</span><span class='rw'>"+(qp.done?"สำเร็จ!":first.rw)+"</span></div><div class='bar'><i style='width:"+qp.pct+"%'></i></div></div>";
 
-  $("tickerTk").innerHTML = DB.feed.map(f=>"<b>"+esc(f.who)+"</b> "+esc(f.what)).join(" &nbsp;·&nbsp; ");
+  const liveBits = (DB.liveNow||[]).map(l=>"🟢 <b>"+esc(l.who)+"</b> กำลังวิ่งอยู่ที่"+esc(l.where)+" ("+l.km+" กม.)");
+  $("tickerTk").innerHTML = liveBits.concat(DB.feed.map(f=>"<b>"+esc(f.who)+"</b> "+esc(f.what))).join(" &nbsp;·&nbsp; ");
   $("chestBtn").disabled = DB.user.chestClaimed;
   $("chestBtn").textContent = DB.user.chestClaimed? "รับแล้ววันนี้" : "เปิดหีบ +"+L_.dailyChest(DB.user.checkinStreak);
   const ranToday = DB.user.runDates.includes(isoToday());
@@ -1621,7 +1685,7 @@ function renderRouteList(){
       (rt.isNew? "<div class='newbadge'>NEW ROUTE</div>":"") +
       "<div class='rn'>"+esc(rt.name)+"</div>" +
       "<button class='favbtn "+(DB.user.favs.has(rt.id)?"on":"")+"' onclick='toggleFav(event,\""+rt.id+"\")'>♥</button>" +
-      "<div class='meta'><span>ห่าง <b>"+dist.toFixed(1)+" กม.</b></span><span>ลูป <b>"+rt.loopKm+" กม.</b></span>"+
+      "<div class='meta'><span>📍 "+esc(rt.park||"")+"</span><span>ห่าง <b>"+dist.toFixed(1)+" กม.</b></span><span>ลูป <b>"+rt.loopKm+" กม.</b></span>"+
       "<span>"+L_.difficultyLabel(rt.diff)+"<span class='diffdots'>"+dots+"</span></span></div>" +
       "<div class='sparkwrap'><div class='spark'><svg viewBox='0 0 100 34' preserveAspectRatio='none'><path d='"+L_.sparkPath(rt.elev,100,34)+"' fill='none' stroke='#4D8DFF' stroke-width='2'/></svg><div class='lbl'>โปรไฟล์ความชัน · +"+rt.elevGain+" ม./ลูป · "+rt.surface+"</div></div></div>"+
       "<div class='distrow'>"+rt.dists.map(d=>"<span class='dpill'>"+d+"K</span>").join("")+"</div>" +
@@ -1654,6 +1718,9 @@ function openDetail(id){
   $("detailHead").innerHTML = "<h2 style='font-size:21px'>"+esc(curRoute.name)+"</h2>"+
     "<div style='color:var(--tx2);font-size:12.5px;margin-top:4px'>ลูป "+curRoute.loopKm+" กม. (วัดจากเส้น GPS) · +"+curRoute.elevGain+" ม. · "
     +L_.difficultyLabel(curRoute.diff)+" <span class='diffdots'>"+dots+"</span> · ที่มา: "+curRoute.src+"</div>";
+  const sibs = DB.routes.filter(r=>r.park===curRoute.park && r.id!==curRoute.id);
+  if(curRoute.park) $("detailHead").innerHTML += "<div style='font-size:12px;color:var(--tx2);margin-top:6px'>📍 "+esc(curRoute.park)
+    +(sibs.length? " · สวนนี้มีอีก "+sibs.length+" แพทเทิร์น: "+sibs.map(sb=>"<a href='#' style='color:var(--gps);font-family:Kanit' onclick='openDetail(\""+sb.id+"\");return false'>"+esc(sb.name.split("· ").pop())+"</a>").join(", ") : "")+"</div>";
   syncDetailFav();
   $("ghostBtn").classList.toggle("hidden", !isUnlocked("ghost"));
   $("storyBtn").classList.toggle("hidden", !isUnlocked("story"));
@@ -1834,20 +1901,53 @@ function addPoints(pts, applyMult){
 }
 function makeTelemetry(t, cheat){
   const pace = t/curDist;
-  if(cheat) return {distanceKm:curDist, timeSec:t, routeMatch:0.62, maxSegPaceSecPerKm:Math.round(pace*0.3), hasHR:false};
-  return {distanceKm:curDist, timeSec:t, routeMatch:0.92+Math.random()*0.08,
-          maxSegPaceSecPerKm:Math.round(pace*(0.8+Math.random()*0.15)), hasHR:true};
+  let track;
+  if(cheat){
+    // มอเตอร์ไซค์เลาะถนนรอบนอกสวน: เส้นขนานห่างสนามจริง ~180 ม.
+    track = L_.jitterTrack(L_.resampleTrack(curRoute.poly, 0.08).map(p=>[p[0]+0.0016, p[1]+0.0016]), 25);
+  } else {
+    // นาฬิกาจริง: จุดถี่ทุก ~50 ม. + ความคลาดเคลื่อน GPS ~12 ม.
+    track = L_.jitterTrack(L_.resampleTrack(curRoute.poly, 0.05), 12);
+  }
+  const sim = L_.trackSimilarity(track, curRoute.poly);
+  return {distanceKm:curDist, timeSec:t, routeMatch:sim, track,
+          maxSegPaceSecPerKm: Math.round(pace*(cheat? 0.3 : 0.8+Math.random()*0.15)), hasHR:!cheat};
 }
 function simulateCheat(){
-  const t = Math.round(curDist * (90+Math.random()*60)); // เพซ 1:30-2:30 /กม. = ยานพาหนะ
+  const t = L_.simulateWatchResult(curDist); // เวลาดูปกติ แต่เส้นวิ่งอยู่นอกสนาม
   const v = L_.validateRun(makeTelemetry(t, true));
   toast("🛵 ผลวิ่ง "+curDist+"K "+L_.fmtTime(t)+" ถูกปฏิเสธ: "+v.reasons[0],"alert");
   pushNotif("🛡️","ระบบกันโกงปฏิเสธผลวิ่งที่ "+esc(curRoute.name)+" "+curDist+"K — "+esc(v.reasons.join(", ")), null);
 }
+
+/* กติกา KOR: ผลวิ่งบันทึกได้เฉพาะสนามที่ "แพทเทิร์นตรง" เท่านั้น
+   ระบบจำทุกเส้นทางในคลัง แล้วชี้ให้ว่า track นี้เป็นของสนามไหน */
+function syncWrongPattern(){
+  const sib = DB.routes.find(r=>r.id!==curRoute.id && r.park===curRoute.park);
+  // มีแพทเทิร์นพี่น้องในสวนเดียวกัน -> จำลองวิ่งเส้นนั้น / ไม่มี -> จำลองแพทเทิร์นแปลกหน้า (ซอยข้างๆ ~700 ม.)
+  const track = sib
+    ? L_.jitterTrack(L_.resampleTrack(sib.poly, 0.05), 12)
+    : L_.jitterTrack(L_.resampleTrack(curRoute.poly, 0.05).map(p=>[p[0]+0.006, p[1]+0.006]), 12);
+  const here = L_.trackSimilarity(track, curRoute.poly);
+  const m = L_.matchRouteFromTrack(track, DB.routes);
+  if(m.route && m.route.id !== curRoute.id){
+    openModal("แพทเทิร์นเส้นทางไม่ตรงกับสนามนี้ 🧭",
+      "เส้นที่นาฬิกาส่งมาทับสนามนี้เพียง <b>"+Math.round(here*100)+"%</b> — แต่ระบบจำแพทเทิร์นได้: ตรงกับ <b>\""+esc(m.route.name)+"\"</b> ถึง <b>"+Math.round(m.sim*100)+"%</b><br><br>กติกา KOR: ผลวิ่งบันทึกได้เฉพาะสนามที่วิ่งแพทเทิร์นนั้นจริง เพื่อความแฟร์ของทุกตาราง",
+      [
+        {label:"ไปบันทึกที่สนามที่แพทเทิร์นตรง ➜", main:true, fn:()=>{ closeModal(); openDetail(m.route.id); toast("🧭 ย้ายมาสนามที่แพทเทิร์นตรงแล้ว — กดซิงค์ได้เลย"); }},
+        {label:"ยกเลิก", fn:closeModal}
+      ]);
+  } else {
+    toast("🛰️ แพทเทิร์นนี้ไม่ตรงกับสนามใดในคลัง (ใกล้สุด "+Math.round(m.sim*100)+"%) — เข้าสู่ขั้นตอนเปิดสนามใหม่","notify");
+    simulateNewRoute();
+  }
+}
+
 function syncFromWatch(){
   const t = L_.simulateWatchResult(curDist);
   const telemetry = makeTelemetry(t, false);
   const verdict = L_.validateRun(telemetry);
+  DB.lastTelemetry = telemetry;
   if(verdict.status==="rejected"){
     toast("🛡️ ผลวิ่งถูกปฏิเสธ: "+verdict.reasons[0],"alert");
     return;
@@ -1978,7 +2078,7 @@ function publishNewRoute(nm){
     pzNote = " · 🔒 ตัดหัว-ท้ายแล้ว "+(pz.trimmedStart+pz.trimmedEnd).toFixed(2)+" กม.";
   }
   const rt = {id:"r"+(DB.routes.length+1), name:nm, lat:13.7580, lng:100.5650, loopKm:4.0,
-    surface:"ทางเรียบ/เมือง", src:"เปิดโดย "+DB.user.name, isNew:true, privacyApplied:$("pzChk").checked,
+    park:"เส้นทางชุมชน", surface:"ทางเรียบ/เมือง", src:"เปิดโดย "+DB.user.name, isNew:true, privacyApplied:$("pzChk").checked,
     elev:[3,5,4,6,5,4,5,3], elevGain:12,
     poly: poly,
     dists:[5,10], boards:{5:[{name:DB.user.name,timeSec:L_.simulateWatchResult(5),me:true,status:"verified"}],10:[]}};

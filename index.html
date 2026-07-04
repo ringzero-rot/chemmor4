@@ -301,6 +301,72 @@ footer a{color:var(--muted);text-decoration:underline}
   .btn{min-width:0}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+
+/* ---------- View nav ---------- */
+.viewnav{position:sticky;top:55px;z-index:35;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.viewnav-in{max-width:1100px;margin:0 auto;padding:8px 16px;display:flex;gap:8px}
+.vtab{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 12px;border-radius:14px;font-family:"Mitr";font-weight:500;font-size:14px;color:var(--muted);background:transparent;border:1px solid transparent;transition:.15s;position:relative}
+.vtab svg{width:17px;height:17px}
+.vtab:hover{background:#F1F7FF}
+.vtab.active{background:var(--blue);color:#fff;box-shadow:0 4px 12px rgba(37,99,235,.28)}
+.vtab-badge{min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--coral);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center}
+.vtab.active .vtab-badge{background:#fff;color:var(--coral)}
+
+/* ---------- Category chips ---------- */
+.catchips{margin-top:10px;align-items:center}
+.catlabel{font-size:12px;color:var(--muted);font-weight:600;margin-right:2px}
+.chip.cat{padding:6px 12px;font-size:12.5px}
+.chip.cat.active{background:var(--blue-deep);color:#fff;border-color:var(--blue-deep);box-shadow:0 4px 10px rgba(30,64,175,.25)}
+.tag.cat{background:#EAF1FF;color:var(--blue-deep)}
+.status.upcoming{color:#1D6FD8;background:#E5F0FF}
+.status.upcoming::before{background:#2f86ff}
+
+/* ---------- Dashboard ---------- */
+#dashView{max-width:1100px;margin:0 auto;padding:18px 16px 48px}
+.dash-hero{background:linear-gradient(135deg,var(--blue) 0%,var(--sky) 100%);border-radius:24px;padding:22px;color:#fff;box-shadow:0 12px 30px rgba(37,99,235,.28);position:relative;overflow:hidden}
+.dash-hero h2{font-family:"Mitr";font-weight:600;font-size:20px;margin-bottom:4px;position:relative}
+.dash-hero p{font-size:13.5px;opacity:.92;position:relative}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;position:relative}
+.dstat{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:12px 10px;text-align:center}
+.dstat b{font-family:"Mitr";font-weight:600;font-size:22px;display:block;line-height:1.15}
+.dstat span{font-size:11.5px;opacity:.92}
+.dash-sec{margin-top:22px}
+.dash-sec-h{display:flex;align-items:center;gap:8px;font-family:"Mitr";font-weight:500;font-size:15px;color:var(--ink);margin-bottom:12px}
+.dash-sec-h .pill{font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px}
+.dash-sec-h .pill.urgent{background:#FFECF0;color:var(--coral)}
+.dash-sec-h .pill.up{background:#E5F0FF;color:#1D6FD8}
+.dash-sec-h .pill.closed{background:#EEF2F7;color:var(--muted)}
+.dcard{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:10px;box-shadow:var(--shadow);transition:.15s}
+.dcard:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(37,99,235,.12)}
+.dcard.urgent{border-color:#FFC9D6;background:linear-gradient(180deg,#FFF6F8,var(--surface))}
+.dcard.up{border-color:#CFE2FF}
+.dcard.closed{opacity:.72}
+.dcard .dring{flex-shrink:0;position:relative;width:58px;height:58px;display:grid;place-items:center}
+.dcard .dring .num{position:absolute;font-family:"Mitr";font-weight:600;font-size:17px}
+.dcard .dring .unit{position:absolute;bottom:8px;font-size:8px;color:var(--muted)}
+.dcard-c{flex:1;min-width:0}
+.dcard-c .dh{font-family:"Mitr";font-weight:500;font-size:14.5px;color:var(--ink);line-height:1.3;margin-bottom:2px}
+.dcard-c .dsub{font-size:12px;color:var(--muted);line-height:1.45}
+.dcard-c .dwhen{font-size:12px;font-weight:600;margin-top:5px}
+.dcard-c .dwhen.urgent{color:var(--coral)}
+.dcard-c .dwhen.warn{color:var(--amber)}
+.dcard-c .dwhen.up{color:#1D6FD8}
+.dcard-act{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
+.dbtn{display:inline-flex;align-items:center;gap:5px;padding:8px 12px;border-radius:11px;font-family:"Mitr";font-weight:500;font-size:12.5px;white-space:nowrap}
+.dbtn.go{background:var(--blue);color:#fff}
+.dbtn.go:hover{background:var(--blue-deep)}
+.dbtn.rm{background:#F1F7FF;color:var(--muted);border:1px solid var(--line)}
+.dbtn svg{width:14px;height:14px}
+.dash-empty{text-align:center;padding:48px 20px;color:var(--muted)}
+.dash-empty svg{width:60px;height:60px;color:var(--sky);margin-bottom:14px}
+.dash-empty h3{font-family:"Mitr";font-weight:500;font-size:17px;color:var(--ink);margin-bottom:8px}
+.dash-empty .goSearch{margin-top:16px;display:inline-flex;padding:11px 20px;border-radius:14px;background:var(--blue);color:#fff;font-family:"Mitr";font-weight:500;font-size:14px}
+@media (max-width:560px){
+  #dashView{padding:14px 12px 40px}
+  .dash-stats{gap:7px}
+  .dstat b{font-size:19px}
+  .dcard-act .dbtn.rm{display:none}
+}
 </style>
 </head>
 <body>
@@ -326,6 +392,22 @@ footer a{color:var(--muted);text-decoration:underline}
   </div>
 </header>
 
+<!-- View switch -->
+<div class="viewnav">
+  <div class="viewnav-in">
+    <button class="vtab active" data-view="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
+      ค้นหาโครงการ
+    </button>
+    <button class="vtab" data-view="dash">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" stroke-linejoin="round"/></svg>
+      แดชบอร์ดของฉัน
+      <span class="vtab-badge" id="dashBadge" style="display:none">0</span>
+    </button>
+  </div>
+</div>
+
+<div id="searchView">
 <!-- Hero -->
 <section class="hero">
   <div class="hero-card">
@@ -337,11 +419,11 @@ footer a{color:var(--muted);text-decoration:underline}
       <path d="M95 128l3.5 3.5L106 124" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <h1 id="heroTitle">หางานอาสา &amp; ฝึกประสบการณ์<br>โรงพยาบาลใน กทม.</h1>
-    <p>รวมโครงการจิตอาสาและฝึกงานจากโรงพยาบาลชั้นนำ ที่เปิดให้นักเรียนเข้าไปช่วยเหลือ เรียนรู้ และรับเกียรติบัตรไปใส่พอร์ต — ค้นหา บันทึกที่ชอบ และรับแจ้งเตือนก่อนวันสมัคร</p>
+    <p>รวมโครงการ <b>จิตอาสา · ฝึกประสบการณ์ · ค่ายอยากเป็นหมอ · เปิดบ้านคณะแพทย์</b> สำหรับนักเรียน ม.4–ม.6 สายสุขภาพ ที่เปิดให้เข้าไปเรียนรู้ ช่วยเหลือ และเก็บผลงาน/เกียรติบัตรใส่พอร์ต — ค้นหา บันทึกที่ชอบ และรับแจ้งเตือนก่อนวันสมัคร</p>
     <div class="hero-stats">
       <div class="stat"><b id="stOpp">0</b><span>โครงการ</span></div>
       <div class="stat"><b id="stHosp">0</b><span>โรงพยาบาล/หน่วยงาน</span></div>
-      <div class="stat"><b>100%</b><span>มีเกียรติบัตร</span></div>
+      <div class="stat"><b id="stCert">0</b><span>ให้เกียรติบัตร</span></div>
     </div>
   </div>
 </section>
@@ -350,7 +432,7 @@ footer a{color:var(--muted);text-decoration:underline}
 <div class="disclaimer">
   <div class="disclaimer-in">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 4.3 2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div><b>ข้อมูลอ้างอิง ณ ก.ค. 2569</b> — หลายโครงการเปิดรับเป็น "รอบหมุนเวียน" วันที่ที่ติด <span style="background:#EEF2F7;color:#5C7591;padding:1px 6px;border-radius:6px;font-size:11px">ประมาณการ</span> เป็นการคาดจากรอบก่อนหน้า <b>โปรดกดลิงก์ทางการเพื่อยืนยันรอบปัจจุบันก่อนสมัครทุกครั้ง</b></div>
+    <div><b>ข้อมูลอ้างอิง ณ ก.ค. 2569</b> — หลายโครงการเปิดรับเป็น "รอบหมุนเวียน" วันที่ที่ติด <span style="background:#EEF2F7;color:#5C7591;padding:1px 6px;border-radius:6px;font-size:11px">ประมาณการ</span> เป็นการคาดจากรอบก่อนหน้า <b>โปรดกดลิงก์ทางการเพื่อยืนยันรอบปัจจุบันก่อนสมัครทุกครั้ง</b> · ค้นค่าย/กิจกรรมสายสุขภาพเพิ่มเติมได้ที่ <a href="https://www.camphub.in.th/medical-health/doctor/" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600">CampHub</a> และ <a href="https://dekuni.com/voluneer-hospital/" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600">dekuni</a></div>
   </div>
 </div>
 
@@ -364,9 +446,18 @@ footer a{color:var(--muted);text-decoration:underline}
   </div>
   <div class="chips" id="filterChips">
     <button class="chip active" data-filter="all">ทั้งหมด</button>
-    <button class="chip" data-filter="open">กำลังเปิดรับ</button>
-    <button class="chip" data-filter="rolling">รับต่อเนื่อง</button>
+    <button class="chip" data-filter="open">🟢 กำลังเปิดรับอยู่</button>
+    <button class="chip" data-filter="upcoming">🔵 กำลังจะเปิดเร็ว ๆ นี้</button>
+    <button class="chip" data-filter="closed">⚪ ปิดรับสมัคร</button>
     <button class="chip fav" data-filter="fav">❤ ที่บันทึกไว้</button>
+  </div>
+  <div class="chips catchips" id="catChips">
+    <span class="catlabel">ประเภท</span>
+    <button class="chip cat active" data-cat="all">ทุกประเภท</button>
+    <button class="chip cat" data-cat="volunteer">🤲 จิตอาสา</button>
+    <button class="chip cat" data-cat="internship">💼 ฝึกประสบการณ์</button>
+    <button class="chip cat" data-cat="camp">⛺ ค่าย</button>
+    <button class="chip cat" data-cat="openhouse">🚪 เปิดบ้าน</button>
   </div>
 </section>
 
@@ -380,6 +471,10 @@ footer a{color:var(--muted);text-decoration:underline}
 </div>
 
 <main class="grid" id="grid" aria-live="polite"></main>
+</div><!-- /searchView -->
+
+<!-- Dashboard view -->
+<section id="dashView" hidden></section>
 
 <footer>
   ทำขึ้นเพื่อช่วยน้อง ๆ หาโอกาสจิตอาสาสายสุขภาพ · ข้อมูลรวบรวมจากเว็บไซต์ทางการของโรงพยาบาลและแหล่งรวมข่าวการศึกษา<br>
@@ -475,7 +570,7 @@ const store = {
 /* keyDate = the date reminders count down to (open = grab-a-slot date, close = application deadline) */
 const DATA = [
   {
-    id:"siriraj-bp",
+    id:"siriraj-bp", cat:"volunteer",
     hospital:"โรงพยาบาลศิริราช", org:"ศูนย์อาสาสมัครศิริราช", area:"บางกอกน้อย",
     icon:"🩺",
     title:"อาสาประจำจุดวัดความดันโลหิต",
@@ -492,7 +587,7 @@ const DATA = [
     note:"ประกาศรายชื่อรายสัปดาห์ทาง Facebook \"ศิริราชเพื่อสังคม\" และแจ้งอีเมลล่วงหน้า 1–2 สัปดาห์ · สอบถาม 02-419-9350-1 (เวลาราชการ)"
   },
   {
-    id:"siriraj-connect",
+    id:"siriraj-connect", cat:"volunteer",
     hospital:"โรงพยาบาลศิริราช", org:"ศูนย์อาสาสมัครศิริราช", area:"บางกอกน้อย",
     icon:"📱",
     title:"อาสาแนะนำการใช้งานแอป Siriraj Connect",
@@ -509,7 +604,7 @@ const DATA = [
     note:"รอบทำกิจกรรมโดยทั่วไปเปิดเป็นช่วง (เช่น ก.พ.–เม.ย. และ พ.ค.–ก.ค.) ติดตามตารางรอบใหม่ทางเว็บและเพจ"
   },
   {
-    id:"siriraj-blood",
+    id:"siriraj-blood", cat:"volunteer",
     hospital:"โรงพยาบาลศิริราช", org:"ศูนย์อาสาสมัครศิริราช", area:"บางกอกน้อย",
     icon:"🩸",
     title:"อาสาช่วยงานธนาคารเลือด",
@@ -526,7 +621,7 @@ const DATA = [
     note:"ระบบเปิดกิจกรรมตามตารางที่ประกาศเท่านั้น (หน้าแรกเว็บ เวลา 16:00 เป็นต้นไป)"
   },
   {
-    id:"siriraj-safety",
+    id:"siriraj-safety", cat:"volunteer",
     hospital:"โรงพยาบาลศิริราช", org:"ศูนย์อาสาสมัครศิริราช", area:"บางกอกน้อย",
     icon:"🤝",
     title:"อาสา \"Safety for my patients\" ประคองผู้ป่วย",
@@ -543,7 +638,7 @@ const DATA = [
     note:"เหมาะกับน้องที่อยากฝึกทักษะดูแลผู้ป่วยจริงในโรงพยาบาล"
   },
   {
-    id:"siriraj-relation",
+    id:"siriraj-relation", cat:"volunteer",
     hospital:"โรงพยาบาลศิริราช", org:"ศูนย์อาสาสมัครศิริราช", area:"บางกอกน้อย",
     icon:"💁",
     title:"อาสาบริการและแนะนำผู้ป่วย (ผู้ป่วยสัมพันธ์)",
@@ -560,7 +655,7 @@ const DATA = [
     note:"เป็นกิจกรรมยอดนิยมสำหรับน้องที่ต้องการชั่วโมงจิตอาสาใส่พอร์ต"
   },
   {
-    id:"rama-jitarsa",
+    id:"rama-jitarsa", cat:"internship",
     hospital:"โรงพยาบาลรามาธิบดี", org:"จิตอาสารามาธิบดี · คณะแพทยศาสตร์ ม.มหิดล", area:"ราชเทวี",
     icon:"🏥",
     title:"จิตอาสา / ฝึกประสบการณ์ในโรงพยาบาล",
@@ -577,7 +672,7 @@ const DATA = [
     note:"รอบสมัครเต็มเร็วมาก (ประมาณ 1–4 นาที) ควรเข้าระบบก่อนเวลาเปิดรับ"
   },
   {
-    id:"buddhika-rajavithi",
+    id:"buddhika-rajavithi", cat:"volunteer",
     hospital:"โรงพยาบาลราชวิถี", org:"จิตอาสา 8 รพ. · มูลนิธิเครือข่ายพุทธิกา ร่วมกับ สสส.", area:"ราชเทวี",
     icon:"🏨",
     title:"อาสาสนับสนุนบริการผู้ป่วย — รพ.ราชวิถี",
@@ -594,7 +689,7 @@ const DATA = [
     note:"รอบปี 2569: ประกาศผล 13 พ.ค. · ปฐมนิเทศ 23 พ.ค. — รอบนี้ปิดแล้ว รอบใหม่ติดตามเพจมูลนิธิ"
   },
   {
-    id:"buddhika-neuro",
+    id:"buddhika-neuro", cat:"volunteer",
     hospital:"สถาบันประสาทวิทยา", org:"จิตอาสา 8 รพ. · มูลนิธิเครือข่ายพุทธิกา ร่วมกับ สสส.", area:"ราชเทวี",
     icon:"🧠",
     title:"อาสาสนับสนุนบริการผู้ป่วย — สถาบันประสาทวิทยา",
@@ -611,7 +706,7 @@ const DATA = [
     note:"รอบปี 2569 ปิดแล้ว · ติดตามรอบใหม่ทางเพจมูลนิธิเครือข่ายพุทธิกา"
   },
   {
-    id:"buddhika-cancer",
+    id:"buddhika-cancer", cat:"volunteer",
     hospital:"สถาบันมะเร็งแห่งชาติ", org:"จิตอาสา 8 รพ. · มูลนิธิเครือข่ายพุทธิกา ร่วมกับ สสส.", area:"ราชเทวี",
     icon:"🎗️",
     title:"อาสาสนับสนุนบริการผู้ป่วย — สถาบันมะเร็งแห่งชาติ",
@@ -628,7 +723,7 @@ const DATA = [
     note:"รอบปี 2569 ปิดแล้ว · ติดตามรอบใหม่ทางเพจมูลนิธิเครือข่ายพุทธิกา"
   },
   {
-    id:"buddhika-taksin",
+    id:"buddhika-taksin", cat:"volunteer",
     hospital:"โรงพยาบาลตากสิน", org:"จิตอาสา 8 รพ. · มูลนิธิเครือข่ายพุทธิกา ร่วมกับ สสส.", area:"คลองสาน",
     icon:"🏨",
     title:"อาสาสนับสนุนบริการผู้ป่วย — รพ.ตากสิน",
@@ -645,7 +740,7 @@ const DATA = [
     note:"รอบปี 2569 ปิดแล้ว · ติดตามรอบใหม่ทางเพจมูลนิธิเครือข่ายพุทธิกา"
   },
   {
-    id:"buddhika-nopparat",
+    id:"buddhika-nopparat", cat:"volunteer",
     hospital:"โรงพยาบาลนพรัตนราชธานี", org:"จิตอาสา 8 รพ. · มูลนิธิเครือข่ายพุทธิกา ร่วมกับ สสส.", area:"คันนายาว",
     icon:"🏨",
     title:"อาสาสนับสนุนบริการผู้ป่วย — รพ.นพรัตนราชธานี",
@@ -662,7 +757,7 @@ const DATA = [
     note:"รอบปี 2569 ปิดแล้ว · ติดตามรอบใหม่ทางเพจมูลนิธิเครือข่ายพุทธิกา"
   },
   {
-    id:"trcy-bpr",
+    id:"trcy-bpr", cat:"volunteer",
     hospital:"โรงพยาบาลจุฬาลงกรณ์", org:"สำนักงานยุวกาชาดและอาสาสมัครกาชาด สภากาชาดไทย", area:"ปทุมวัน",
     icon:"➕",
     title:"อาสาสมัครกาชาด สนับสนุนบริการทางการแพทย์ (อาคาร ภปร)",
@@ -671,7 +766,7 @@ const DATA = [
     qual:["เยาวชน/บุคคลทั่วไปที่มีจิตอาสา (โดยทั่วไปอายุ 15 ปีขึ้นไป)","ผ่านการอบรมเตรียมความพร้อมก่อนปฏิบัติงาน","เข้าปฏิบัติงานได้ตามรอบที่กำหนด"],
     quota:"หมุนเวียนตามรอบ", workDays:"ตามตารางที่ได้รับมอบหมาย", cost:"ฟรี",
     cert:true, certNote:"มีหนังสือรับรองการปฏิบัติงานอาสาสมัคร",
-    applyOpen:"2569-07-01", applyClose:"2569-07-11", keyDate:"2569-07-11", keyType:"close", dateConfirmed:false,
+    applyOpen:"2569-07-01", applyClose:"2569-07-11", keyDate:"2569-07-11", keyType:"close", dateConfirmed:false, rolling:true,
     status:"rolling",
     howTo:["สมัคร/แจ้งความจำนงผ่านสำนักงานยุวกาชาดและอาสาสมัครกาชาด","เข้าอบรมเตรียมความพร้อมอาสาสมัครกาชาด","รับตารางและเริ่มปฏิบัติงานตามรอบ"],
     applyUrl:"https://trcyvolunteer.redcross.or.th/",
@@ -679,7 +774,7 @@ const DATA = [
     note:"รับสมัครเป็นรอบต่อเนื่อง · แนะนำติดต่อสำนักงานยุวกาชาดเพื่อยืนยันรอบและกำหนดการปัจจุบัน"
   },
   {
-    id:"trcy-leader",
+    id:"trcy-leader", cat:"volunteer",
     hospital:"โรงพยาบาลจุฬาลงกรณ์", org:"สำนักงานยุวกาชาดและอาสาสมัครกาชาด สภากาชาดไทย", area:"ปทุมวัน",
     icon:"🌟",
     title:"โครงการผู้นำเยาวชนอาสาสมัครกาชาด",
@@ -696,7 +791,7 @@ const DATA = [
     note:"เป็นโครงการรายปี รอบตัวอย่างคือปี 2568 (ปิดแล้ว) · ติดตามรอบใหม่ทางสำนักงานยุวกาชาด เหมาะกับน้องสายผู้นำ/มีพอร์ตจิตอาสาอยู่แล้ว"
   },
   {
-    id:"rtaf-tasamin",
+    id:"rtaf-tasamin", cat:"volunteer",
     hospital:"โรงพยาบาลทหารอากาศ (ทศมินทราธิราช)", org:"กรมแพทย์ทหารอากาศ", area:"สายไหม/ดอนเมือง",
     icon:"✈️",
     title:"จิตอาสา รพ.ทหารอากาศ (ทศมินทราธิราช)",
@@ -711,6 +806,74 @@ const DATA = [
     applyUrl:"https://dekuni.com/volunner-rtafhospital/",
     sourceUrl:"https://dekuni.com/volunner-rtafhospital/", sourceName:"dekuni.com (แหล่งรวมข่าว)",
     note:"รายละเอียดและวันสมัครยึดตามประกาศทางการของโครงการ · ตรวจสอบลิงก์ก่อนสมัคร"
+  },
+  {
+    id:"siriraj-openhouse", cat:"openhouse",
+    hospital:"คณะแพทยศาสตร์ศิริราชพยาบาล", org:"Siriraj Open House 2569 · ม.มหิดล", area:"รังสิต (ฟิวเจอร์พาร์ค)",
+    icon:"🎪",
+    title:"Siriraj Open House 2569 — เปิดบ้านโรงเรียนแพทย์",
+    scopeShort:"งานเปิดบ้านคณะแพทย์ศิริราช พบ 6 หลักสูตรสายสุขภาพ นิทรรศการ และเวิร์กช็อป Basic CPR",
+    scope:["ชมนิทรรศการและแนะแนว 6 หลักสูตรวิทยาศาสตร์สุขภาพของศิริราช","ห้องเรียนอาจารย์ใหญ่จำลอง และกิจกรรมเชิงปฏิบัติ","เวิร์กช็อปฝึก Basic CPR (ต้องลงทะเบียนล่วงหน้า)","พูดคุยกับอาจารย์และรุ่นพี่เรื่องการเตรียมตัว TCAS สายแพทย์"],
+    qual:["นักเรียน ม.ปลาย ผู้ปกครอง และผู้สนใจสายวิทยาศาสตร์สุขภาพ","เข้าร่วมงานฟรี — กิจกรรม Basic CPR ต้องลงทะเบียนล่วงหน้าผ่านฟอร์ม"],
+    quota:"เข้าร่วมได้ทั่วไป (CPR ตามจำนวนที่เปิดรับ)", workDays:"3–12 กรกฎาคม 2569 (On-site)", cost:"ฟรี",
+    cert:false, certNote:"เป็นงานเปิดบ้าน/นิทรรศการ — เก็บภาพกิจกรรมและประสบการณ์ใส่พอร์ตได้ (สอบถามเรื่องเกียรติบัตร Basic CPR กับผู้จัดหน้างาน)",
+    applyOpen:"2569-07-03", applyClose:"2569-07-12", keyDate:"2569-07-12", keyType:"close", dateConfirmed:true,
+    status:"open",
+    howTo:["เดินทางไปงานที่บูธศิริราช ชั้น G โซน Cascata ศูนย์การค้าฟิวเจอร์พาร์ค รังสิต ระหว่าง 3–12 ก.ค. 2569","หากต้องการร่วมเวิร์กช็อป Basic CPR ให้ลงทะเบียนล่วงหน้าผ่าน Google Form (กดปุ่มด้านล่าง)","ติดตามรายละเอียดหลักสูตรที่เว็บฝ่ายการศึกษา sieduit.org"],
+    applyUrl:"https://docs.google.com/forms/d/e/1FAIpQLSeTBTCgRRliUAL2JpUJB9E_7SZiVSN_zyXgva6A8BpY14tOAA/viewform",
+    sourceUrl:"https://www.sieduit.org/education", sourceName:"ฝ่ายการศึกษา คณะแพทย์ศิริราช",
+    note:"กำลังจัดอยู่ช่วงนี้พอดี (3–12 ก.ค. 2569) · เหมาะกับน้องที่วางแผนยื่นแพทย์/สายสุขภาพ TCAS70"
+  },
+  {
+    id:"chula-medcamp", cat:"camp",
+    hospital:"คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย", org:"ค่ายอยากเป็นหมอ · สโมสรนิสิตคณะแพทยศาสตร์ จุฬาฯ", area:"ปทุมวัน",
+    icon:"🩻",
+    title:"ค่ายอยากเป็นหมอ จุฬาฯ",
+    scopeShort:"ค่ายให้น้อง ม.ปลายสัมผัสชีวิตนักศึกษาแพทย์และการทำงานในโรงพยาบาลจุฬาฯ",
+    scope:["ทดลองเรียนเนื้อหาการแพทย์ทั้งภาคทฤษฎีและปฏิบัติ","ทำกิจกรรมกลุ่มกับพี่ ๆ นักศึกษาแพทย์","เรียนรู้เส้นทางการเป็นแพทย์และการเตรียมตัวสอบเข้า","ได้ประสบการณ์และผลงานเข้าพอร์ตสายแพทย์"],
+    qual:["นักเรียน ม.ปลาย สายวิทย์–คณิต ทั่วประเทศ","ใช้ใบ ปพ.7 หรือหนังสือรับรองความเป็นนักเรียน ม.ปลาย","ผ่านการคัดเลือกตามเกณฑ์ของค่าย (รับจำนวนจำกัด)"],
+    quota:"ประมาณ 150 คน (ตามประกาศแต่ละครั้ง)", workDays:"ตามกำหนดการค่าย (หลายวันต่อเนื่อง)", cost:"มีค่าลงทะเบียน (รอบก่อน ~600 บาท)",
+    cert:true, certNote:"ได้รับเกียรติบัตร/ประสบการณ์เข้าค่ายเพื่อใส่พอร์ต",
+    applyOpen:"2569-08-01", applyClose:"2569-08-28", keyDate:"2569-08-01", keyType:"open", dateConfirmed:false,
+    status:"open",
+    howTo:["ติดตามประกาศรอบและระเบียบการที่เพจ \"ค่ายอยากเป็นหมอ สโมสรนิสิตคณะแพทยศาสตร์ จุฬาฯ\"","สมัครออนไลน์ที่ medcamp.docchula.com ในช่วงเปิดรับ","ตอบคำถามคัดเลือกและรอประกาศผล"],
+    applyUrl:"https://medcamp.docchula.com",
+    sourceUrl:"https://medcamp.docchula.com", sourceName:"medcamp.docchula.com",
+    note:"เป็นค่ายรายปี · วันที่ยังเป็นประมาณการจากรอบก่อน โปรดยืนยันรอบล่าสุดที่เพจ/เว็บค่าย"
+  },
+  {
+    id:"siriraj-medcamp", cat:"camp",
+    hospital:"คณะแพทยศาสตร์ศิริราชพยาบาล", org:"ค่ายเส้นทางสู่หมอศิริราช · สโมสรนักศึกษาแพทย์ศิริราช", area:"บางกอกน้อย",
+    icon:"🧬",
+    title:"ค่ายเส้นทางสู่หมอศิริราช",
+    scopeShort:"ค่ายพาน้อง ม.ปลาย สัมผัสชีวิตนักศึกษาแพทย์ศิริราชและกิจกรรมสร้างแรงบันดาลใจ",
+    scope:["สัมผัสบรรยากาศการเรียนและการทำงานในโรงพยาบาลศิริราช","กิจกรรมฐานความรู้และเวิร์กช็อปทางการแพทย์","พบปะพูดคุยกับรุ่นพี่นักศึกษาแพทย์","ค้นหาตัวตนและเตรียมความพร้อมสู่สายแพทย์"],
+    qual:["นักเรียน ม.ปลาย (เน้นสายวิทย์–คณิต)","ผ่านการคัดเลือกตามเกณฑ์ของค่าย","รับจำนวนจำกัดตามประกาศแต่ละครั้ง"],
+    quota:"ตามประกาศแต่ละครั้ง", workDays:"ตามกำหนดการค่าย (หลายวันต่อเนื่อง)", cost:"มีค่าลงทะเบียน (ตามประกาศ)",
+    cert:true, certNote:"ได้รับเกียรติบัตร/ประสบการณ์เข้าค่ายเพื่อใส่พอร์ต",
+    applyOpen:"2569-09-01", applyClose:"2569-09-25", keyDate:"2569-09-01", keyType:"open", dateConfirmed:false,
+    status:"open",
+    howTo:["ติดตามประกาศรอบและระเบียบการที่เพจ \"ค่ายเส้นทางสู่หมอศิริราช\"","สมัครออนไลน์ในช่วงเปิดรับตามที่ค่ายกำหนด","รอประกาศผลการคัดเลือก"],
+    applyUrl:"https://www.facebook.com/sasiriraj",
+    sourceUrl:"https://www.facebook.com/sasiriraj", sourceName:"สโมสรนักศึกษาแพทย์ศิริราช (SASiriraj)",
+    note:"เป็นค่ายรายปี · วันที่ยังเป็นประมาณการจากรอบก่อน โปรดยืนยันรอบล่าสุดที่เพจค่าย"
+  },
+  {
+    id:"rama-openhouse", cat:"openhouse",
+    hospital:"คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี", org:"RAMA Open House · ม.มหิดล", area:"ราชเทวี",
+    icon:"🚪",
+    title:"RAMA Open House — เปิดบ้านแพทย์รามาฯ",
+    scopeShort:"งานเปิดบ้านให้น้อง ม.ปลายทำความรู้จักคณะแพทย์รามาฯ และหลักสูตรสายสุขภาพ",
+    scope:["แนะแนวหลักสูตรและการเรียนของคณะแพทย์รามาธิบดี","กิจกรรมนิทรรศการและเวิร์กช็อปสายสุขภาพ","ถาม–ตอบเรื่องการเตรียมตัวสอบเข้าและพอร์ต","พบปะรุ่นพี่และอาจารย์"],
+    qual:["นักเรียน ม.ปลาย และผู้สนใจสายวิทยาศาสตร์สุขภาพ","ลงทะเบียนเข้าร่วมตามช่องทางที่งานกำหนด"],
+    quota:"เข้าร่วมได้ทั่วไป (บางกิจกรรมจำกัดจำนวน)", workDays:"ตามกำหนดการของงาน (โดยทั่วไป 1–2 วัน)", cost:"ฟรี (บางกิจกรรมอาจมีค่าใช้จ่าย)",
+    cert:false, certNote:"เป็นงานเปิดบ้าน/นิทรรศการ — เก็บภาพและประสบการณ์กิจกรรมใส่พอร์ตได้",
+    applyOpen:"2569-08-15", applyClose:"2569-08-31", keyDate:"2569-08-15", keyType:"open", dateConfirmed:false,
+    status:"open",
+    howTo:["ติดตามประกาศวันจัดงานและการลงทะเบียนที่เพจคณะแพทย์รามาธิบดี","ลงทะเบียนล่วงหน้าตามช่องทางที่งานกำหนด","เดินทางไปร่วมงานตามวันเวลาที่ประกาศ"],
+    applyUrl:"https://www.rama.mahidol.ac.th/",
+    sourceUrl:"https://www.rama.mahidol.ac.th/", sourceName:"คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี",
+    note:"เป็นงานรายปี · วันที่ยังเป็นประมาณการ โปรดยืนยันกำหนดการล่าสุดที่เพจ/เว็บคณะฯ"
   }
 ];
 
@@ -723,8 +886,21 @@ function toDate(bs){ if(!bs) return null; const [by,m,d]=bs.split("-").map(Numbe
 function fmtTH(bs){ if(!bs) return "—"; const [by,m,d]=bs.split("-").map(Number); return `${d} ${TH_MONTHS[m-1]} ${by}`; }
 function daysUntil(bs){ const dt=toDate(bs); if(!dt) return null; const now=new Date(); now.setHours(0,0,0,0); dt.setHours(0,0,0,0); return Math.round((dt-now)/86400000); }
 
+// derive real status from dates: "open" (open now), "upcoming" (opens soon), "closed"
+function computeStatus(job){
+  if(job.rolling) return "open";
+  const dO=daysUntil(job.applyOpen), dC=daysUntil(job.applyClose);
+  if(dC!=null && dC<0) return "closed";
+  if(dO!=null && dO>0) return "upcoming";
+  return "open";
+}
+const ST_LABEL={ open:"กำลังเปิดรับอยู่", upcoming:"กำลังจะเปิดรับเร็ว ๆ นี้", closed:"ปิดรับสมัคร" };
+const CAT_LABEL={ volunteer:"จิตอาสา", internship:"ฝึกงาน · ฝึกประสบการณ์", camp:"ค่าย", openhouse:"เปิดบ้าน / Open House" };
+const CAT_ICON={ volunteer:"🤲", internship:"💼", camp:"⛺", openhouse:"🚪" };
+function st(job){ return job._st || (job._st=computeStatus(job)); }
+
 /* ============ State ============ */
-let profile=null, favorites=[], seenIds=[], firstVisit=true, activeFilter="all", searchTerm="", sortBy="deadline";
+let profile=null, favorites=[], seenIds=[], firstVisit=true, activeFilter="all", activeCat="all", searchTerm="", sortBy="deadline", view="search";
 
 /* ============ Init ============ */
 async function init(){
@@ -734,8 +910,10 @@ async function init(){
   firstVisit = !seenStored;
   seenIds = seenStored || [];
 
+  DATA.forEach(j=>{ j._st=computeStatus(j); });
   $("#stOpp").textContent = DATA.length;
   $("#stHosp").textContent = new Set(DATA.map(d=>d.hospital)).size;
+  $("#stCert").textContent = DATA.filter(d=>d.cert).length;
 
   bindEvents();
 
@@ -796,9 +974,11 @@ async function toggleFav(id){
 
 /* ============ Rendering ============ */
 function matchFilter(job){
+  if(activeCat!=="all" && job.cat!==activeCat) return false;
   if(activeFilter==="fav") return favorites.includes(job.id);
-  if(activeFilter==="open") return job.status==="open";
-  if(activeFilter==="rolling") return job.status==="rolling";
+  if(activeFilter==="open")     return st(job)==="open";
+  if(activeFilter==="upcoming") return st(job)==="upcoming";
+  if(activeFilter==="closed")   return st(job)==="closed";
   return true;
 }
 function matchSearch(job){
@@ -807,18 +987,18 @@ function matchSearch(job){
   return t.includes(searchTerm.toLowerCase());
 }
 function sortJobs(list){
-  const rank={open:0,rolling:1,closed:2};
+  const rank={open:0,upcoming:1,closed:2};
   if(sortBy==="az") return list.sort((a,b)=>a.hospital.localeCompare(b.hospital,"th"));
   if(sortBy==="new"){
-    return list.sort((a,b)=>(isNew(b.id)-isNew(a.id)) || (rank[a.status]-rank[b.status]));
+    return list.sort((a,b)=>(isNew(b.id)-isNew(a.id)) || (rank[st(a)]-rank[st(b)]));
   }
-  // deadline: nearest future keyDate first, then rolling, then closed
+  // deadline: nearest future keyDate first, then upcoming, then closed
   return list.sort((a,b)=>{
     const da=daysUntil(a.keyDate), db=daysUntil(b.keyDate);
-    const fa=(a.status!=="closed"&&da!=null&&da>=0), fb=(b.status!=="closed"&&db!=null&&db>=0);
+    const fa=(st(a)!=="closed"&&da!=null&&da>=0), fb=(st(b)!=="closed"&&db!=null&&db>=0);
     if(fa&&fb) return da-db;
     if(fa) return -1; if(fb) return 1;
-    return rank[a.status]-rank[b.status];
+    return rank[st(a)]-rank[st(b)];
   });
 }
 function isNew(id){ return firstVisit ? false : !seenIds.includes(id); }
@@ -851,14 +1031,17 @@ function render(){
 }
 
 function deadlineBlock(job){
-  const d=daysUntil(job.keyDate);
-  if(job.status==="closed"){
-    return `<div class="deadline"><div class="dl-txt"><b>ปิดรับรอบนี้แล้ว</b><div class="sub">รอบก่อน: ${fmtTH(job.applyOpen)} – ${fmtTH(job.applyClose)} · รอรอบใหม่</div></div></div>`;
+  const s=st(job), d=daysUntil(job.keyDate);
+  if(job.rolling){
+    return `<div class="deadline"><div class="dl-ring open"><svg width="44" height="44"><circle cx="22" cy="22" r="18" fill="none" stroke="#DCF5E8" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="var(--green)" stroke-width="4" stroke-linecap="round"/></svg><span class="num" style="color:var(--green)">∞</span></div><div class="dl-txt"><b>รับสมัครต่อเนื่อง · เปิดอยู่</b><div class="sub">สมัครได้ตลอด — ตรวจสอบรอบปัจจุบันกับลิงก์ทางการ</div></div></div>`;
+  }
+  if(s==="closed"){
+    return `<div class="deadline"><div class="dl-txt"><b>ปิดรับสมัครแล้ว</b><div class="sub">รอบก่อน: ${fmtTH(job.applyOpen)} – ${fmtTH(job.applyClose)} · รอรอบใหม่</div></div></div>`;
   }
   if(d==null){
     return `<div class="deadline"><div class="dl-txt"><b>รับสมัครต่อเนื่อง</b><div class="sub">ตรวจสอบรอบปัจจุบันกับลิงก์ทางการ</div></div></div>`;
   }
-  const lbl = job.keyType==="open" ? "ระบบเปิดรับ" : "ปิดรับสมัคร";
+  const lbl = s==="upcoming" ? (job.keyType==="open"?"ระบบจะเปิดรับ":"เปิดรับถึง") : (job.keyType==="open" ? "ระบบเปิดรับ" : "ปิดรับสมัคร");
   let cls="", ring="var(--blue)";
   if(d<0){ return `<div class="deadline"><div class="dl-txt"><b>ผ่านกำหนดรอบนี้แล้ว</b><div class="sub">รอบใหม่ติดตามลิงก์ทางการ</div></div></div>`; }
   if(d<=1){cls="urgent";ring="var(--coral)";}
@@ -875,9 +1058,12 @@ function deadlineBlock(job){
 
 function cardHTML(job){
   const fav=favorites.includes(job.id);
-  const st={open:["open","กำลังเปิดรับ"],closed:["closed","ปิดรับรอบนี้"],rolling:["rolling","รับต่อเนื่อง"]}[job.status];
+  const s=st(job);
+  const stLabel = s==="open"&&job.rolling ? "กำลังเปิดรับอยู่ · ต่อเนื่อง" : ST_LABEL[s];
+  const badge=[s,stLabel];
   const newTag = isNew(job.id) ? '<span class="tag new">ใหม่</span>':'';
-  const estTag = !job.dateConfirmed && job.status!=="rolling" ? '<span class="tag est">วันที่ประมาณการ</span>':'';
+  const catTag = `<span class="tag cat">${CAT_ICON[job.cat]||"📌"} ${CAT_LABEL[job.cat]||"โครงการ"}</span>`;
+  const estTag = !job.dateConfirmed && !job.rolling && s!=="closed" ? '<span class="tag est">วันที่ประมาณการ</span>':'';
   return `<article class="card" data-id="${job.id}">
     <div class="card-top">
       <div class="hosp-ic">${job.icon}</div>
@@ -890,10 +1076,11 @@ function cardHTML(job){
       </button>
     </div>
     <div class="card-tags">
-      <span class="status ${st[0]}">${st[1]}</span>
+      <span class="status ${badge[0]}">${badge[1]}</span>
       ${newTag}
-      <span class="tag cert">🎓 มีเกียรติบัตร</span>
-      <span class="tag free">ฟรี</span>
+      ${catTag}
+      ${job.cert?'<span class="tag cert">🎓 มีเกียรติบัตร</span>':''}
+      ${/ฟรี/.test(job.cost)?'<span class="tag free">ฟรี</span>':''}
       ${estTag}
     </div>
     <div class="card-body">
@@ -917,7 +1104,7 @@ function cardHTML(job){
         <div class="sec-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/></svg>เกียรติบัตร</div>
         <ul class="mini-list"><li>${escapeHtml(job.certNote)}</li></ul>
         <div class="sec-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>ช่วงรับสมัคร</div>
-        <ul class="mini-list"><li>${job.status==="rolling"?"รับสมัครต่อเนื่อง — ยืนยันรอบกับลิงก์ทางการ":`${fmtTH(job.applyOpen)} – ${fmtTH(job.applyClose)}${job.dateConfirmed?" (ยืนยัน)":" (ประมาณการ — โปรดยืนยัน)"}`}</li></ul>
+        <ul class="mini-list"><li>${job.rolling?"รับสมัครต่อเนื่อง — ยืนยันรอบกับลิงก์ทางการ":`${fmtTH(job.applyOpen)} – ${fmtTH(job.applyClose)}${job.dateConfirmed?" (ยืนยัน)":" (ประมาณการ — โปรดยืนยัน)"}`}</li></ul>
         <div class="sec-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>วิธีสมัคร</div>
         <ol class="steps">${job.howTo.map(s=>`<li>${escapeHtml(s)}</li>`).join("")}</ol>
         <div class="note-box">💡 ${escapeHtml(job.note)}</div>
@@ -945,11 +1132,14 @@ function reminderTier(d){
   return {cls:"soft",label:`อีก ${d} วัน`,n:d};
 }
 function updateBell(){
-  const favJobs=DATA.filter(j=>favorites.includes(j.id)&&j.status!=="closed");
+  const favJobs=DATA.filter(j=>favorites.includes(j.id)&&st(j)!=="closed"&&!j.rolling);
   const near=favJobs.filter(j=>{const d=daysUntil(j.keyDate);return d!=null&&d>=0&&d<=7;});
   const badge=$("#bellBadge");
   if(near.length>0){ badge.style.display="grid"; badge.textContent=near.length; }
   else badge.style.display="none";
+  const db=$("#dashBadge");
+  if(favorites.length>0){ db.style.display="grid"; db.textContent=favorites.length; }
+  else db.style.display="none";
 }
 function renderDrawer(){
   const body=$("#drawerBody");
@@ -964,16 +1154,17 @@ function renderDrawer(){
   // sort: nearest actionable first
   const withD=favJobs.map(j=>({j,d:daysUntil(j.keyDate)}));
   withD.sort((a,b)=>{
-    const aa=(a.j.status!=="closed"&&a.d!=null&&a.d>=0), bb=(b.j.status!=="closed"&&b.d!=null&&b.d>=0);
+    const aa=(st(a.j)!=="closed"&&!a.j.rolling&&a.d!=null&&a.d>=0), bb=(st(b.j)!=="closed"&&!b.j.rolling&&b.d!=null&&b.d>=0);
     if(aa&&bb) return a.d-b.d; if(aa) return -1; if(bb) return 1; return 0;
   });
   const items=withD.map(({j,d})=>{
-    if(j.status==="closed"||d==null||d<0){
+    if(st(j)==="closed"||j.rolling||d==null||d<0){
+      const isClosed=st(j)==="closed"&&!j.rolling;
       return `<div class="notif soft" style="background:#F6FAFF">
-        <div class="notif-ic soft">↻</div>
+        <div class="notif-ic soft">${j.rolling?"∞":"↻"}</div>
         <div class="notif-c"><div class="nt">${escapeHtml(j.hospital)}</div>
-        <div class="nd">${escapeHtml(j.title)} · ${j.status==="closed"?"ปิดรอบนี้แล้ว รอรอบใหม่":"รับต่อเนื่อง — ตรวจสอบรอบทางการ"}</div>
-        <a class="go" href="${j.sourceUrl}" target="_blank" rel="noopener">เปิดแหล่งข้อมูล →</a></div></div>`;
+        <div class="nd">${escapeHtml(j.title)} · ${isClosed?"ปิดรอบนี้แล้ว รอรอบใหม่":"รับต่อเนื่อง — ตรวจสอบรอบทางการ"}</div>
+        <a class="go" href="${j.rolling?j.applyUrl:j.sourceUrl}" target="_blank" rel="noopener">${j.rolling?"ไปหน้าสมัคร →":"เปิดแหล่งข้อมูล →"}</a></div></div>`;
     }
     const t=reminderTier(d);
     const lbl=j.keyType==="open"?"ระบบเปิดรับ":"ปิดรับสมัคร";
@@ -988,6 +1179,119 @@ function renderDrawer(){
   }).join("");
   const legend=`<div style="font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.6">แจ้งเตือนอัตโนมัติเมื่อเหลือ <b style="color:var(--amber)">7 วัน</b> → <b style="color:var(--coral)">3 วัน</b> → <b style="color:var(--coral)">1 วัน</b> ก่อนวันสมัคร</div>`;
   body.innerHTML=legend+items;
+}
+
+/* ============ Dashboard ============ */
+function dRing(d,color){
+  const circ=2*Math.PI*24;
+  const pct=Math.max(0,Math.min(1,(30-Math.max(d,0))/30));
+  const off=circ*(1-pct);
+  return `<div class="dring"><svg width="58" height="58"><circle cx="29" cy="29" r="24" fill="none" stroke="#E9F1FB" stroke-width="5"/><circle cx="29" cy="29" r="24" fill="none" stroke="${color}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${off}" transform="rotate(-90 29 29)"/></svg><span class="num" style="color:${color}">${d===0?"0":d}</span><span class="unit">วัน</span></div>`;
+}
+function switchView(v){
+  view=v;
+  $$(".vtab").forEach(t=>t.classList.toggle("active",t.dataset.view===v));
+  const search=$("#searchView"), dash=$("#dashView");
+  if(v==="dash"){ search.setAttribute("hidden",""); dash.removeAttribute("hidden"); renderDash(); }
+  else { dash.setAttribute("hidden",""); search.removeAttribute("hidden"); }
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function renderDash(){
+  const dash=$("#dashView");
+  const favJobs=DATA.filter(j=>favorites.includes(j.id));
+  if(favJobs.length===0){
+    dash.innerHTML=`<div class="dash-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" stroke-linejoin="round"/></svg>
+      <h3>ยังไม่มีโครงการที่บันทึกไว้</h3>
+      <p>แตะรูปหัวใจ ❤ ที่โครงการที่สนใจ<br>ระบบจะรวมมาไว้ที่นี่ และเตือนก่อนวันสมัคร 7 · 3 · 1 วัน</p>
+      <a class="goSearch" id="goSearchBtn">＋ ไปค้นหาโครงการ</a></div>`;
+    $("#goSearchBtn").onclick=()=>switchView("search");
+    return;
+  }
+  const enrich=favJobs.map(j=>({j,s:st(j),d:daysUntil(j.keyDate)}));
+  const actionable=enrich.filter(x=>x.s!=="closed"&&!x.j.rolling&&x.d!=null&&x.d>=0);
+  const nearest=actionable.length?Math.min(...actionable.map(x=>x.d)):null;
+  const certCount=favJobs.filter(j=>j.cert).length;
+
+  const urgent=actionable.filter(x=>x.d<=7).sort((a,b)=>a.d-b.d);
+  const urgentIds=new Set(urgent.map(x=>x.j.id));
+  const tracking=enrich.filter(x=>x.s!=="closed"&&!urgentIds.has(x.j.id))
+    .sort((a,b)=>{const A=(a.d!=null&&a.d>=0&&!a.j.rolling),B=(b.d!=null&&b.d>=0&&!b.j.rolling);if(A&&B)return a.d-b.d;if(A)return -1;if(B)return 1;return 0;});
+  const closed=enrich.filter(x=>x.s==="closed"&&!x.j.rolling);
+
+  const hero=`<div class="dash-hero">
+    <h2>สวัสดี ${escapeHtml(profile?.name||"น้อง")} 👋</h2>
+    <p>นี่คือโครงการที่คุณบันทึกไว้ — อย่าพลาดวันสมัครนะ!</p>
+    <div class="dash-stats">
+      <div class="dstat"><b>${favJobs.length}</b><span>โครงการที่บันทึก</span></div>
+      <div class="dstat"><b>${nearest==null?"—":(nearest===0?"วันนี้":nearest)}</b><span>${nearest==null?"ไม่มีรอบใกล้":(nearest===0?"ครบกำหนด!":"วันถึงรอบใกล้สุด")}</span></div>
+      <div class="dstat"><b>${certCount}</b><span>โครงการมีเกียรติบัตร</span></div>
+    </div>
+  </div>`;
+
+  const urgentCard=x=>{
+    const {j,d}=x; const t=reminderTier(d);
+    const color=d<=3?"var(--coral)":"var(--amber)";
+    const whenCls=d<=3?"urgent":"warn";
+    const lbl=(j.keyType==="open"?"ระบบเปิดรับ":"ปิดรับสมัคร");
+    return `<div class="dcard urgent">
+      ${dRing(d,color)}
+      <div class="dcard-c">
+        <div class="dh">${escapeHtml(j.title)}</div>
+        <div class="dsub">${escapeHtml(j.hospital)} · เขต${escapeHtml(j.area)}</div>
+        <div class="dwhen ${whenCls}">${d===0?"⚠ ครบกำหนดวันนี้!":d===1?"⚠ เหลืออีก 1 วัน — พรุ่งนี้!":`⚠ เหลืออีก ${d} วัน`} · ${lbl} ${fmtTH(j.keyDate)}${j.dateConfirmed?"":" (ประมาณการ)"}</div>
+      </div>
+      <div class="dcard-act">
+        <a class="dbtn go" href="${j.applyUrl}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke-linecap="round" stroke-linejoin="round"/></svg>สมัคร</a>
+        <button class="dbtn rm" data-rm="${j.id}">นำออก</button>
+      </div>
+    </div>`;
+  };
+  const upCard=x=>{
+    const {j,d}=x;
+    const when = j.rolling ? "🔄 รับสมัครต่อเนื่อง · เปิดอยู่"
+      : (d!=null&&d>=0) ? `${j.keyType==="open"?"เปิดรับ":"ปิดรับ"} ${fmtTH(j.keyDate)}${j.dateConfirmed?"":" (ประมาณการ)"} · อีก ${d} วัน`
+      : "ตรวจสอบรอบกับลิงก์ทางการ";
+    return `<div class="dcard up">
+      <div class="dring"><svg width="58" height="58"><circle cx="29" cy="29" r="24" fill="none" stroke="#E9F1FB" stroke-width="5"/><circle cx="29" cy="29" r="24" fill="none" stroke="#2f86ff" stroke-width="5" stroke-linecap="round"/></svg><span class="num" style="color:#1D6FD8;font-size:20px">${j.rolling?"∞":(CAT_ICON[j.cat]||"📌")}</span></div>
+      <div class="dcard-c">
+        <div class="dh">${escapeHtml(j.title)}</div>
+        <div class="dsub">${escapeHtml(j.hospital)} · ${CAT_LABEL[j.cat]||""}</div>
+        <div class="dwhen up">${when}</div>
+      </div>
+      <div class="dcard-act">
+        <a class="dbtn go" href="${j.applyUrl}" target="_blank" rel="noopener">รายละเอียด</a>
+        <button class="dbtn rm" data-rm="${j.id}">นำออก</button>
+      </div>
+    </div>`;
+  };
+  const closedCard=x=>{
+    const {j}=x;
+    return `<div class="dcard closed">
+      <div class="dring"><svg width="58" height="58"><circle cx="29" cy="29" r="24" fill="none" stroke="#E9F1FB" stroke-width="5"/></svg><span class="num" style="color:var(--muted);font-size:20px">↻</span></div>
+      <div class="dcard-c">
+        <div class="dh">${escapeHtml(j.title)}</div>
+        <div class="dsub">${escapeHtml(j.hospital)} · ปิดรับรอบนี้แล้ว รอรอบใหม่</div>
+      </div>
+      <div class="dcard-act">
+        <a class="dbtn go" href="${j.sourceUrl}" target="_blank" rel="noopener" style="background:var(--muted)">ติดตามรอบใหม่</a>
+        <button class="dbtn rm" data-rm="${j.id}">นำออก</button>
+      </div>
+    </div>`;
+  };
+
+  let html=hero;
+  if(urgent.length){
+    html+=`<div class="dash-sec"><div class="dash-sec-h"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" style="width:19px;height:19px"><path d="M12 9v4M12 17h.01M10.3 4.3 2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0Z" stroke-linecap="round" stroke-linejoin="round"/></svg>ต้องรีบสมัคร! <span class="pill urgent">${urgent.length} โครงการ ≤ 7 วัน</span></div>${urgent.map(urgentCard).join("")}</div>`;
+  }
+  if(tracking.length){
+    html+=`<div class="dash-sec"><div class="dash-sec-h"><svg viewBox="0 0 24 24" fill="none" stroke="#1D6FD8" stroke-width="2" style="width:19px;height:19px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>กำลังติดตาม <span class="pill up">${tracking.length} โครงการ</span></div>${tracking.map(upCard).join("")}</div>`;
+  }
+  if(closed.length){
+    html+=`<div class="dash-sec"><div class="dash-sec-h"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" style="width:19px;height:19px"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>ปิดรับแล้ว — รอรอบใหม่ <span class="pill closed">${closed.length} โครงการ</span></div>${closed.map(closedCard).join("")}</div>`;
+  }
+  dash.innerHTML=html;
+  $$("#dashView .dbtn.rm").forEach(b=>b.onclick=async()=>{ await toggleFav(b.dataset.rm); renderDash(); });
 }
 
 /* ============ New jobs popup ============ */
@@ -1007,11 +1311,18 @@ function toast(msg){ $("#toastMsg").textContent=msg; const t=$("#toast"); t.clas
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 
 function bindEvents(){
-  // filters
+  // status filters
   $$("#filterChips .chip").forEach(c=>c.onclick=()=>{
     $$("#filterChips .chip").forEach(x=>x.classList.remove("active"));
     c.classList.add("active"); activeFilter=c.dataset.filter; render();
   });
+  // category filters
+  $$("#catChips .chip.cat").forEach(c=>c.onclick=()=>{
+    $$("#catChips .chip.cat").forEach(x=>x.classList.remove("active"));
+    c.classList.add("active"); activeCat=c.dataset.cat; render();
+  });
+  // view tabs
+  $$(".vtab").forEach(t=>t.onclick=()=>switchView(t.dataset.view));
   $("#searchInput").oninput=e=>{ searchTerm=e.target.value; render(); };
   $("#sortSel").onchange=e=>{ sortBy=e.target.value; render(); };
 
@@ -1027,8 +1338,9 @@ function bindEvents(){
   $("#njClose").onclick=()=>$("#newOverlay").classList.remove("show");
   $("#njView").onclick=()=>{
     $("#newOverlay").classList.remove("show");
+    if(view!=="search") switchView("search");
     sortBy="new"; $("#sortSel").value="new"; render();
-    document.querySelector(".resultbar").scrollIntoView({behavior:"smooth"});
+    setTimeout(()=>document.querySelector(".resultbar").scrollIntoView({behavior:"smooth"}),60);
   };
   $("#newOverlay").onclick=e=>{ if(e.target.id==="newOverlay") $("#newOverlay").classList.remove("show"); };
 

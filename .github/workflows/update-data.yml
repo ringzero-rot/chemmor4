@@ -1,1 +1,37 @@
-.github/workflows/update-data.yml
+# .github/workflows/update-data.yml
+# อัปเดต data.json อัตโนมัติวันละ 2 ครั้ง (07:00 และ 18:00 เวลาไทย) + กดรันเองได้
+name: Update อาสาน้อย data
+
+on:
+  schedule:
+    - cron: "0 0 * * *"    # 07:00 ตามเวลาไทย (UTC 00:00)
+    - cron: "0 11 * * *"   # 18:00 ตามเวลาไทย (UTC 11:00)
+  workflow_dispatch:        # ปุ่มรันเองจากหน้า Actions
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run scraper
+        run: python scraper.py
+
+      - name: Commit data.json if changed
+        run: |
+          if ! git diff --quiet -- data.json; then
+            git config user.name  "asanaoi-bot"
+            git config user.email "actions@github.com"
+            git add data.json
+            git commit -m "chore: update data.json ($(date -u +%FT%TZ))"
+            git push
+          else
+            echo "data.json ไม่มีการเปลี่ยนแปลง"
+          fi

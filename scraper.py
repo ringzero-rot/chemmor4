@@ -21,6 +21,49 @@ OUT  = HERE / "data.json"
 
 SIRIRAJ_NEWS = "https://www.si.mahidol.ac.th/th/division/csr/volunteersiriraj/news.asp?t=1"
 
+# ============================================================================
+# ทะเบียนแหล่งข้อมูลจริง (SOURCES) — โปร่งใสว่าอะไรดึงอัตโนมัติได้ / อะไรต้องใส่มือ
+#   auto=True  : โครงสร้างเว็บพอ parse อัตโนมัติได้ (มี enrich_* ให้)
+#   auto=False : ประกาศผ่าน Facebook/Google Form/รูปภาพ — บอตอ่านไม่ได้ ต้องอัปเดตมือใน seed.json
+# ============================================================================
+SOURCES = [
+    # --- โรงพยาบาล/คณะแพทย์ ---
+    {"key":"siriraj",   "name":"ศูนย์อาสาสมัครศิริราช",              "auto":True,
+     "url":"https://www.si.mahidol.ac.th/th/division/csr/volunteersiriraj/news.asp?t=1"},
+    {"key":"rama",      "name":"จิตอาสารามาธิบดี",                   "auto":False,
+     "url":"https://www.rama.mahidol.ac.th/rama_hospital/th/volunteer"},
+    {"key":"rajavithi", "name":"จิตอาสา รพ.ราชวิถี (ธนาคารเวลา)",     "auto":False,
+     "url":"https://oapp.rajavithi.go.th/RjvtRegisterVolunteer/"},
+    {"key":"vajira",    "name":"อาสาสมัครนักเรียน วชิรพยาบาล",        "auto":False,
+     "url":"https://sites.google.com/nmu.ac.th/student-volunteer/"},
+    {"key":"trc",       "name":"อาสาสมัครสภากาชาดไทย/ยุวกาชาด",       "auto":False,
+     "url":"https://trcyvolunteer.redcross.or.th/"},
+    {"key":"mirror",    "name":"โรงพยาบาลมีสุข (มูลนิธิกระจกเงา)",     "auto":False,
+     "url":"https://www.happyhospital.org/volunteer.php"},
+    # --- เครือข่าย/มูลนิธิ ---
+    {"key":"buddhika",  "name":"จิตอาสา 8 รพ. · มูลนิธิเครือข่ายพุทธิกา","auto":False,
+     "url":"https://budnet.org"},
+    # --- ค่าย/เปิดบ้าน ---
+    {"key":"chulacamp", "name":"ค่ายอยากเป็นหมอ จุฬาฯ",              "auto":False,
+     "url":"https://medcamp.docchula.com"},
+    {"key":"sirirajedu","name":"Siriraj Open House / ฝ่ายการศึกษา",   "auto":False,
+     "url":"https://www.sieduit.org/education"},
+    # --- แหล่งรวมข่าว (aggregators) — ดึงอัตโนมัติ (auto-discovery) ---
+    {"key":"DekPort",   "name":"DekPort (รวมจิตอาสานักเรียน สายสุขภาพ)","auto":True,
+     "url":"https://dekport.com/volunteer"},
+    {"key":"VolunteerSpirit","name":"เครือข่ายจิตอาสา Volunteerspirit","auto":True,
+     "url":"https://www.volunteerspirit.org/category/volunteeractivity/"},
+    {"key":"camphub",   "name":"CampHub (ค่ายสายสุขภาพ)",            "auto":False,
+     "url":"https://www.camphub.in.th/medical-health/doctor/"},
+    {"key":"dekuni",    "name":"dekuni (รวมจิตอาสา รพ.)",            "auto":False,
+     "url":"https://dekuni.com/voluneer-hospital/"},
+    {"key":"admission", "name":"AdmissionPremium",                   "auto":False,
+     "url":"https://www.admissionpremium.com/"},
+    {"key":"eduzones",  "name":"Eduzones",                           "auto":False,
+     "url":"https://www.eduzones.com/"},
+]
+
+
 TH_MONTHS = {  # ชื่อเดือนไทย -> เลขเดือน
     "มกราคม":1,"กุมภาพันธ์":2,"มีนาคม":3,"เมษายน":4,"พฤษภาคม":5,"มิถุนายน":6,
     "กรกฎาคม":7,"สิงหาคม":8,"กันยายน":9,"ตุลาคม":10,"พฤศจิกายน":11,"ธันวาคม":12,
@@ -91,11 +134,88 @@ def enrich_siriraj(items):
     print(f"[ok] อัปเดตศิริราชจากเว็บสด {changed} ตำแหน่ง", file=sys.stderr)
     return changed
 
+# ============================================================================
+# Auto-discovery จากเว็บรวมข่าว (aggregators) — โตเองโดยไม่ต้องทำมือ
+# กรองเฉพาะกิจกรรมสายสุขภาพ/โรงพยาบาล และติดธง unverified=True
+# (แอปจะแสดงป้าย "จากแหล่งรวม—ตรวจก่อนสมัคร")
+# ============================================================================
+HEALTH_KW = ["โรงพยาบาล","รพ.","แพทย์","พยาบาล","เภสัช","ทันต","สาธารณสุข","สุขภาพ",
+             "ผู้ป่วย","กายภาพ","หมอ","กาชาด","บริจาคเลือด","คลินิก","วชิร","ศิริราช","รามา"]
+BE_DATE = re.compile(r'(\d{1,2})\s*([ก-๙\.]+)\s*(25\d{2})')
+
+def _fetch(url):
+    import urllib.request
+    req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0 (asanaoi-bot)"})
+    with urllib.request.urlopen(req, timeout=25) as r:
+        raw = r.read()
+    for enc in ("utf-8","cp874"):
+        try: return raw.decode(enc)
+        except Exception: continue
+    return raw.decode("utf-8", errors="replace")
+
+def _bs_from_text(txt):
+    m = BE_DATE.search(txt)
+    if not m: return None
+    d, mon, y = m.group(1), m.group(2), m.group(3)
+    month = None
+    for name,num in TH_MONTHS.items():
+        if name[:3] in mon: month = num; break
+    if not month: return None
+    try: return f"{int(y):04d}-{month:02d}-{int(d):02d}"
+    except Exception: return None
+
+def _mk_auto_item(source_key, idx, title, url, close_bs):
+    return {
+        "id": f"auto-{source_key}-{idx}", "cat":"volunteer", "unverified": True,
+        "hospital": "โครงการจากแหล่งรวมข่าว", "org": f"พบผ่าน {source_key}", "area": "—",
+        "icon": "🔎", "title": title[:120],
+        "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+        "scope": ["รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"],
+        "qual": ["ตรวจคุณสมบัติที่หน้าต้นทาง"],
+        "quota": "ดูที่ต้นทาง", "workDays": "ดูที่ต้นทาง", "cost": "ดูที่ต้นทาง",
+        "cert": False, "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+        "applyOpen": None, "applyClose": close_bs, "keyDate": close_bs,
+        "keyType": "close", "dateConfirmed": False, "status": "open",
+        "howTo": ["กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"],
+        "applyUrl": url, "sourceUrl": url, "sourceName": f"{source_key} (แหล่งรวมข่าว)",
+        "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+    }
+
+def enrich_aggregator(items, url, source_key, limit=25):
+    """ดึงลิงก์กิจกรรมสายสุขภาพจากหน้า aggregator (best-effort, กันพัง)"""
+    try:
+        html = _fetch(url)
+    except Exception as e:
+        print(f"[warn] ดึง {source_key} ไม่สำเร็จ: {e}", file=sys.stderr); return 0
+    from urllib.parse import urljoin
+    seen = set(x.get("sourceUrl") for x in items)
+    added = 0
+    for m in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', html, re.S|re.I):
+        href = m.group(1)
+        text = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', m.group(2))).strip()
+        if len(text) < 12: continue
+        if not any(kw in text for kw in HEALTH_KW): continue
+        if href.startswith("/"): href = urljoin(url, href)
+        if not href.startswith("http") or href in seen: continue
+        ctx = html[max(0, m.start()-300): m.end()+300]
+        items.append(_mk_auto_item(source_key, added+1, text, href, _bs_from_text(ctx)))
+        seen.add(href); added += 1
+        if added >= limit: break
+    print(f"[auto] {source_key}: เพิ่ม {added} รายการ (unverified)", file=sys.stderr)
+    return added
+
 def main():
     items = load_seed()
-    # ---- เพิ่มตัวดึงสดของแต่ละแหล่งตรงนี้ (ตอนนี้ทำศิริราชเป็นตัวอย่างจริง) ----
+    # ---- รายงานความครอบคลุมของแหล่งข้อมูล ----
+    auto = [s for s in SOURCES if s["auto"]]
+    manual = [s for s in SOURCES if not s["auto"]]
+    print(f"[sources] ทั้งหมด {len(SOURCES)} แหล่ง · ดึงอัตโนมัติ {len(auto)} · ใส่มือ {len(manual)}", file=sys.stderr)
+
+    # ---- 1) ดึงตำแหน่งจริงจากศิริราช (โครงสร้างชัด) ----
     enrich_siriraj(items)
-    # TODO: เพิ่ม enrich_rajavithi(), enrich_camphub(), ฯลฯ ตามต้องการ
+    # ---- 2) Auto-discovery จากเว็บรวมข่าวสายสุขภาพ (โตเอง) ----
+    enrich_aggregator(items, "https://dekport.com/volunteer", "DekPort", limit=30)
+    enrich_aggregator(items, "https://www.volunteerspirit.org/category/volunteeractivity/", "VolunteerSpirit", limit=30)
 
     out = {
         "updatedAt": datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),

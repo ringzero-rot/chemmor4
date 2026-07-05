@@ -182,7 +182,8 @@ a{color:var(--blue);text-decoration:none}
 .dl-txt .sub{color:var(--muted);font-size:12px}
 
 .expand{padding:0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease}
-.expand.open{max-height:1400px}
+.expand-toggle svg{width:16px!important;height:16px!important;flex:none}
+.expand.open{max-height:3000px}
 .expand-inner{padding:6px 0 4px;border-top:1px dashed var(--line);margin-top:4px}
 .sec-h{font-family:"Mitr";font-weight:500;font-size:13.5px;color:var(--blue-deep);margin:12px 0 6px;display:flex;align-items:center;gap:6px}
 .sec-h svg{width:16px;height:16px}
@@ -439,7 +440,7 @@ footer a{color:var(--muted);text-decoration:underline}
 <div class="disclaimer">
   <div class="disclaimer-in">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 4.3 2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div><b>ข้อมูลอ้างอิง ณ ก.ค. 2569</b> — หลายโครงการเปิดรับเป็น "รอบหมุนเวียน" วันที่ที่ติด <span style="background:#EEF2F7;color:#5C7591;padding:1px 6px;border-radius:6px;font-size:11px">ประมาณการ</span> เป็นการคาดจากรอบก่อนหน้า <b>โปรดกดลิงก์ทางการเพื่อยืนยันรอบปัจจุบันก่อนสมัครทุกครั้ง</b> · ค้นค่าย/กิจกรรมสายสุขภาพเพิ่มเติมได้ที่ <a href="https://www.camphub.in.th/medical-health/doctor/" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600">CampHub</a> และ <a href="https://dekuni.com/voluneer-hospital/" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600">dekuni</a></div>
+    <div><b>ข้อมูลอ้างอิง ณ ก.ค. 2569</b> — หลายโครงการเปิดรับเป็น "รอบหมุนเวียน" วันที่ที่ติด <span style="background:#EEF2F7;color:#5C7591;padding:1px 6px;border-radius:6px;font-size:11px">ประมาณการ</span> เป็นการคาดจากรอบก่อนหน้า <b>โปรดกดลิงก์ทางการเพื่อยืนยันรอบปัจจุบันก่อนสมัครทุกครั้ง</b> · ค้นค่าย/กิจกรรมสายสุขภาพเพิ่มเติมได้ที่ <a href="https://www.camphub.in.th/medical-health/doctor/" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600">CampHub</a> และ <a href="https://dekuni.com/voluneer-hospital/" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600">dekuni</a><div id="dataStatus" style="margin-top:7px;font-size:12px;color:#7a5200;opacity:.85">⏳ กำลังตรวจข้อมูลใหม่…</div></div>
   </div>
 </div>
 
@@ -618,7 +619,8 @@ const store = (()=>{
 
 /* ============ Data: real Bangkok hospital volunteer / experience programs ============ */
 /* keyDate = the date reminders count down to (open = grab-a-slot date, close = application deadline) */
-const DATA = [
+/* SEED = ข้อมูลสำรองที่ฝังในไฟล์ (การันตีว่ามีข้อมูลเสมอ แม้ดึงเน็ตไม่ได้) */
+const SEED = [
   {
     id:"siriraj-blood", cat:"volunteer",
     hospital:"โรงพยาบาลศิริราช", org:"ศูนย์อาสาสมัครศิริราช", area:"บางกอกน้อย",
@@ -978,7 +980,46 @@ const DATA = [
   }
 ];
 
-/* ============ Helpers ============ */
+/* DATA = ข้อมูลที่ใช้จริง เริ่มจาก SEED แล้วรวมกับ data.json สด (ถ้ามี) */
+let DATA = SEED.slice();
+let dataMeta = { source:"embedded", updatedAt:null, count:SEED.length };
+
+/* เช็คข้อมูลใหม่ทุกครั้งที่เปิดเว็บ: ดึง data.json (โดเมนเดียวกัน) แล้วรวมแบบ union-by-id
+   - ข้อมูลสดทับข้อมูลเดิมที่ id เดียวกัน (อัปเดตสถานะ/วันที่)
+   - ของใหม่จาก data.json ถูกเพิ่มเข้ามา
+   - ของเดิมใน SEED ไม่มีวันหาย แม้ data.json จะไม่มีหรือดึงไม่ได้ */
+async function loadData(){
+  let live=null;
+  try{
+    const res = await fetch("./data.json?ts="+Date.now(), { cache:"no-store" });
+    if(res.ok){
+      const j = await res.json();
+      const items = Array.isArray(j) ? j : (j && Array.isArray(j.items) ? j.items : null);
+      if(items && items.length){ live = { items, updatedAt: (j && j.updatedAt) || null }; }
+    }
+  }catch(e){ /* ออฟไลน์/ไม่มีไฟล์ → ใช้ SEED */ }
+
+  const byId = new Map(SEED.map(o=>[o.id, o]));
+  if(live){
+    live.items.forEach(o=>{ if(o && o.id) byId.set(o.id, {...(byId.get(o.id)||{}), ...o}); });
+    dataMeta = { source:"live", updatedAt: live.updatedAt, count: byId.size };
+  } else {
+    dataMeta = { source:"embedded", updatedAt:null, count: byId.size };
+  }
+  DATA = [...byId.values()];
+  DATA.forEach(j=>{ j._st = computeStatus(j); });
+  return dataMeta;
+}
+function updateDataStatus(){
+  const el = document.querySelector("#dataStatus"); if(!el) return;
+  if(dataMeta.source==="live"){
+    let when="ล่าสุด";
+    try{ if(dataMeta.updatedAt) when = new Date(dataMeta.updatedAt).toLocaleString("th-TH",{dateStyle:"medium",timeStyle:"short"}); }catch(e){}
+    el.innerHTML = `🟢 ตรวจข้อมูลใหม่ทุกครั้งที่เปิดเว็บ · อัปเดตล่าสุด <b>${when}</b> · รวม ${dataMeta.count} โครงการ`;
+  } else {
+    el.innerHTML = `📦 กำลังใช้ข้อมูลสำรองในแอป · เชื่อมไฟล์ข้อมูลสด (data.json) เพื่ออัปเดตอัตโนมัติทุกครั้งที่เปิดเว็บ · รวม ${dataMeta.count} โครงการ`;
+  }
+}
 const $ = s => document.querySelector(s);
 const $$ = s => Array.from(document.querySelectorAll(s));
 const TH_MONTHS = ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."];
@@ -1011,7 +1052,8 @@ async function init(){
   firstVisit = !seenStored;
   seenIds = seenStored || [];
 
-  DATA.forEach(j=>{ j._st=computeStatus(j); });
+  await loadData();           // เช็คข้อมูลใหม่ทุกครั้งที่เปิดเว็บ (มีตัวสำรองเสมอ)
+  updateDataStatus();
   $("#stOpp").textContent = DATA.length;
   $("#stHosp").textContent = new Set(DATA.map(d=>d.hospital)).size;
   $("#stCert").textContent = DATA.filter(d=>d.cert).length;
@@ -1150,8 +1192,8 @@ function render(){
     c.querySelector(".expand-toggle").onclick=()=>{
       const ex=c.querySelector(".expand"); const open=ex.classList.toggle("open");
       c.querySelector(".expand-toggle").innerHTML = open
-        ? 'ย่อรายละเอียด <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-        : 'ดูรายละเอียด &amp; วิธีสมัคร <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        ? 'ย่อรายละเอียด <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex:none"><path d="m18 15-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+        : 'ดูรายละเอียด &amp; วิธีสมัคร <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex:none"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     };
   });
 }

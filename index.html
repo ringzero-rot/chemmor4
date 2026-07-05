@@ -302,6 +302,13 @@ footer a{color:var(--muted);text-decoration:underline}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
+.btn-logout{width:100%;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:14px;font-family:"Mitr";font-weight:500;font-size:14px;color:var(--coral);background:#FFF1F4;border:1px solid #FFD5DE}
+.btn-logout:hover{background:#FFE4EA}
+.btn-logout svg{width:17px;height:17px}
+.store-note{margin-top:12px;font-size:11.5px;color:var(--muted);text-align:center;line-height:1.5}
+.store-note b{color:var(--green)}
+.store-note.warn b{color:var(--amber)}
+
 /* ---------- View nav ---------- */
 .viewnav{position:sticky;top:55px;z-index:35;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .viewnav-in{max-width:1100px;margin:0 auto;padding:8px 16px;display:flex;gap:8px}
@@ -517,6 +524,11 @@ footer a{color:var(--muted);text-decoration:underline}
         </div>
       </div>
       <button class="btn btn-primary" id="pSave">บันทึกโปรไฟล์</button>
+      <button class="btn-logout" id="pLogout" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 17l5-5-5-5M21 12H9M12 19H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        ออกจากระบบ (ล้างข้อมูลในเครื่องนี้)
+      </button>
+      <div class="store-note" id="storeNote"></div>
     </div>
   </div>
 </div>
@@ -553,29 +565,53 @@ footer a{color:var(--muted);text-decoration:underline}
 <script>
 "use strict";
 
-/* ============ Persistent storage wrapper ============ */
-/* ลำดับความสำคัญ: window.storage (พรีวิว Claude) → localStorage (เว็บจริง เช่น GitHub Pages) → หน่วยความจำ */
+/* ============ Persistent storage (robust, multi-backend) ============ */
+/* เขียนลงทุกชั้นที่ใช้ได้ และอ่านจากชั้นแรกที่มีข้อมูล เพื่อให้ "จำได้" บนเว็บจริง (GitHub Pages / iOS Safari) */
 const store = (()=>{
-  const PREFIX = "asanaoi:";
+  const P = "asanaoi:";      // localStorage / window.storage prefix
+  const CP = "asanaoi_";     // cookie prefix (ห้ามมี ":" ในชื่อคุกกี้)
   const mem = {};
-  const hasArtifact = (typeof window!=="undefined" && window.storage && typeof window.storage.get==="function");
-  let hasLS=false;
-  try{ const t="__asn_test__"; window.localStorage.setItem(t,"1"); window.localStorage.removeItem(t); hasLS=true; }catch(e){ hasLS=false; }
+  let hasArtifact=false, hasLS=false, hasCookie=false;
+  try{ hasArtifact = !!(window.storage && typeof window.storage.get==="function"); }catch(e){}
+  try{ const t="__asn__"; window.localStorage.setItem(t,"1"); window.localStorage.removeItem(t); hasLS=true; }catch(e){ hasLS=false; }
+  try{ document.cookie="__asn__=1;path=/;max-age=60;samesite=lax"; hasCookie=/(?:^|; )__asn__=1/.test(document.cookie); document.cookie="__asn__=;path=/;max-age=0"; }catch(e){ hasCookie=false; }
+
+  function ckSet(k,v){ try{ document.cookie = CP+k+"="+encodeURIComponent(v)+";path=/;max-age=31536000;samesite=lax"; }catch(e){} }
+  function ckGet(k){ try{ const m=document.cookie.match(new RegExp("(?:^|; )"+CP+k+"=([^;]*)")); return m?decodeURIComponent(m[1]):null; }catch(e){ return null; } }
+  function ckDel(k){ try{ document.cookie = CP+k+"=;path=/;max-age=0"; }catch(e){} }
+
+  const backends = [];
+  if(hasLS) backends.push("localStorage");
+  if(hasCookie) backends.push("cookie");
+  if(hasArtifact) backends.push("app-storage");
+  if(!backends.length) backends.push("memory-only");
+
   return {
-    backend: hasArtifact ? "artifact" : (hasLS ? "localStorage" : "memory"),
+    backends,
+    label: backends.join(" + "),
+    persistent: hasLS||hasCookie||hasArtifact,
     async get(k){
-      if(hasArtifact){
-        try{ const r=await window.storage.get(k); if(r&&r.value!=null) return JSON.parse(r.value); }catch(e){}
-      }
-      if(hasLS){
-        try{ const v=window.localStorage.getItem(PREFIX+k); if(v!=null) return JSON.parse(v); }catch(e){}
-      }
-      return (k in mem)?mem[k]:null;
+      if(k in mem) return mem[k];
+      // localStorage
+      if(hasLS){ try{ const v=window.localStorage.getItem(P+k); if(v!=null){ const p=JSON.parse(v); mem[k]=p; return p; } }catch(e){} }
+      // cookie
+      if(hasCookie){ const v=ckGet(k); if(v!=null){ try{ const p=JSON.parse(v); mem[k]=p; return p; }catch(e){} } }
+      // app storage (Claude preview)
+      if(hasArtifact){ try{ const r=await window.storage.get(k); if(r&&r.value!=null){ const p=JSON.parse(r.value); mem[k]=p; return p; } }catch(e){} }
+      return null;
     },
     async set(k,v){
       mem[k]=v;
-      if(hasArtifact){ try{ await window.storage.set(k, JSON.stringify(v)); }catch(e){} }
-      if(hasLS){ try{ window.localStorage.setItem(PREFIX+k, JSON.stringify(v)); }catch(e){} }
+      const s=JSON.stringify(v);
+      if(hasLS){ try{ window.localStorage.setItem(P+k,s); }catch(e){} }
+      if(hasCookie){ ckSet(k,s); }
+      if(hasArtifact){ try{ await window.storage.set(k,s); }catch(e){} }
+    },
+    async del(k){
+      delete mem[k];
+      if(hasLS){ try{ window.localStorage.removeItem(P+k); }catch(e){} }
+      if(hasCookie){ ckDel(k); }
+      if(hasArtifact){ try{ await window.storage.set(k,"null"); }catch(e){} }
     }
   };
 })();
@@ -999,17 +1035,42 @@ async function init(){
 
 /* ============ Profile ============ */
 function openProfile(isNew){
+  const note=$("#storeNote"), logoutBtn=$("#pLogout");
+  if(store.persistent){
+    note.classList.remove("warn");
+    note.innerHTML = `🔒 ระบบจะจดจำคุณไว้ในเครื่องนี้ (<b>${store.label}</b>) — รีเฟรชแล้วยังเป็นโปรไฟล์เดิม จนกว่าจะกดออกจากระบบ`;
+  } else {
+    note.classList.add("warn");
+    note.innerHTML = `⚠️ <b>เบราว์เซอร์นี้ไม่อนุญาตให้บันทึกข้อมูล</b> (อาจเปิดโหมดส่วนตัว/Private อยู่) ข้อมูลจะหายเมื่อรีเฟรช — ลองปิดโหมดส่วนตัวแล้วเปิดใหม่`;
+  }
   if(profile){
     $("#pName").value = profile.name||"";
     $("#pLevel").value = profile.level||"ม.6";
     $$("#interestChips .ic").forEach(b=>b.classList.toggle("on",(profile.interests||[]).includes(b.dataset.i)));
-    $("#pmTitle").textContent="แก้ไขโปรไฟล์";
+    $("#pmTitle").textContent="โปรไฟล์ของฉัน";
+    $("#pSave").textContent="บันทึกการแก้ไข";
     $("#pmClose").style.display="grid";
+    logoutBtn.style.display="flex";
   } else {
+    $("#pmTitle").textContent="สร้างโปรไฟล์ของฉัน";
+    $("#pSave").textContent="เข้าใช้งาน / บันทึกโปรไฟล์";
     $("#pmClose").style.display = isNew ? "none":"grid";
+    logoutBtn.style.display="none";
   }
   $("#profileOverlay").classList.add("show");
   setTimeout(()=>$("#pName").focus(),200);
+}
+async function logout(){
+  if(!confirm("ออกจากระบบและล้างข้อมูลในเครื่องนี้?\nโปรไฟล์และโครงการที่บันทึกไว้ทั้งหมดจะถูกลบ")) return;
+  await store.del("profile"); await store.del("favorites"); await store.del("seenJobIds"); await store.del("lastVisit");
+  profile=null; favorites=[]; seenIds=[]; firstVisit=true;
+  $("#chipName").textContent="โปรไฟล์"; $("#avatar").textContent="?";
+  $("#heroTitle").innerHTML="สวัสดี 👋<br>มาหางานอาสาสร้างพอร์ตกัน";
+  render(); updateBell();
+  $$("#interestChips .ic").forEach(b=>b.classList.remove("on"));
+  $("#pName").value=""; $("#pLevel").value="ม.6";
+  toast("ออกจากระบบแล้ว");
+  openProfile(true);
 }
 function applyProfile(){
   const initial = (profile.name||"?").trim().charAt(0).toUpperCase()||"?";
@@ -1025,7 +1086,7 @@ async function saveProfile(){
   await store.set("profile",profile);
   applyProfile();
   $("#profileOverlay").classList.remove("show");
-  toast("บันทึกโปรไฟล์แล้ว ระบบจะจำงานที่คุณบันทึกไว้");
+  toast(store.persistent ? "บันทึกแล้ว · รีเฟรชแล้วยังเป็นโปรไฟล์เดิม" : "บันทึกชั่วคราว (เบราว์เซอร์ไม่อนุญาตให้จำถาวร)");
 }
 
 /* ============ Favorites ============ */
@@ -1394,6 +1455,7 @@ function bindEvents(){
   // profile modal
   $("#profileBtn").onclick=()=>openProfile(false);
   $("#pSave").onclick=saveProfile;
+  $("#pLogout").onclick=logout;
   $("#pName").oninput=()=>$("#pName").style.borderColor="";
   $("#pmClose").onclick=()=>$("#profileOverlay").classList.remove("show");
   $$("#interestChips .ic").forEach(b=>b.onclick=()=>b.classList.toggle("on"));

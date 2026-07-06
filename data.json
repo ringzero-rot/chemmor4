@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-07-05T14:36:52Z",
+ "updatedAt": "2026-07-06T00:07:43Z",
  "generatedBy": "scraper.py",
  "count": 34,
  "items": [
@@ -1214,8 +1214,8 @@
    "cert": false,
    "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
    "applyOpen": null,
-   "applyClose": "2569-04-12",
-   "keyDate": "2569-04-12",
+   "applyClose": "2569-04-19",
+   "keyDate": "2569-04-19",
    "keyType": "close",
    "dateConfirmed": false,
    "status": "open",

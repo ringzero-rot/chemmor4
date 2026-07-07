@@ -241,24 +241,14 @@ def classify_link(url):
     return "empty"     # หน้าโหลดได้แต่ไม่พบคำว่ารับสมัคร
 
 def verify_links(items, cap=60):
-    """เช็กลิงก์ของแต่ละรายการ ใส่ item['linkStatus'] และปรับสถานะถ้าปิด/เสีย (ไม่ลบทิ้ง)"""
+    """เช็กลิงก์ของแต่ละรายการ ใส่ item['linkStatus'] เป็น 'ป้ายเตือน' เท่านั้น
+    ไม่เปลี่ยนสถานะเปิด/ปิดของการ์ด (สถานะยึดวันที่จริง เพื่อไม่ให้ซ่อนโอกาสของนักเรียน)"""
     checked = 0
     for it in items:
         if checked >= cap: break
-        # ข้ามรายการที่รับต่อเนื่อง (rolling) ไม่ต้องดาวน์เกรด
-        st = classify_link(it.get("applyUrl") or it.get("sourceUrl"))
-        it["linkStatus"] = st
+        it["linkStatus"] = classify_link(it.get("applyUrl") or it.get("sourceUrl"))
         checked += 1
-        if it.get("rolling"): 
-            continue
-        if st in ("closed","dead"):
-            it["status"] = "closed"
-            it["_forceClosed"] = True
-            tag = "ฟอร์ม/ประกาศปิดรับแล้ว" if st=="closed" else "ลิงก์ใช้งานไม่ได้ (ไม่พบหน้า)"
-            it["note"] = f"⚠️ ตรวจลิงก์อัตโนมัติ: {tag} · " + (it.get("note") or "")
-        elif st == "empty":
-            it["note"] = "⚠️ หน้าปลายทางไม่พบข้อมูลรับสมัครชัดเจน — โปรดตรวจก่อนสมัคร · " + (it.get("note") or "")
-    print(f"[verify] ตรวจลิงก์ {checked} รายการ", file=sys.stderr)
+    print(f"[verify] ตรวจลิงก์ {checked} รายการ (เป็นป้ายเตือน ไม่ปิดการ์ด)", file=sys.stderr)
     return checked
 
 def main():

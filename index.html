@@ -1111,7 +1111,7 @@ function daysUntil(bs){ const dt=toDate(bs); if(!dt) return null; const now=new 
 
 // derive real status from dates: "open" (open now), "upcoming" (opens soon), "closed"
 function computeStatus(job){
-  if(job._forceClosed || job.linkStatus==="closed" || job.linkStatus==="dead") return "closed";
+  // สถานะยึด "วันที่จริง" เป็นหลัก — ลิงก์ที่ปิด/เสียเป็นแค่ป้ายเตือน ไม่ปิดทั้งการ์ด (กันซ่อนโอกาส)
   if(job.rolling) return "open";
   const dO=daysUntil(job.applyOpen), dC=daysUntil(job.applyClose);
   if(dC!=null && dC<0) return "closed";
@@ -1331,7 +1331,8 @@ function cardHTML(job){
     form_open:'<span class="tag lgood">🟢 ฟอร์มเปิดรับอยู่</span>',
     open:'<span class="tag lgood">🟢 ลิงก์เปิดรับ</span>',
     empty:'<span class="tag lwarn">⚠️ ปลายทางอาจไม่มีข้อมูลรับสมัคร</span>',
-    dead:'<span class="tag lbad">⛔ ลิงก์ใช้ไม่ได้</span>',
+    closed:'<span class="tag lwarn">⚠️ ฟอร์มลงทะเบียนบางส่วนปิด — เช็คหน้างาน/รอบใหม่</span>',
+    dead:'<span class="tag lbad">⛔ ลิงก์สมัครใช้ไม่ได้ — ดูที่แหล่งข้อมูล</span>',
     social:'<span class="tag lsoc">📣 ประกาศผ่านโซเชียล</span>'
   })[job.linkStatus] || '';
   return `<article class="card" data-id="${job.id}">

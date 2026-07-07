@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-07-07T13:07:19Z",
+ "updatedAt": "2026-07-07T13:23:49Z",
  "generatedBy": "scraper.py",
  "count": 40,
  "items": [
@@ -1122,7 +1122,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "อาสาสมัครประคองผู้ป่วยที่ช่วยเหลือตัวเองได้น้อย ศิริราช",
+   "title": "อาสาสมัครหน่วยบริการสุขภาพ ศิริราช",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1144,8 +1144,8 @@
    "howTo": [
     "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
    ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
+   "applyUrl": "https://dekport.com/volunteer/siriraj-health-service-volunteer-may-july-2026",
+   "sourceUrl": "https://dekport.com/volunteer/siriraj-health-service-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "open"
@@ -1194,7 +1194,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "อาสาสมัครบริการหน่วยตรวจโรคจักษุ ศิริราช",
+   "title": "อาสาสมัครประจำจุดวัดความดันโลหิต ศิริราช",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1216,8 +1216,8 @@
    "howTo": [
     "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
    ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-eye-clinic-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-eye-clinic-volunteer-may-july-2026",
+   "applyUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
+   "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "open"
@@ -1230,7 +1230,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "อาสาสมัครหน่วยบริการสุขภาพ ศิริราช",
+   "title": "อาสาสมัครประคองผู้ป่วยที่ช่วยเหลือตัวเองได้น้อย ศิริราช",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1252,8 +1252,8 @@
    "howTo": [
     "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
    ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-health-service-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-health-service-volunteer-may-july-2026",
+   "applyUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
+   "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "open"
@@ -1302,7 +1302,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "อาสาสมัครประจำจุดวัดความดันโลหิต ศิริราช",
+   "title": "อาสาสมัครบริการหน่วยตรวจโรคจักษุ ศิริราช",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1324,8 +1324,8 @@
    "howTo": [
     "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
    ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
+   "applyUrl": "https://dekport.com/volunteer/siriraj-eye-clinic-volunteer-may-july-2026",
+   "sourceUrl": "https://dekport.com/volunteer/siriraj-eye-clinic-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "open"
@@ -1374,6 +1374,42 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
+   "title": "กิจกรรมอาสาคัดแยกแว่นตา โอ่งจิ๋วน้ำใจ หมอนหนุนอุ่นรัก และปลานวดใจดี วันที่ 11-12 เมษายน 2569",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": "2569-08-08",
+   "keyDate": "2569-08-08",
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/กิจกรรม-อาสา-โอ่งจิ๋ว-หมอนหนุน-ปลานวดใจ",
+   "sourceUrl": "https://dekport.com/volunteer/กิจกรรม-อาสา-โอ่งจิ๋ว-หมอนหนุน-ปลานวดใจ",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "unknown"
+  },
+  {
+   "id": "auto-DekPort-13",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
    "title": "เย็บเต้านมเทียม ส่งต่อกำลังใจผู้ป่วยมะเร็งเต้านม วันที่ 19 เมษายน 2569",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
@@ -1388,8 +1424,8 @@
    "cert": false,
    "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
    "applyOpen": null,
-   "applyClose": "2569-04-19",
-   "keyDate": "2569-04-19",
+   "applyClose": "2569-08-08",
+   "keyDate": "2569-08-08",
    "keyType": "close",
    "dateConfirmed": false,
    "status": "open",
@@ -1403,7 +1439,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-13",
+   "id": "auto-DekPort-14",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1439,7 +1475,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-14",
+   "id": "auto-DekPort-15",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1460,8 +1496,8 @@
    "cert": false,
    "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
    "applyOpen": null,
-   "applyClose": "2569-04-19",
-   "keyDate": "2569-04-19",
+   "applyClose": null,
+   "keyDate": null,
    "keyType": "close",
    "dateConfirmed": false,
    "status": "open",
@@ -1470,42 +1506,6 @@
    ],
    "applyUrl": "https://dekport.com/volunteer/ทำหมอนรองคอ-จิตอาสา-ผู้สูงอายุ",
    "sourceUrl": "https://dekport.com/volunteer/ทำหมอนรองคอ-จิตอาสา-ผู้สูงอายุ",
-   "sourceName": "DekPort (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "unknown"
-  },
-  {
-   "id": "auto-DekPort-15",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน DekPort",
-   "area": "—",
-   "icon": "🔎",
-   "title": "กิจกรรมอาสาคัดแยกแว่นตา โอ่งจิ๋วน้ำใจ หมอนหนุนอุ่นรัก และปลานวดใจดี วันที่ 11-12 เมษายน 2569",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": "2569-02-21",
-   "keyDate": "2569-02-21",
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://dekport.com/volunteer/กิจกรรม-อาสา-โอ่งจิ๋ว-หมอนหนุน-ปลานวดใจ",
-   "sourceUrl": "https://dekport.com/volunteer/กิจกรรม-อาสา-โอ่งจิ๋ว-หมอนหนุน-ปลานวดใจ",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "unknown"

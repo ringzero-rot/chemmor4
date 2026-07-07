@@ -2,8 +2,16 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>อาสาน้อย — หางานอาสา รพ. กทม. สร้างพอร์ตสายสุขภาพ</title>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#2563EB">
+<meta name="description" content="รวมงานจิตอาสา ฝึกประสบการณ์ ค่าย และเปิดบ้านคณะแพทย์ สำหรับนักเรียน ม.ปลาย สายสุขภาพ พร้อมแจ้งเตือนก่อนวันสมัคร">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="อาสาน้อย">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -309,6 +317,13 @@ footer a{color:var(--muted);text-decoration:underline}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
 .btn-logout{width:100%;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:14px;font-family:"Mitr";font-weight:500;font-size:14px;color:var(--coral);background:#FFF1F4;border:1px solid #FFD5DE}
+.pmods{width:100%;margin-top:10px;padding:12px;border-radius:14px;font-family:"Mitr";font-weight:500;font-size:14px;color:var(--blue-deep);background:#EAF2FF;border:1px solid #CFE2FF}
+.pmods.on{background:#E3F8F0;color:#0F8A63;border-color:#BEEBD8}
+.share-row{display:flex;gap:8px;margin-top:9px}
+.share-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;border-radius:12px;font-family:"Mitr";font-weight:500;font-size:12.5px;color:var(--blue-deep);background:#F1F7FF;border:1px solid var(--line)}
+.share-btn:hover{background:#E4EFFF}
+.share-btn svg{width:15px;height:15px}
+.share-btn.img{color:#7A4EC2;background:#F4EFFF;border-color:#E1D5F7}
 /* ---------- Live pages hub ---------- */
 #hubView{max-width:1100px;margin:0 auto;padding:18px 16px 48px}
 .hub-hero{background:linear-gradient(135deg,#2563EB,#4FC3F7);border-radius:22px;padding:20px;color:#fff;box-shadow:0 10px 26px rgba(37,99,235,.26)}
@@ -555,6 +570,8 @@ footer a{color:var(--muted);text-decoration:underline}
         </div>
       </div>
       <button class="btn btn-primary" id="pSave">บันทึกโปรไฟล์</button>
+      <button class="pmods" id="notifBtn">🔕 เปิดการแจ้งเตือนก่อนวันสมัคร</button>
+      <button class="pmods" id="installBtn" style="display:none">⬇️ ติดตั้งเป็นแอปบนหน้าจอโฮม</button>
       <button class="btn-logout" id="pLogout" style="display:none">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 17l5-5-5-5M21 12H9M12 19H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         ออกจากระบบ (ล้างข้อมูลในเครื่องนี้)
@@ -1130,6 +1147,8 @@ async function init(){
 
   render();
   updateBell();
+  updateNotifBtn();
+  runReminders();       // ยิงแจ้งเตือนงานที่ใกล้ปิด (ถ้าอนุญาตแล้ว)
 
   // new-jobs popup (only for returning visitors)
   const currentIds = DATA.map(d=>d.id);
@@ -1203,6 +1222,7 @@ async function toggleFav(id){
   else { favorites.push(id); const job=DATA.find(d=>d.id===id); toast("บันทึกไว้แล้ว · จะเตือนก่อนวันสมัคร 7/3/1 วัน"); }
   await store.set("favorites",favorites);
   render(); updateBell();
+  runReminders();
 }
 
 /* ============ Rendering ============ */
@@ -1267,6 +1287,8 @@ function render(){
         ? 'ย่อรายละเอียด <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex:none"><path d="m18 15-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
         : 'ดูรายละเอียด &amp; วิธีสมัคร <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex:none"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     };
+    const sb=c.querySelector("[data-share]"); if(sb) sb.onclick=()=>shareJob(id);
+    const si=c.querySelector("[data-shareimg]"); if(si) si.onclick=()=>shareImage(id);
   });
 }
 
@@ -1365,6 +1387,16 @@ function cardHTML(job){
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         ไปหน้าสมัครจริง
       </a>
+      <div class="share-row">
+        <button class="share-btn" data-share="${job.id}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4" stroke-linecap="round"/></svg>
+          แชร์
+        </button>
+        <button class="share-btn img" data-shareimg="${job.id}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          บันทึกรูปสรุป
+        </button>
+      </div>
       <div class="src">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01" stroke-linecap="round"/></svg>
         แหล่งข้อมูล: <a href="${job.sourceUrl}" target="_blank" rel="noopener">${escapeHtml(job.sourceName)}</a>
@@ -1637,6 +1669,8 @@ function bindEvents(){
   $("#profileBtn").onclick=()=>openProfile(false);
   $("#pSave").onclick=saveProfile;
   $("#pLogout").onclick=logout;
+  $("#notifBtn").onclick=ensureNotifs;
+  $("#installBtn").onclick=doInstall;
   $("#pName").oninput=()=>$("#pName").style.borderColor="";
   $("#pmClose").onclick=()=>$("#profileOverlay").classList.remove("show");
   $$("#interestChips .ic").forEach(b=>b.onclick=()=>b.classList.toggle("on"));
@@ -1660,6 +1694,148 @@ function bindEvents(){
   document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeDrawer(); if(profile){$("#profileOverlay").classList.remove("show");} $("#newOverlay").classList.remove("show"); }});
 }
 function closeDrawer(){ $("#drawer").classList.remove("show"); $("#drawerOverlay").classList.remove("show"); }
+
+/* ============ PWA (ติดตั้งได้ + ออฟไลน์) ============ */
+let deferredPrompt=null;
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>{ navigator.serviceWorker.register("./sw.js").catch(()=>{}); });
+}
+window.addEventListener("beforeinstallprompt",(e)=>{ e.preventDefault(); deferredPrompt=e; const b=$("#installBtn"); if(b) b.style.display="flex"; });
+window.addEventListener("appinstalled",()=>{ const b=$("#installBtn"); if(b) b.style.display="none"; toast("ติดตั้งแอปแล้ว 🎉"); });
+async function doInstall(){
+  if(deferredPrompt){ deferredPrompt.prompt(); try{ await deferredPrompt.userChoice; }catch(e){} deferredPrompt=null; $("#installBtn").style.display="none"; }
+  else {
+    const iOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+    toast(iOS ? "iPhone: แตะปุ่มแชร์ของ Safari แล้วเลือก \"เพิ่มลงในหน้าจอโฮม\"" : "เปิดเมนูเบราว์เซอร์ แล้วเลือก \"ติดตั้งแอป/Add to Home screen\"");
+  }
+}
+
+/* ============ การแจ้งเตือน (local notification) ============ */
+async function ensureNotifs(){
+  if(!("Notification" in window)){ toast("อุปกรณ์นี้ไม่รองรับการแจ้งเตือน"); return false; }
+  let p=Notification.permission;
+  if(p==="default"){ try{ p=await Notification.requestPermission(); }catch(e){} }
+  if(p==="granted"){ updateNotifBtn(); toast("เปิดการแจ้งเตือนแล้ว 🔔 ระบบจะเตือนก่อนวันสมัคร"); runReminders(); return true; }
+  if(p==="denied") toast("การแจ้งเตือนถูกปิดไว้ — เปิดได้ที่ตั้งค่าเบราว์เซอร์");
+  updateNotifBtn(); return false;
+}
+function updateNotifBtn(){
+  const b=$("#notifBtn"); if(!b) return;
+  const on = ("Notification" in window) && Notification.permission==="granted";
+  b.innerHTML = on
+    ? '🔔 การแจ้งเตือน: เปิดอยู่'
+    : '🔕 เปิดการแจ้งเตือนก่อนวันสมัคร';
+  b.classList.toggle("on",on);
+}
+async function notify(title, body, tag){
+  try{
+    if(!("Notification" in window) || Notification.permission!=="granted") return;
+    const opts={ body, tag, icon:"./icon-192.png", badge:"./icon-192.png", vibrate:[80,40,80] };
+    const reg = ("serviceWorker" in navigator) ? await navigator.serviceWorker.getRegistration() : null;
+    if(reg && reg.showNotification) await reg.showNotification(title,opts);
+    else new Notification(title,opts);
+  }catch(e){}
+}
+async function runReminders(){
+  if(!("Notification" in window) || Notification.permission!=="granted") return;
+  const notified = (await store.get("notified")) || {};
+  let changed=false;
+  DATA.filter(j=>favorites.includes(j.id)&&st(j)!=="closed"&&!j.rolling).forEach(j=>{
+    const d=daysUntil(j.keyDate); if(d==null) return;
+    [7,3,1,0].forEach(tier=>{
+      if(d===tier){
+        const key=j.id+":"+tier;
+        if(!notified[key]){
+          const when = tier===0?"ครบกำหนดวันนี้!":("อีก "+tier+" วัน");
+          notify("⏰ ใกล้ปิดรับสมัคร — "+when,
+                 j.title+" · "+(j.keyType==="open"?"ระบบเปิดรับ ":"ปิดรับ ")+fmtTH(j.keyDate), j.id+tier);
+          notified[key]=Date.now(); changed=true;
+        }
+      }
+    });
+  });
+  if(changed) await store.set("notified",notified);
+}
+
+/* ============ แชร์ + รูปสรุป ============ */
+function shareText(j){
+  const s=st(j);
+  const dl = j.rolling ? "รับสมัครต่อเนื่อง" : (s==="closed" ? "ปิดรับแล้ว" : (j.keyType==="open"?"ระบบเปิดรับ ":"ปิดรับ ")+fmtTH(j.keyDate));
+  return `${j.title}\n📍 ${j.hospital} · เขต${j.area}\n🗓 ${dl}\n\nเจอผ่านแอป "อาสาน้อย" รวมงานอาสาสร้างพอร์ตสายสุขภาพ`;
+}
+async function shareJob(id){
+  const j=DATA.find(x=>x.id===id); if(!j) return;
+  const url=j.applyUrl||location.href;
+  try{
+    if(navigator.share){ await navigator.share({title:j.title, text:shareText(j), url}); }
+    else { await navigator.clipboard.writeText(shareText(j)+"\n"+url); toast("คัดลอกข้อความแล้ว 📋"); }
+  }catch(e){}
+}
+function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function wrapText(ctx,text,x,y,maxW,lh,maxLines){
+  const words=(text||"").split(/(\s+)/); let line="",lines=[];
+  for(const w of words){ if(ctx.measureText(line+w).width>maxW && line){ lines.push(line.trim()); line=w; } else line+=w; if(lines.length>=maxLines) break; }
+  if(line && lines.length<maxLines) lines.push(line.trim());
+  lines.slice(0,maxLines).forEach((ln,i)=>ctx.fillText(ln,x,y+i*lh));
+  return Math.min(lines.length,maxLines);
+}
+function makeCardImage(j){
+  const W=1080,H=1350,c=document.createElement("canvas"); c.width=W; c.height=H;
+  const x=c.getContext("2d");
+  const g=x.createLinearGradient(0,0,W,H); g.addColorStop(0,"#4FC3F7"); g.addColorStop(1,"#2563EB");
+  x.fillStyle=g; x.fillRect(0,0,W,H);
+  // soft blobs
+  x.fillStyle="rgba(255,255,255,.10)"; x.beginPath(); x.arc(920,180,220,0,7); x.fill(); x.beginPath(); x.arc(120,1180,180,0,7); x.fill();
+  // white card
+  x.fillStyle="#fff"; roundRect(x,80,300,W-160,760,44); x.fill();
+  const s=st(j);
+  // status pill
+  const pillTxt = j.rolling?"รับสมัครต่อเนื่อง":({open:"กำลังเปิดรับอยู่",upcoming:"กำลังจะเปิดเร็ว ๆ นี้",closed:"ปิดรับสมัคร"})[s];
+  const pillCol = s==="closed"?"#FDEAEE":(s==="upcoming"?"#E5F0FF":"#E3F8F0");
+  const pillFg  = s==="closed"?"#C2334D":(s==="upcoming"?"#1D6FD8":"#0F8A63");
+  x.font="600 34px Mitr, sans-serif"; const pw=x.measureText(pillTxt).width+64;
+  x.fillStyle=pillCol; roundRect(x,130,360,pw,64,32); x.fill(); x.fillStyle=pillFg; x.textBaseline="middle"; x.fillText(pillTxt,162,393);
+  x.textBaseline="alphabetic";
+  // icon + brand
+  x.font="46px sans-serif"; x.fillText(j.icon||"🩺",130,300-40);
+  x.font="600 40px Mitr, sans-serif"; x.fillStyle="#fff"; x.fillText("อาสาน้อย",190,300-46);
+  // title
+  x.fillStyle="#0F2A43"; x.font="600 58px Mitr, sans-serif";
+  const used=wrapText(x,j.title,130,510,W-260,72,3);
+  let yy=510+used*72+30;
+  // hospital
+  x.fillStyle="#2563EB"; x.font="500 38px Mitr, sans-serif";
+  wrapText(x,"📍 "+j.hospital,130,yy,W-260,50,2); yy+=100;
+  // deadline
+  const dl = j.rolling?"รับสมัครต่อเนื่อง":(s==="closed"?("รอบก่อนปิดแล้ว"):((j.keyType==="open"?"ระบบเปิดรับ ":"ปิดรับสมัคร ")+fmtTH(j.keyDate)));
+  x.fillStyle="#5C7591"; x.font="400 36px Sarabun, sans-serif"; x.fillText("🗓 "+dl,130,yy); yy+=70;
+  const d=daysUntil(j.keyDate);
+  if(!j.rolling && s!=="closed" && d!=null && d>=0){
+    x.fillStyle=d<=3?"#FF5C7A":(d<=7?"#F5A623":"#2563EB"); x.font="600 44px Mitr, sans-serif";
+    x.fillText(d===0?"⏰ ครบกำหนดวันนี้!":("⏰ เหลืออีก "+d+" วัน"),130,yy);
+  }
+  // footer
+  x.fillStyle="rgba(255,255,255,.92)"; x.font="500 34px Mitr, sans-serif"; x.textAlign="center";
+  x.fillText("รวมงานอาสาสร้างพอร์ตสายสุขภาพ · อาสาน้อย",W/2,H-70); x.textAlign="left";
+  return c;
+}
+async function shareImage(id){
+  const j=DATA.find(x=>x.id===id); if(!j) return;
+  toast("กำลังสร้างรูป…");
+  const canvas=makeCardImage(j);
+  canvas.toBlob(async(blob)=>{
+    if(!blob){ toast("สร้างรูปไม่สำเร็จ"); return; }
+    const file=new File([blob],"asanaoi-"+j.id+".png",{type:"image/png"});
+    try{
+      if(navigator.canShare && navigator.canShare({files:[file]})){
+        await navigator.share({files:[file], title:j.title, text:j.title});
+      } else {
+        const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=file.name; a.click();
+        setTimeout(()=>URL.revokeObjectURL(a.href),4000); toast("บันทึกรูปแล้ว 🖼️");
+      }
+    }catch(e){}
+  },"image/png");
+}
 
 init();
 </script>

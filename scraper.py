@@ -204,6 +204,63 @@ def enrich_aggregator(items, url, source_key, limit=25):
     print(f"[auto] {source_key}: เพิ่ม {added} รายการ (unverified)", file=sys.stderr)
     return added
 
+# ============================================================================
+# ตรวจสอบลิงก์จริงก่อนแสดง — จับ Google Form ที่ปิด / ลิงก์เสีย / หน้าไม่มีข้อมูลรับสมัคร
+# ============================================================================
+CLOSED_PATTERNS = [
+    re.compile(r'ไม่รับคำตอบ'),
+    re.compile(r'no longer accepting responses', re.I),
+    re.compile(r'(?<!เ)ปิดรับคำตอบ'),
+    re.compile(r'(?<!เ)ปิดรับสมัครแล้ว'),
+    re.compile(r'หมดเขตรับสมัคร'),
+    re.compile(r'ปิดรับสมัครไปแล้ว'),
+    re.compile(r'รับสมัครเต็มแล้ว'),
+    re.compile(r'(?<!เ)ปิดรอบ(?:นี้)?แล้ว'),
+]
+OPEN_HINTS = ["รับสมัคร","เปิดรับ","ลงทะเบียน","สมัครเข้าร่วม","รับอาสา","accepting responses"]
+SOCIAL = ["facebook.com","instagram.com","tiktok.com","twitter.com","x.com","line.me","lin.ee"]
+
+def classify_link(url):
+    """คืน: open | form_open | closed | dead | empty | social | unknown"""
+    if not url: return "unknown"
+    if any(s in url for s in SOCIAL): return "social"      # เปิดในเบราว์เซอร์ได้ แต่บอตอ่านไม่ได้
+    import urllib.error
+    try:
+        html = _fetch(url)
+    except urllib.error.HTTPError as e:
+        return "dead" if e.code in (404,410) else "unknown"
+    except Exception:
+        return "unknown"
+    is_form = ("docs.google.com/forms" in url) or ("forms.gle" in url)
+    if any(p.search(html) for p in CLOSED_PATTERNS):
+        return "closed"
+    if is_form:
+        return "form_open"
+    if any(h in html for h in OPEN_HINTS):
+        return "open"
+    return "empty"     # หน้าโหลดได้แต่ไม่พบคำว่ารับสมัคร
+
+def verify_links(items, cap=60):
+    """เช็กลิงก์ของแต่ละรายการ ใส่ item['linkStatus'] และปรับสถานะถ้าปิด/เสีย (ไม่ลบทิ้ง)"""
+    checked = 0
+    for it in items:
+        if checked >= cap: break
+        # ข้ามรายการที่รับต่อเนื่อง (rolling) ไม่ต้องดาวน์เกรด
+        st = classify_link(it.get("applyUrl") or it.get("sourceUrl"))
+        it["linkStatus"] = st
+        checked += 1
+        if it.get("rolling"): 
+            continue
+        if st in ("closed","dead"):
+            it["status"] = "closed"
+            it["_forceClosed"] = True
+            tag = "ฟอร์ม/ประกาศปิดรับแล้ว" if st=="closed" else "ลิงก์ใช้งานไม่ได้ (ไม่พบหน้า)"
+            it["note"] = f"⚠️ ตรวจลิงก์อัตโนมัติ: {tag} · " + (it.get("note") or "")
+        elif st == "empty":
+            it["note"] = "⚠️ หน้าปลายทางไม่พบข้อมูลรับสมัครชัดเจน — โปรดตรวจก่อนสมัคร · " + (it.get("note") or "")
+    print(f"[verify] ตรวจลิงก์ {checked} รายการ", file=sys.stderr)
+    return checked
+
 def main():
     items = load_seed()
     # ---- รายงานความครอบคลุมของแหล่งข้อมูล ----
@@ -216,6 +273,9 @@ def main():
     # ---- 2) Auto-discovery จากเว็บรวมข่าวสายสุขภาพ (โตเอง) ----
     enrich_aggregator(items, "https://dekport.com/volunteer", "DekPort", limit=30)
     enrich_aggregator(items, "https://www.volunteerspirit.org/category/volunteeractivity/", "VolunteerSpirit", limit=30)
+
+    # ---- 3) ตรวจลิงก์จริงก่อนแสดง (Google Form ปิด / ลิงก์เสีย / หน้าไม่มีข้อมูล) ----
+    verify_links(items)
 
     out = {
         "updatedAt": datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),

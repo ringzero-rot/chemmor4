@@ -157,6 +157,10 @@ a{color:var(--blue);text-decoration:none}
 .tag.new{background:var(--coral);color:#fff}
 .tag.est{background:#EEF2F7;color:#5C7591}
 .tag.unver{background:#FFF1E7;color:#B4530E;border:1px solid #FAD3B4}
+.tag.lgood{background:#E3F8F0;color:#0F8A63}
+.tag.lwarn{background:#FFF6E5;color:#9A6400}
+.tag.lbad{background:#FDEAEE;color:#C2334D}
+.tag.lsoc{background:#EAF1FF;color:#2954A3}
 .status{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:8px}
 .status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .status.open{background:#E3F8F0;color:var(--green)}
@@ -305,6 +309,24 @@ footer a{color:var(--muted);text-decoration:underline}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
 .btn-logout{width:100%;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:14px;font-family:"Mitr";font-weight:500;font-size:14px;color:var(--coral);background:#FFF1F4;border:1px solid #FFD5DE}
+/* ---------- Live pages hub ---------- */
+#hubView{max-width:1100px;margin:0 auto;padding:18px 16px 48px}
+.hub-hero{background:linear-gradient(135deg,#2563EB,#4FC3F7);border-radius:22px;padding:20px;color:#fff;box-shadow:0 10px 26px rgba(37,99,235,.26)}
+.hub-hero h2{font-family:"Mitr";font-weight:600;font-size:19px;margin-bottom:5px}
+.hub-hero p{font-size:13px;opacity:.94;line-height:1.55}
+.hub-note{margin:14px 0 8px;background:#FFF8E8;border:1px solid #F5DFA8;color:#7a5200;border-radius:14px;padding:11px 13px;font-size:12.5px;line-height:1.5}
+.hub-group{margin-top:18px}
+.hub-gh{font-family:"Mitr";font-weight:500;font-size:14px;color:var(--blue-deep);margin-bottom:9px;padding-left:2px}
+.hub-card{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:9px;box-shadow:var(--shadow);transition:.15s}
+.hub-card:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(37,99,235,.12);border-color:#BFD8F5}
+.hub-ic{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:#EAF2FF;display:grid;place-items:center;font-size:22px}
+.hub-c{flex:1;min-width:0}
+.hub-name{font-family:"Mitr";font-weight:500;font-size:14px;color:var(--ink);line-height:1.35;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.hub-type{font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:20px;background:#EEF2F7;color:#5C7591}
+.hub-type.fb{background:#E7F0FF;color:#1877F2}
+.hub-desc{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.45}
+.hub-go{width:18px;height:18px;color:var(--blue);flex-shrink:0}
+@media (max-width:560px){ #hubView{padding:14px 12px 40px} }
 .btn-logout:hover{background:#FFE4EA}
 .btn-logout svg{width:17px;height:17px}
 .store-note{margin-top:12px;font-size:11.5px;color:var(--muted);text-align:center;line-height:1.5}
@@ -406,12 +428,16 @@ footer a{color:var(--muted);text-decoration:underline}
   <div class="viewnav-in">
     <button class="vtab active" data-view="search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
-      ค้นหาโครงการ
+      ค้นหา
     </button>
     <button class="vtab" data-view="dash">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" stroke-linejoin="round"/></svg>
-      แดชบอร์ดของฉัน
+      แดชบอร์ด
       <span class="vtab-badge" id="dashBadge" style="display:none">0</span>
+    </button>
+    <button class="vtab" data-view="hub">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.2L4 17.5V4Z" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke-linecap="round"/></svg>
+      เพจอัปเดตสด
     </button>
   </div>
 </div>
@@ -484,6 +510,9 @@ footer a{color:var(--muted);text-decoration:underline}
 
 <!-- Dashboard view -->
 <section id="dashView" hidden></section>
+
+<!-- Live pages hub -->
+<section id="hubView" hidden></section>
 
 <footer>
   ทำขึ้นเพื่อช่วยน้อง ๆ หาโอกาสจิตอาสาสายสุขภาพ · ข้อมูลรวบรวมจากเว็บไซต์ทางการของโรงพยาบาลและแหล่งรวมข่าวการศึกษา<br>
@@ -1065,6 +1094,7 @@ function daysUntil(bs){ const dt=toDate(bs); if(!dt) return null; const now=new 
 
 // derive real status from dates: "open" (open now), "upcoming" (opens soon), "closed"
 function computeStatus(job){
+  if(job._forceClosed || job.linkStatus==="closed" || job.linkStatus==="dead") return "closed";
   if(job.rolling) return "open";
   const dO=daysUntil(job.applyOpen), dC=daysUntil(job.applyClose);
   if(dC!=null && dC<0) return "closed";
@@ -1189,19 +1219,26 @@ function matchSearch(job){
   const t=(job.hospital+" "+job.org+" "+job.title+" "+job.scopeShort+" "+job.area+" "+job.scope.join(" ")).toLowerCase();
   return t.includes(searchTerm.toLowerCase());
 }
+function conf(job){
+  // 0 = น่าเชื่อถือ/พร้อมสมัครสุด → เด้งขึ้นก่อน
+  if(job.linkStatus==="empty"||job.unverified) return 2;
+  if(job.linkStatus==="social"||job.linkStatus==="unknown"||!job.linkStatus) return 1;
+  return 0; // open / form_open / verified
+}
 function sortJobs(list){
   const rank={open:0,upcoming:1,closed:2};
   if(sortBy==="az") return list.sort((a,b)=>a.hospital.localeCompare(b.hospital,"th"));
   if(sortBy==="new"){
-    return list.sort((a,b)=>(isNew(b.id)-isNew(a.id)) || (rank[st(a)]-rank[st(b)]));
+    return list.sort((a,b)=>(isNew(b.id)-isNew(a.id)) || (rank[st(a)]-rank[st(b)]) || (conf(a)-conf(b)));
   }
-  // deadline: nearest future keyDate first, then upcoming, then closed
+  // deadline: open & ลิงก์น่าเชื่อถือ & ใกล้ปิด มาก่อน
   return list.sort((a,b)=>{
     const da=daysUntil(a.keyDate), db=daysUntil(b.keyDate);
     const fa=(st(a)!=="closed"&&da!=null&&da>=0), fb=(st(b)!=="closed"&&db!=null&&db>=0);
-    if(fa&&fb) return da-db;
+    if(fa&&fb) return (conf(a)-conf(b)) || (da-db);
     if(fa) return -1; if(fb) return 1;
-    return rank[st(a)]-rank[st(b)];
+    // ทั้งคู่ไม่มี deadline ชัด: เปิด>จะเปิด>ปิด, แล้วดูความน่าเชื่อถือ
+    return (rank[st(a)]-rank[st(b)]) || (conf(a)-conf(b));
   });
 }
 function isNew(id){ return firstVisit ? false : !seenIds.includes(id); }
@@ -1268,6 +1305,13 @@ function cardHTML(job){
   const catTag = `<span class="tag cat">${CAT_ICON[job.cat]||"📌"} ${CAT_LABEL[job.cat]||"โครงการ"}</span>`;
   const estTag = !job.dateConfirmed && !job.rolling && s!=="closed" ? '<span class="tag est">วันที่ประมาณการ</span>':'';
   const unverTag = job.unverified ? '<span class="tag unver">🔎 จากแหล่งรวม · ตรวจก่อนสมัคร</span>':'';
+  const linkTag = ({
+    form_open:'<span class="tag lgood">🟢 ฟอร์มเปิดรับอยู่</span>',
+    open:'<span class="tag lgood">🟢 ลิงก์เปิดรับ</span>',
+    empty:'<span class="tag lwarn">⚠️ ปลายทางอาจไม่มีข้อมูลรับสมัคร</span>',
+    dead:'<span class="tag lbad">⛔ ลิงก์ใช้ไม่ได้</span>',
+    social:'<span class="tag lsoc">📣 ประกาศผ่านโซเชียล</span>'
+  })[job.linkStatus] || '';
   return `<article class="card" data-id="${job.id}">
     <div class="card-top">
       <div class="hosp-ic">${job.icon}</div>
@@ -1287,6 +1331,7 @@ function cardHTML(job){
       ${/ฟรี/.test(job.cost)?'<span class="tag free">ฟรี</span>':''}
       ${estTag}
       ${unverTag}
+      ${linkTag}
     </div>
     <div class="card-body">
       <div class="row"><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5-7-11a7 7 0 0 1 14 0c0 6-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>สถานที่</span><span class="v">${escapeHtml(job.hospital)} · เขต${escapeHtml(job.area)}</span></div>
@@ -1396,10 +1441,67 @@ function dRing(d,color){
 function switchView(v){
   view=v;
   $$(".vtab").forEach(t=>t.classList.toggle("active",t.dataset.view===v));
-  const search=$("#searchView"), dash=$("#dashView");
-  if(v==="dash"){ search.setAttribute("hidden",""); dash.removeAttribute("hidden"); renderDash(); }
-  else { dash.setAttribute("hidden",""); search.removeAttribute("hidden"); }
+  const search=$("#searchView"), dash=$("#dashView"), hub=$("#hubView");
+  search.setAttribute("hidden",""); dash.setAttribute("hidden",""); hub.setAttribute("hidden","");
+  if(v==="dash"){ dash.removeAttribute("hidden"); renderDash(); }
+  else if(v==="hub"){ hub.removeAttribute("hidden"); renderHub(); }
+  else { search.removeAttribute("hidden"); }
   window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ============ Live pages hub — ลิงก์ทางการ/เพจ FB ที่พาไปสมัครจริง ============ */
+const LINKS = [
+  { group:"โรงพยาบาล / คณะแพทย์", items:[
+    { name:"ศูนย์อาสาสมัครศิริราช", type:"เว็บสมัคร", desc:"ลงทะเบียน + ตำแหน่งที่เปิดรับ (อัปเดตบ่อย)", url:"https://www.si.mahidol.ac.th/th/division/csr/volunteersiriraj/news.asp?t=1", icon:"🏥" },
+    { name:"ศิริราชเพื่อสังคม", type:"Facebook", desc:"ประกาศรอบ/ผลคัดเลือกอาสาสมัครสด ๆ", url:"https://www.facebook.com/search/top?q=ศิริราชเพื่อสังคม", icon:"📣" },
+    { name:"จิตอาสารามาธิบดี", type:"Facebook", desc:"เปิดรับเป็นรอบ ประกาศทางเพจ", url:"https://www.facebook.com/jitarsarama/", icon:"📣" },
+    { name:"จิตอาสารามาธิบดี", type:"เว็บทางการ", desc:"หน้าโครงการจิตอาสา รพ.รามาฯ", url:"https://www.rama.mahidol.ac.th/rama_hospital/th/volunteer", icon:"🏥" },
+    { name:"จิตอาสา รพ.ราชวิถี (ธนาคารเวลา)", type:"เว็บสมัคร", desc:"ลงทะเบียนจิตอาสาช่วยผู้ป่วยนอก", url:"https://oapp.rajavithi.go.th/RjvtRegisterVolunteer/", icon:"🏨" },
+    { name:"อาสาสมัครนักเรียน วชิรพยาบาล", type:"เว็บโครงการ", desc:"รับ ม.3–6 · ประกาศรอบ + ฟอร์ม", url:"https://sites.google.com/nmu.ac.th/student-volunteer/", icon:"🩺" },
+    { name:"ยุวกาชาด / สภากาชาดไทย", type:"เว็บสมัคร", desc:"อาสาสมัคร ณ รพ.จุฬาฯ และกิจกรรมเยาวชน", url:"https://trcyvolunteer.redcross.or.th/", icon:"➕" },
+    { name:"โรงพยาบาลมีสุข (มูลนิธิกระจกเงา)", type:"เว็บ", desc:"อาสาทำกิจกรรมกับผู้ป่วยเด็ก (รับต่อเนื่อง)", url:"https://www.happyhospital.org/volunteer.php", icon:"🧸" },
+  ]},
+  { group:"เครือข่าย / มูลนิธิ", items:[
+    { name:"มูลนิธิเครือข่ายพุทธิกา (จิตอาสา 8 รพ.)", type:"Facebook", desc:"ประกาศรอบจิตอาสา 8 โรงพยาบาลรัฐ", url:"https://www.facebook.com/BuddhikaNetwork", icon:"📣" },
+    { name:"มูลนิธิเครือข่ายพุทธิกา", type:"เว็บทางการ", desc:"budnet.org", url:"https://budnet.org", icon:"🌐" },
+    { name:"อาสาวัยเรียน (บุญอาสา)", type:"Facebook", desc:"รับอาสานักเรียน/นักศึกษารายเดือน", url:"https://www.facebook.com/boonvolunteer", icon:"📣" },
+    { name:"เครือข่ายจิตอาสา VolunteerSpirit", type:"เว็บรวมกิจกรรม", desc:"ลิสต์กิจกรรมอาสาพร้อมวันสมัคร", url:"https://www.volunteerspirit.org/category/volunteeractivity/", icon:"🌐" },
+  ]},
+  { group:"ค่าย / เปิดบ้านคณะแพทย์", items:[
+    { name:"ค่ายอยากเป็นหมอ จุฬาฯ", type:"เว็บค่าย", desc:"รับสมัครรายปี · medcamp.docchula.com", url:"https://medcamp.docchula.com", icon:"🩻" },
+    { name:"Siriraj Open House / ฝ่ายการศึกษา", type:"เว็บ", desc:"งานเปิดบ้าน + หลักสูตรสายสุขภาพ", url:"https://www.sieduit.org/education", icon:"🎪" },
+    { name:"ค่ายเส้นทางสู่หมอศิริราช (SASiriraj)", type:"Facebook", desc:"ค่ายรายปีสำหรับ ม.ปลาย", url:"https://www.facebook.com/sasiriraj", icon:"🧬" },
+  ]},
+  { group:"เว็บรวมข่าว (ค้นเพิ่มได้อีกเยอะ)", items:[
+    { name:"DekPort — จิตอาสานักเรียน", type:"รวมข่าว", desc:"รวมจิตอาสาสายสุขภาพ อัปเดตทุกวัน", url:"https://dekport.com/volunteer", icon:"🔎" },
+    { name:"CampHub — ค่ายสายแพทย์/สุขภาพ", type:"รวมข่าว", desc:"รวมค่ายอยากเป็นหมอ/สายสุขภาพ", url:"https://www.camphub.in.th/medical-health/doctor/", icon:"⛺" },
+    { name:"dekuni — รวมจิตอาสา รพ.", type:"รวมข่าว", desc:"บทความรวมงานอาสาโรงพยาบาล", url:"https://dekuni.com/voluneer-hospital/", icon:"🔎" },
+    { name:"AdmissionPremium", type:"รวมข่าว", desc:"บทความโครงการ/รับสมัครรายตัว", url:"https://www.admissionpremium.com/", icon:"🔎" },
+    { name:"Eduzones", type:"รวมข่าว", desc:"ข่าวรับสมัคร/โควตาสายกิจกรรม", url:"https://www.eduzones.com/", icon:"🔎" },
+  ]},
+];
+function renderHub(){
+  const el=$("#hubView");
+  const cards = LINKS.map(g=>`
+    <div class="hub-group">
+      <div class="hub-gh">${escapeHtml(g.group)}</div>
+      ${g.items.map(it=>`
+        <a class="hub-card" href="${it.url}" target="_blank" rel="noopener">
+          <div class="hub-ic">${it.icon}</div>
+          <div class="hub-c">
+            <div class="hub-name">${escapeHtml(it.name)} <span class="hub-type ${/Facebook/.test(it.type)?'fb':''}">${escapeHtml(it.type)}</span></div>
+            <div class="hub-desc">${escapeHtml(it.desc)}</div>
+          </div>
+          <svg class="hub-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>`).join("")}
+    </div>`).join("");
+  el.innerHTML = `
+    <div class="hub-hero">
+      <h2>เพจ & แหล่งอัปเดตสด 📣</h2>
+      <p>โรงพยาบาลหลายที่ประกาศรับสมัครสด ๆ บน Facebook/เว็บทางการ ซึ่งอัปเดตไวและครบสุด — แตะเพื่อเข้าไปดูโพสต์ล่าสุดและสมัครได้เลย</p>
+    </div>
+    <div class="hub-note">💡 แหล่งพวกนี้คนโพสต์เอง แอปจึงพาไปที่หน้าโดยตรง (ไม่ได้ดึงเนื้อหามาแสดง) — ควรเช็ควันรับสมัครหน้าเพจก่อนทุกครั้ง</div>
+    ${cards}`;
 }
 function renderDash(){
   const dash=$("#dashView");

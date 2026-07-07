@@ -187,6 +187,9 @@ a{color:var(--blue);text-decoration:none}
 }
 .deadline.warn{background:#FFF6E7;border-color:#F7DBA0}
 .deadline.urgent{background:#FDEBEF;border-color:#F7C0CC}
+.deadline.est{background:#F4F6F9;border-color:#DBE2EC;border-style:dashed}
+.deadline.est .sub{color:#6B7A8D}
+.est-flag{color:#7C8AA0;font-weight:700}
 .dl-ring{width:44px;height:44px;flex:none;position:relative}
 .dl-ring svg{transform:rotate(-90deg)}
 .dl-ring .num{position:absolute;inset:0;display:grid;place-items:center;font-family:"Mitr";font-weight:600;font-size:15px}
@@ -219,6 +222,14 @@ a{color:var(--blue);text-decoration:none}
 .btn svg{width:17px;height:17px}
 .btn-primary{background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;box-shadow:0 6px 16px rgba(37,99,235,.3)}
 .btn-follow{background:linear-gradient(135deg,#8FA9C6,#5C7591);color:#fff;box-shadow:0 6px 16px rgba(92,117,145,.28)}
+.rp-l{display:block;font-family:"Mitr";font-weight:500;font-size:13px;color:var(--ink);margin:10px 0 5px}
+.rp-in{width:100%;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:#F8FBFF;font-family:"Sarabun";font-size:14px;color:var(--ink)}
+.rp-in:focus{outline:none;border-color:var(--blue);background:#fff}
+textarea.rp-in{resize:vertical;line-height:1.5}
+.report-link{display:block;width:100%;margin-top:12px;padding:9px;border-radius:10px;background:transparent;border:1px dashed #E0AFB8;color:#B4530E;font-family:"Sarabun";font-weight:600;font-size:12.5px}
+.report-link:hover{background:#FFF6F2}
+.hub-suggest{width:100%;margin:12px 0 4px;padding:14px;border-radius:16px;font-family:"Mitr";font-weight:500;font-size:14px;color:#fff;background:linear-gradient(135deg,#F5A623,#FF7A59);box-shadow:0 6px 16px rgba(245,166,35,.28)}
+.hub-suggest:hover{filter:brightness(1.03)}
 .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(37,99,235,.4)}
 .btn-ghost{background:#fff;border:1px solid var(--line);color:var(--blue-deep);flex:none;min-width:auto;padding:11px 14px}
 .btn-ghost:hover{border-color:var(--sky)}
@@ -594,6 +605,35 @@ footer a{color:var(--muted);text-decoration:underline}
     <div class="modal-body">
       <div id="njList"></div>
       <button class="btn btn-primary" id="njView">ดูงานใหม่ทั้งหมด</button>
+    </div>
+  </div>
+</div>
+
+<!-- Report / suggest modal -->
+<div class="overlay" id="reportOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="rpTitle">
+    <div class="modal-hero" style="background:linear-gradient(135deg,#2563EB,#4FC3F7)">
+      <button class="modal-close" id="rpClose" aria-label="ปิด"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+      <div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 4.3 2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0Z" stroke-linejoin="round"/></svg></div>
+      <h2 id="rpTitle">แจ้งข้อมูล / เสนอโครงการ</h2>
+      <p>ช่วยกันทำให้แม่นขึ้น — เจอลิงก์เสีย วันที่ผิด หรือรู้จักโครงการที่ยังไม่มี บอกได้เลย</p>
+    </div>
+    <div class="modal-body">
+      <label class="rp-l">เรื่องที่จะแจ้ง</label>
+      <select id="rpType" class="rp-in">
+        <option value="ลิงก์เสีย/สมัครไม่ได้">🔗 ลิงก์เสีย / สมัครไม่ได้</option>
+        <option value="วันที่ไม่ถูกต้อง">📅 วันที่ไม่ถูกต้อง</option>
+        <option value="โครงการปิด/เต็มแล้ว">🚫 ปิด / เต็มแล้ว</option>
+        <option value="เสนอโครงการใหม่">✨ เสนอโครงการใหม่</option>
+        <option value="อื่น ๆ">💬 อื่น ๆ</option>
+      </select>
+      <label class="rp-l">โครงการที่เกี่ยวข้อง</label>
+      <input id="rpProject" class="rp-in" placeholder="ชื่อโครงการ (ถ้ามี)">
+      <label class="rp-l">รายละเอียด / ลิงก์ที่ถูกต้อง</label>
+      <textarea id="rpDetail" class="rp-in" rows="3" placeholder="เล่าให้ฟังหน่อย เช่น ลิงก์ที่ถูกต้องคือ… / วันจริงคือ…"></textarea>
+      <button class="btn btn-primary" id="rpCopy" style="margin-top:6px">📋 คัดลอกข้อความแจ้ง</button>
+      <a class="pmods" id="rpGithub" href="#" target="_blank" rel="noopener" style="text-align:center;text-decoration:none;display:block">ส่งผ่าน GitHub (สำหรับผู้ดูแล)</a>
+      <div class="store-note">ข้อมูลที่แจ้งจะช่วยผู้ดูแลปรับปรุงให้ถูกต้อง · ระบบนี้ไม่เก็บข้อมูลส่วนตัว</div>
     </div>
   </div>
 </div>
@@ -1290,6 +1330,7 @@ function render(){
     };
     const sb=c.querySelector("[data-share]"); if(sb) sb.onclick=()=>shareJob(id);
     const si=c.querySelector("[data-shareimg]"); if(si) si.onclick=()=>shareImage(id);
+    const rp=c.querySelector("[data-report]"); if(rp) rp.onclick=()=>openReport(id);
   });
 }
 
@@ -1305,17 +1346,27 @@ function deadlineBlock(job){
     return `<div class="deadline"><div class="dl-txt"><b>รับสมัครต่อเนื่อง</b><div class="sub">ตรวจสอบรอบปัจจุบันกับลิงก์ทางการ</div></div></div>`;
   }
   const lbl = s==="upcoming" ? (job.keyType==="open"?"ระบบจะเปิดรับ":"เปิดรับถึง") : (job.keyType==="open" ? "ระบบเปิดรับ" : "ปิดรับสมัคร");
-  let cls="", ring="var(--blue)";
   if(d<0){ return `<div class="deadline"><div class="dl-txt"><b>ผ่านกำหนดรอบนี้แล้ว</b><div class="sub">รอบใหม่ติดตามลิงก์ทางการ</div></div></div>`; }
-  if(d<=1){cls="urgent";ring="var(--coral)";}
-  else if(d<=3){cls="urgent";ring="var(--coral)";}
+
+  // วันที่ยังไม่ยืนยัน (ประมาณการ) → แสดงแบบ "ไม่ชี้นำ" วงแหวนสีเทา ตัวเลขมี ~ และเตือนชัด
+  if(!job.dateConfirmed){
+    const circ0=2*Math.PI*18;
+    return `<div class="deadline est">
+      <div class="dl-ring"><svg width="44" height="44"><circle cx="22" cy="22" r="18" fill="none" stroke="#E4EAF1" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="#9AA9BC" stroke-width="4" stroke-linecap="round" stroke-dasharray="4 5"/></svg><span class="num" style="color:#7C8AA0;font-size:14px">~${d}</span></div>
+      <div class="dl-txt"><b style="color:#5C7591">${lbl}ราว ${fmtTH(job.keyDate)}</b><div class="sub"><span class="est-flag">📌 วันที่ยังไม่ยืนยัน</span> — คาดจากรอบก่อน เลข "~${d} วัน" เป็นการประมาณ โปรดเช็คหน้าประกาศก่อนสมัคร</div></div>
+    </div>`;
+  }
+
+  // วันที่ยืนยันแล้ว → นับถอยหลังแบบมั่นใจ (สี)
+  let cls="", ring="var(--blue)";
+  if(d<=3){cls="urgent";ring="var(--coral)";}
   else if(d<=7){cls="warn";ring="var(--amber)";}
   const pct=Math.max(0,Math.min(1,(30-d)/30));
   const circ=2*Math.PI*18, off=circ*(1-pct);
   const dtxt = d===0?"วันนี้!":`อีก ${d} วัน`;
   return `<div class="deadline ${cls}">
-    <div class="dl-ring"><svg width="44" height="44"><circle cx="22" cy="22" r="18" fill="none" stroke="#E4EEF9" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="${ring}" stroke-width="4" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${off}"/></svg><span class="num" style="color:${ring}">${d<0?"–":d}</span></div>
-    <div class="dl-txt"><b>${lbl} · ${dtxt}</b><div class="sub">${lbl} ${fmtTH(job.keyDate)}${job.dateConfirmed?"":" · ประมาณการ"}</div></div>
+    <div class="dl-ring"><svg width="44" height="44"><circle cx="22" cy="22" r="18" fill="none" stroke="#E4EEF9" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="${ring}" stroke-width="4" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${off}"/></svg><span class="num" style="color:${ring}">${d}</span></div>
+    <div class="dl-txt"><b>${lbl} · ${dtxt}</b><div class="sub">✅ ยืนยันแล้ว: ${lbl} ${fmtTH(job.keyDate)}</div></div>
   </div>`;
 }
 
@@ -1382,6 +1433,7 @@ function cardHTML(job){
         <div class="sec-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>วิธีสมัคร</div>
         <ol class="steps">${job.howTo.map(s=>`<li>${escapeHtml(s)}</li>`).join("")}</ol>
         <div class="note-box">💡 ${escapeHtml(job.note)}</div>
+        <button class="report-link" data-report="${job.id}">⚠️ ข้อมูลไม่ถูกต้อง / ลิงก์เสีย? แจ้งเรา</button>
       </div>
     </div>
     <div class="card-foot">
@@ -1542,7 +1594,9 @@ function renderHub(){
       <p>โรงพยาบาลหลายที่ประกาศรับสมัครสด ๆ บน Facebook/เว็บทางการ ซึ่งอัปเดตไวและครบสุด — แตะเพื่อเข้าไปดูโพสต์ล่าสุดและสมัครได้เลย</p>
     </div>
     <div class="hub-note">💡 แหล่งพวกนี้คนโพสต์เอง แอปจึงพาไปที่หน้าโดยตรง (ไม่ได้ดึงเนื้อหามาแสดง) — ควรเช็ควันรับสมัครหน้าเพจก่อนทุกครั้ง</div>
+    <button class="hub-suggest" id="hubSuggest">✨ รู้จักโครงการที่ยังไม่มีในนี้? เสนอเข้ามาเลย</button>
     ${cards}`;
+  const sg=$("#hubSuggest"); if(sg) sg.onclick=()=>openReport(null,"เสนอโครงการใหม่");
 }
 function renderDash(){
   const dash=$("#dashView");
@@ -1680,6 +1734,11 @@ function bindEvents(){
   $("#pLogout").onclick=logout;
   $("#notifBtn").onclick=ensureNotifs;
   $("#installBtn").onclick=doInstall;
+  $("#rpClose").onclick=closeReport;
+  $("#reportOverlay").onclick=e=>{ if(e.target.id==="reportOverlay") closeReport(); };
+  $("#rpCopy").onclick=copyReport;
+  $("#rpType").onchange=updateGithubLink; $("#rpProject").oninput=updateGithubLink; $("#rpDetail").oninput=updateGithubLink;
+  updateGithubLink();
   $("#pName").oninput=()=>$("#pName").style.borderColor="";
   $("#pmClose").onclick=()=>$("#profileOverlay").classList.remove("show");
   $$("#interestChips .ic").forEach(b=>b.onclick=()=>b.classList.toggle("on"));
@@ -1749,7 +1808,7 @@ async function runReminders(){
   if(!("Notification" in window) || Notification.permission!=="granted") return;
   const notified = (await store.get("notified")) || {};
   let changed=false;
-  DATA.filter(j=>favorites.includes(j.id)&&st(j)!=="closed"&&!j.rolling).forEach(j=>{
+  DATA.filter(j=>favorites.includes(j.id)&&st(j)!=="closed"&&!j.rolling&&j.dateConfirmed).forEach(j=>{
     const d=daysUntil(j.keyDate); if(d==null) return;
     [7,3,1,0].forEach(tier=>{
       if(d===tier){
@@ -1844,6 +1903,32 @@ async function shareImage(id){
       }
     }catch(e){}
   },"image/png");
+}
+
+/* ============ แจ้งข้อมูล / เสนอโครงการ (crowdsource) ============ */
+const REPORT_REPO = "ringzero-rot/chemmor4";  // repo สำหรับรับ issue จากผู้ดูแล
+function openReport(id, presetType){
+  const j = id ? DATA.find(x=>x.id===id) : null;
+  $("#rpProject").value = j ? j.title : "";
+  if(presetType){ const sel=$("#rpType"); [...sel.options].forEach(o=>{ if(o.value===presetType) sel.value=presetType; }); }
+  $("#rpDetail").value = "";
+  $("#reportOverlay").classList.add("show");
+}
+function closeReport(){ $("#reportOverlay").classList.remove("show"); }
+function reportText(){
+  const type=$("#rpType").value, proj=$("#rpProject").value.trim(), detail=$("#rpDetail").value.trim();
+  return `[แจ้งข้อมูล อาสาน้อย]\nเรื่อง: ${type}\nโครงการ: ${proj||"-"}\nรายละเอียด: ${detail||"-"}`;
+}
+async function copyReport(){
+  const txt=reportText();
+  try{ await navigator.clipboard.writeText(txt); toast("คัดลอกข้อความแล้ว 📋 นำไปส่งผู้ดูแลได้เลย"); }
+  catch(e){ toast("คัดลอกไม่สำเร็จ — ลองเลือกข้อความเอง"); }
+}
+function updateGithubLink(){
+  const type=$("#rpType").value, proj=$("#rpProject").value.trim();
+  const title=encodeURIComponent(`[แจ้งข้อมูล] ${type}${proj?" · "+proj:""}`);
+  const body=encodeURIComponent(reportText());
+  $("#rpGithub").href=`https://github.com/${REPORT_REPO}/issues/new?title=${title}&body=${body}`;
 }
 
 init();

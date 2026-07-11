@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-07-11T02:24:54Z",
+ "updatedAt": "2026-07-11T11:56:38Z",
  "generatedBy": "scraper.py",
  "count": 40,
  "items": [
@@ -173,7 +173,7 @@
    "sourceUrl": "https://www.si.mahidol.ac.th/th/division/csr/volunteersiriraj/viewnews.asp?id=473",
    "sourceName": "ประกาศตำแหน่งนี้ (news.asp) — ศิริราช",
    "note": "เปิดรับอยู่จริง · ปิดรับ 31 ก.ค. 2569 · อายุ 16–25 ปี · สอบถาม 02-419-9350-1 · กดปุ่มแหล่งข้อมูลเพื่อดูรายละเอียดเต็มของตำแหน่งนี้",
-   "linkStatus": "unknown"
+   "linkStatus": "open"
   },
   {
    "id": "siriraj-health",
@@ -978,7 +978,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "จิตอาสา ยืดให้กัน เข้าร่วมกิจกรรมจิตอาสา “ยืดให้กัน” ที่จัดขึ้นทุกเดือนที่หอจดหมายเหตุพุทธทาส อินทปัญโญ ซึ่งเป็นกิจกรรมก",
+   "title": "จิตอาสา ยืดให้กัน ปิดรับสมัคร 21 มิ.ย. 69 เข้าร่วมกิจกรรมจิตอาสา “ยืดให้กัน” ที่จัดขึ้นทุกเดือนที่หอจดหมายเหตุพุทธทาส อิ",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1014,42 +1014,6 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "จิตอาสา อาสาทำช้างบีบมือเพื่อผู้ป่วยอัมพาตและกล้ามเนื้ออ่อนแรง ร่วมเป็นพลเมืองอาสาทำ “ช้างบีบมือ” เพื่อช่วยเหลือผู้ป่วยอ",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": null,
-   "keyDate": null,
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://dekport.com/volunteer/อาสา-ช้างบีบมือ",
-   "sourceUrl": "https://dekport.com/volunteer/อาสา-ช้างบีบมือ",
-   "sourceName": "DekPort (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "unknown"
-  },
-  {
-   "id": "auto-DekPort-3",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน DekPort",
-   "area": "—",
-   "icon": "🔎",
    "title": "อาสาแยกยาและเวชภัณฑ์ หมอนหนุนอุ่นรัก โอ่งจิ๋วน้ำใจ และทำปลาใจดี",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
@@ -1079,7 +1043,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-4",
+   "id": "auto-DekPort-3",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1115,79 +1079,43 @@
    "linkStatus": "unknown"
   },
   {
+   "id": "auto-DekPort-4",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
+   "title": "อาสาทำช้างบีบมือเพื่อผู้ป่วยอัมพาตและกล้ามเนื้ออ่อนแรง",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": null,
+   "keyDate": null,
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/อาสา-ช้างบีบมือ",
+   "sourceUrl": "https://dekport.com/volunteer/อาสา-ช้างบีบมือ",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "unknown"
+  },
+  {
    "id": "auto-DekPort-5",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน DekPort",
-   "area": "—",
-   "icon": "🔎",
-   "title": "อาสาสมัครประจำจุดวัดความดันโลหิต ศิริราช",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": null,
-   "keyDate": null,
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
-   "sourceName": "DekPort (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
-  },
-  {
-   "id": "auto-DekPort-6",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน DekPort",
-   "area": "—",
-   "icon": "🔎",
-   "title": "อาสาสมัครบริการหน่วยตรวจโรคจักษุ ศิริราช",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": null,
-   "keyDate": null,
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-eye-clinic-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-eye-clinic-volunteer-may-july-2026",
-   "sourceName": "DekPort (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
-  },
-  {
-   "id": "auto-DekPort-7",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1223,7 +1151,43 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-8",
+   "id": "auto-DekPort-6",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
+   "title": "อาสาสมัครประคองผู้ป่วยที่ช่วยเหลือตัวเองได้น้อย ศิริราช",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": null,
+   "keyDate": null,
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
+   "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "open"
+  },
+  {
+   "id": "auto-DekPort-7",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1259,14 +1223,14 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-9",
+   "id": "auto-DekPort-8",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "อาสาสมัครประคองผู้ป่วยที่ช่วยเหลือตัวเองได้น้อย ศิริราช",
+   "title": "อาสาสมัครบริการหน่วยตรวจโรคจักษุ ศิริราช",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1288,8 +1252,44 @@
    "howTo": [
     "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
    ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
+   "applyUrl": "https://dekport.com/volunteer/siriraj-eye-clinic-volunteer-may-july-2026",
+   "sourceUrl": "https://dekport.com/volunteer/siriraj-eye-clinic-volunteer-may-july-2026",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "open"
+  },
+  {
+   "id": "auto-DekPort-9",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
+   "title": "อาสาสมัครประจำจุดวัดความดันโลหิต ศิริราช",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": null,
+   "keyDate": null,
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
+   "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "open"
@@ -1352,8 +1352,8 @@
    "cert": false,
    "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
    "applyOpen": null,
-   "applyClose": "2569-04-19",
-   "keyDate": "2569-04-19",
+   "applyClose": null,
+   "keyDate": null,
    "keyType": "close",
    "dateConfirmed": false,
    "status": "open",
@@ -1388,8 +1388,8 @@
    "cert": false,
    "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
    "applyOpen": null,
-   "applyClose": "2569-02-21",
-   "keyDate": "2569-02-21",
+   "applyClose": null,
+   "keyDate": null,
    "keyType": "close",
    "dateConfirmed": false,
    "status": "open",
@@ -1410,42 +1410,6 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "อาสาเพ้นท์เสื้อให้ผู้ป่วย คลายร้อน",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": "2569-08-08",
-   "keyDate": "2569-08-08",
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://dekport.com/volunteer/อาสาเพ้นท์เสื้อ-ให้ผู้ป่วย-คลายร้อน",
-   "sourceUrl": "https://dekport.com/volunteer/อาสาเพ้นท์เสื้อ-ให้ผู้ป่วย-คลายร้อน",
-   "sourceName": "DekPort (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "unknown"
-  },
-  {
-   "id": "auto-DekPort-14",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน DekPort",
-   "area": "—",
-   "icon": "🔎",
    "title": "เย็บเต้านมเทียม ส่งต่อกำลังใจผู้ป่วยมะเร็งเต้านม วันที่ 19 เมษายน 2569",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
@@ -1460,8 +1424,8 @@
    "cert": false,
    "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
    "applyOpen": null,
-   "applyClose": "2569-08-08",
-   "keyDate": "2569-08-08",
+   "applyClose": "2569-04-19",
+   "keyDate": "2569-04-19",
    "keyType": "close",
    "dateConfirmed": false,
    "status": "open",
@@ -1475,7 +1439,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-15",
+   "id": "auto-DekPort-14",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1496,8 +1460,8 @@
    "cert": false,
    "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
    "applyOpen": null,
-   "applyClose": "2569-08-08",
-   "keyDate": "2569-08-08",
+   "applyClose": "2569-04-19",
+   "keyDate": "2569-04-19",
    "keyType": "close",
    "dateConfirmed": false,
    "status": "open",
@@ -1506,6 +1470,42 @@
    ],
    "applyUrl": "https://dekport.com/volunteer/กิจกรรม-อาสา-โอ่งจิ๋ว-หมอนหนุน-ปลานวดใจ",
    "sourceUrl": "https://dekport.com/volunteer/กิจกรรม-อาสา-โอ่งจิ๋ว-หมอนหนุน-ปลานวดใจ",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "unknown"
+  },
+  {
+   "id": "auto-DekPort-15",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
+   "title": "อาสาเพ้นท์เสื้อให้ผู้ป่วย คลายร้อน",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": "2569-04-06",
+   "keyDate": "2569-04-06",
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/อาสาเพ้นท์เสื้อ-ให้ผู้ป่วย-คลายร้อน",
+   "sourceUrl": "https://dekport.com/volunteer/อาสาเพ้นท์เสื้อ-ให้ผู้ป่วย-คลายร้อน",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "unknown"

@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-07-18T11:55:42Z",
+ "updatedAt": "2026-07-19T02:25:39Z",
  "generatedBy": "scraper.py",
- "count": 25,
+ "count": 26,
  "items": [
   {
    "id": "siriraj-blood",
@@ -968,6 +968,42 @@
    "sourceUrl": "https://www.happyhospital.org/volunteer.php",
    "sourceName": "happyhospital.org (มูลนิธิกระจกเงา)",
    "note": "รับต่อเนื่อง · ต้องนัดหมายล่วงหน้า · เหมาะกับน้องที่อยากได้ประสบการณ์ดูแลเด็ก",
+   "linkStatus": "open"
+  },
+  {
+   "id": "auto-DekPort-1",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
+   "title": "จิตอาสา อาสาสมัครประคองผู้ป่วยที่ช่วยเหลือตัวเองได้น้อย ศิริราช ปิด 31 ก.ค. 69 · เหลือ 12 วัน 14 ชม. ศูนย์อาสาสมัครศิริร",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": "2569-07-31",
+   "keyDate": "2569-07-31",
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
+   "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "open"
   },
   {

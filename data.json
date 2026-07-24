@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-07-23T12:26:13Z",
+ "updatedAt": "2026-07-24T02:26:01Z",
  "generatedBy": "scraper.py",
- "count": 24,
+ "count": 25,
  "items": [
   {
    "id": "siriraj-blood",
@@ -636,7 +636,7 @@
    "sourceUrl": "https://trcyvolunteer.redcross.or.th/",
    "sourceName": "trcyvolunteer.redcross.or.th",
    "note": "รับสมัครเป็นรอบต่อเนื่อง · แนะนำติดต่อสำนักงานยุวกาชาดเพื่อยืนยันรอบและกำหนดการปัจจุบัน",
-   "linkStatus": "empty"
+   "linkStatus": "open"
   },
   {
    "id": "trcy-leader",
@@ -678,7 +678,7 @@
    "sourceUrl": "https://redcross.or.th/",
    "sourceName": "สภากาชาดไทย · ยุวกาชาด",
    "note": "เป็นโครงการรายปี รอบตัวอย่างคือปี 2568 (ปิดแล้ว) · ติดตามรอบใหม่ทางสำนักงานยุวกาชาด เหมาะกับน้องสายผู้นำ/มีพอร์ตจิตอาสาอยู่แล้ว",
-   "linkStatus": "empty"
+   "linkStatus": "open"
   },
   {
    "id": "rtaf-tasamin",
@@ -978,7 +978,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "จิตอาสา อาสาสมัครประคองผู้ป่วยที่ช่วยเหลือตัวเองได้น้อย ศิริราช ปิด 31 ก.ค. 69 · เหลือ 8 วัน 4 ชม. ศูนย์อาสาสมัครศิริราช",
+   "title": "จิตอาสา อาสาสมัครประคองผู้ป่วยที่ช่วยเหลือตัวเองได้น้อย ศิริราช ปิด 31 ก.ค. 69 · เหลือ 7 วัน 14 ชม. ศูนย์อาสาสมัครศิริรา",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1002,6 +1002,42 @@
    ],
    "applyUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
    "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "open"
+  },
+  {
+   "id": "auto-DekPort-2",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
+   "title": "จิตอาสา อาสาสมัครช่วยงานธนาคารเลือด ศิริราช ปิด 31 ก.ค. 69 · เหลือ 7 วัน 14 ชม. ศูนย์อาสาสมัครศิริราชรับนักเรียน นักศึกษ",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": "2569-07-31",
+   "keyDate": "2569-07-31",
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/siriraj-blood-bank-volunteer-may-july-2026",
+   "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-bank-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "open"

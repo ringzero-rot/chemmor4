@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-07-31T12:59:24Z",
+ "updatedAt": "2026-08-01T02:30:47Z",
  "generatedBy": "scraper.py",
- "count": 31,
+ "count": 28,
  "items": [
   {
    "id": "siriraj-blood",
@@ -978,7 +978,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "จิตอาสา อาสาสมัครประคองผู้ป่วยที่ช่วยเหลือตัวเองได้น้อย ศิริราช ปิด 31 ก.ค. 69 · เหลือ 4 ชม. ศูนย์อาสาสมัครศิริราชเปิดกิ",
+   "title": "จิตอาสา อาสาสมัครอายุรเวท แพทย์แผนไทยประยุกต์ศิริราช ปิด 30 ส.ค. 69 · เหลือ 29 วัน 14 ชม. อาสาสมัครอายุรเวท แพทย์แผนไทยป",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -992,124 +992,16 @@
    "cert": false,
    "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
    "applyOpen": null,
-   "applyClose": "2569-07-31",
-   "keyDate": "2569-07-31",
+   "applyClose": "2569-08-30",
+   "keyDate": "2569-08-30",
    "keyType": "close",
    "dateConfirmed": false,
    "status": "open",
    "howTo": [
     "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
    ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
-   "sourceName": "DekPort (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
-  },
-  {
-   "id": "auto-DekPort-2",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน DekPort",
-   "area": "—",
-   "icon": "🔎",
-   "title": "จิตอาสา อาสาสมัครช่วยงานธนาคารเลือด ศิริราช ปิด 31 ก.ค. 69 · เหลือ 4 ชม. ศูนย์อาสาสมัครศิริราชรับนักเรียน นักศึกษา และผู",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": "2569-07-31",
-   "keyDate": "2569-07-31",
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-blood-bank-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-bank-volunteer-may-july-2026",
-   "sourceName": "DekPort (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
-  },
-  {
-   "id": "auto-DekPort-3",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน DekPort",
-   "area": "—",
-   "icon": "🔎",
-   "title": "จิตอาสา อาสาสมัครแนะนำ Siriraj Connect Application ปิด 31 ก.ค. 69 · เหลือ 4 ชม. โครงการอาสาสมัครศิริราชสำหรับผู้มีอายุ 1",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": null,
-   "keyDate": null,
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-connect-app-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-connect-app-volunteer-may-july-2026",
-   "sourceName": "DekPort (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
-  },
-  {
-   "id": "auto-DekPort-4",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน DekPort",
-   "area": "—",
-   "icon": "🔎",
-   "title": "จิตอาสา อาสาสมัครช่วยงานห้องยา ศิริราช ปิด 31 ก.ค. 69 · เหลือ 4 ชม. กิจกรรมอาสาสมัครช่วยงานห้องยา โรงพยาบาลศิริราช สำหรั",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": "2569-07-31",
-   "keyDate": "2569-07-31",
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-pharmacy-volunteer-may-july-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-pharmacy-volunteer-may-july-2026",
+   "applyUrl": "https://dekport.com/volunteer/siriraj-thai-traditional-medicine-volunteer-2026",
+   "sourceUrl": "https://dekport.com/volunteer/siriraj-thai-traditional-medicine-volunteer-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "open"

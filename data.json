@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-08-01T12:04:53Z",
+ "updatedAt": "2026-08-02T02:28:59Z",
  "generatedBy": "scraper.py",
- "count": 24,
+ "count": 23,
  "items": [
   {
    "id": "siriraj-blood",
@@ -968,42 +968,6 @@
    "sourceUrl": "https://www.happyhospital.org/volunteer.php",
    "sourceName": "happyhospital.org (มูลนิธิกระจกเงา)",
    "note": "รับต่อเนื่อง · ต้องนัดหมายล่วงหน้า · เหมาะกับน้องที่อยากได้ประสบการณ์ดูแลเด็ก",
-   "linkStatus": "open"
-  },
-  {
-   "id": "auto-DekPort-1",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน DekPort",
-   "area": "—",
-   "icon": "🔎",
-   "title": "จิตอาสา อาสาสมัครอายุรเวท แพทย์แผนไทยประยุกต์ศิริราช ปิด 30 ส.ค. 69 · เหลือ 29 วัน 5 ชม. อาสาสมัครอายุรเวท แพทย์แผนไทยปร",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": "2569-08-30",
-   "keyDate": "2569-08-30",
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://dekport.com/volunteer/siriraj-thai-traditional-medicine-volunteer-2026",
-   "sourceUrl": "https://dekport.com/volunteer/siriraj-thai-traditional-medicine-volunteer-2026",
-   "sourceName": "DekPort (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "open"
   }
  ]

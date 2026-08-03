@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-03T02:31:24Z",
+ "updatedAt": "2026-08-03T13:43:53Z",
  "generatedBy": "scraper.py",
  "count": 28,
  "items": [
@@ -802,7 +802,7 @@
    "sourceUrl": "https://medcamp.docchula.com",
    "sourceName": "medcamp.docchula.com",
    "note": "เป็นค่ายรายปี · วันที่ยังเป็นประมาณการจากรอบก่อน โปรดยืนยันรอบล่าสุดที่เพจ/เว็บค่าย",
-   "linkStatus": "open"
+   "linkStatus": "empty"
   },
   {
    "id": "siriraj-medcamp",

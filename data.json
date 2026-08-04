@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-04T02:11:03Z",
+ "updatedAt": "2026-08-04T13:05:44Z",
  "generatedBy": "scraper.py",
  "count": 28,
  "items": [
@@ -330,8 +330,8 @@
    "cert": true,
    "certNote": "ได้รับเกียรติบัตรเมื่อปฏิบัติงานครบตามเงื่อนไข",
    "applyOpen": "2569-06-18",
-   "applyClose": "2569-08-30",
-   "keyDate": "2569-08-30",
+   "applyClose": "2569-08-03",
+   "keyDate": "2569-08-03",
    "keyType": "close",
    "dateConfirmed": true,
    "status": "open",

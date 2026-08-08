@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-08-08T01:19:06Z",
+ "updatedAt": "2026-08-08T11:33:03Z",
  "generatedBy": "scraper.py",
- "count": 28,
+ "count": 27,
  "items": [
   {
    "id": "siriraj-blood",
@@ -1080,42 +1080,6 @@
   },
   {
    "id": "auto-VolunteerSpirit-3",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน VolunteerSpirit",
-   "area": "—",
-   "icon": "🔎",
-   "title": "💖🎨 หนึ่งหมวก หนึ่งกำลังใจ…ร่วมเพ้นท์หมวกส่งต่อความห่วงใยให้ผู้ป่วยมะเร็ง",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": null,
-   "keyDate": null,
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://www.volunteerspirit.org/%f0%9f%92%96%f0%9f%8e%a8-%e0%b8%ab%e0%b8%99%e0%b8%b6%e0%b9%88%e0%b8%87%e0%b8%ab%e0%b8%a1%e0%b8%a7%e0%b8%81-%e0%b8%ab%e0%b8%99%e0%b8%b6%e0%b9%88%e0%b8%87%e0%b8%81%e0%b8%b3%e0%b8%a5%e0%b8%b1%e0%b8%87/50418/",
-   "sourceUrl": "https://www.volunteerspirit.org/%f0%9f%92%96%f0%9f%8e%a8-%e0%b8%ab%e0%b8%99%e0%b8%b6%e0%b9%88%e0%b8%87%e0%b8%ab%e0%b8%a1%e0%b8%a7%e0%b8%81-%e0%b8%ab%e0%b8%99%e0%b8%b6%e0%b9%88%e0%b8%87%e0%b8%81%e0%b8%b3%e0%b8%a5%e0%b8%b1%e0%b8%87/50418/",
-   "sourceName": "VolunteerSpirit (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
-  },
-  {
-   "id": "auto-VolunteerSpirit-4",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",

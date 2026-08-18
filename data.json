@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-18T01:02:36Z",
+ "updatedAt": "2026-08-18T11:29:24Z",
  "generatedBy": "scraper.py",
  "count": 40,
  "items": [
@@ -216,7 +216,7 @@
    "sourceUrl": "https://www.si.mahidol.ac.th/th/division/csr/volunteersiriraj/viewnews.asp?id=474",
    "sourceName": "ประกาศตำแหน่งนี้ (news.asp) — ศิริราช",
    "note": "เปิดรับอยู่จริง · ปิดรับ 31 ก.ค. 2569 · อายุ 16–25 ปี · สอบถาม 02-419-9350-1 · กดปุ่มแหล่งข้อมูลเพื่อดูรายละเอียดเต็มของตำแหน่งนี้",
-   "linkStatus": "unknown"
+   "linkStatus": "open"
   },
   {
    "id": "siriraj-pharmacy",

@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-24T11:32:57Z",
+ "updatedAt": "2026-08-25T01:04:13Z",
  "generatedBy": "scraper.py",
  "count": 40,
  "items": [
@@ -802,7 +802,7 @@
    "sourceUrl": "https://medcamp.docchula.com",
    "sourceName": "medcamp.docchula.com",
    "note": "เป็นค่ายรายปี · วันที่ยังเป็นประมาณการจากรอบก่อน โปรดยืนยันรอบล่าสุดที่เพจ/เว็บค่าย",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "siriraj-medcamp",
@@ -978,7 +978,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "7 วัน ปิด 30 ส.ค. 69 อาสาสมัครอายุรเวท แพทย์แผนไทยประยุกต์ศิริราช",
+   "title": "6 วัน ปิด 30 ส.ค. 69 อาสาสมัครอายุรเวท แพทย์แผนไทยประยุกต์ศิริราช",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1148,7 +1148,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-health-service-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "auto-DekPort-6",

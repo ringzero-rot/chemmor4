@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-25T01:04:13Z",
+ "updatedAt": "2026-08-25T11:32:21Z",
  "generatedBy": "scraper.py",
  "count": 40,
  "items": [
@@ -1076,7 +1076,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-bank-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
    "id": "auto-DekPort-4",
@@ -1148,7 +1148,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-health-service-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
    "id": "auto-DekPort-6",

@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-26T01:06:11Z",
+ "updatedAt": "2026-08-26T11:34:09Z",
  "generatedBy": "scraper.py",
  "count": 40,
  "items": [
@@ -1040,7 +1040,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
    "id": "auto-DekPort-3",
@@ -1076,7 +1076,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-bank-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
    "id": "auto-DekPort-4",
@@ -1220,7 +1220,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-eye-clinic-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
    "id": "auto-DekPort-8",

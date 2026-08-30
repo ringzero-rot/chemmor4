@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-08-29T15:33:20Z",
+ "updatedAt": "2026-08-30T03:28:40Z",
  "generatedBy": "scraper.py",
- "count": 40,
+ "count": 37,
  "items": [
   {
    "id": "siriraj-blood",
@@ -978,7 +978,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "2 วัน ปิด 30 ส.ค. 69 อาสาสมัครอายุรเวท แพทย์แผนไทยประยุกต์ศิริราช",
+   "title": "1 วัน ปิด 30 ส.ค. 69 อาสาสมัครอายุรเวท แพทย์แผนไทยประยุกต์ศิริราช",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1014,6 +1014,42 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
+   "title": "2 วัน ปิด 1 ก.ย. 69 ทำหมอนรองแผลกดทับเพื่อผู้ป่วยติดเตียง",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": null,
+   "keyDate": null,
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/ทำหมอนรองแผลกดทับ-อาสา",
+   "sourceUrl": "https://dekport.com/volunteer/ทำหมอนรองแผลกดทับ-อาสา",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "unknown"
+  },
+  {
+   "id": "auto-DekPort-3",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
    "title": "อาสาสมัครประคองผู้ป่วยที่ช่วยเหลือตัวเองได้น้อย ศิริราช",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
@@ -1040,10 +1076,10 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-3",
+   "id": "auto-DekPort-4",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1079,7 +1115,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-4",
+   "id": "auto-DekPort-5",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1115,7 +1151,7 @@
    "linkStatus": "closed"
   },
   {
-   "id": "auto-DekPort-5",
+   "id": "auto-DekPort-6",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1148,10 +1184,10 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-health-service-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-6",
+   "id": "auto-DekPort-7",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1187,7 +1223,7 @@
    "linkStatus": "closed"
   },
   {
-   "id": "auto-DekPort-7",
+   "id": "auto-DekPort-8",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1223,7 +1259,7 @@
    "linkStatus": "closed"
   },
   {
-   "id": "auto-DekPort-8",
+   "id": "auto-DekPort-9",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1259,7 +1295,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-9",
+   "id": "auto-DekPort-10",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1295,7 +1331,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-10",
+   "id": "auto-DekPort-11",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1331,7 +1367,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-11",
+   "id": "auto-DekPort-12",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1367,7 +1403,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-12",
+   "id": "auto-DekPort-13",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1403,7 +1439,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-13",
+   "id": "auto-DekPort-14",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1437,150 +1473,6 @@
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "unknown"
-  },
-  {
-   "id": "auto-DekPort-14",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน DekPort",
-   "area": "—",
-   "icon": "🔎",
-   "title": "ปักผ้าปิดคอเพื่อผู้ป่วยเจาะคอ",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": "2569-04-06",
-   "keyDate": "2569-04-06",
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://dekport.com/volunteer/ปักผ้าปิดคอ-เพื่อ-ผู้ป่วยเจาะคอ",
-   "sourceUrl": "https://dekport.com/volunteer/ปักผ้าปิดคอ-เพื่อ-ผู้ป่วยเจาะคอ",
-   "sourceName": "DekPort (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "unknown"
-  },
-  {
-   "id": "auto-VolunteerSpirit-1",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน VolunteerSpirit",
-   "area": "—",
-   "icon": "🔎",
-   "title": "อาสาคัดแยกแว่นตา/อาสาปลาใจดี/อาสาจัดชุดเมล็ดพันธุ์/อาสาคัดแยกยา/อาสาสร้างสื่อการเรียนรู้บนผืนผ้า/อาสาผลิตแฟลชการ์ด/อาสาจ",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": null,
-   "keyDate": null,
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://www.volunteerspirit.org/%e0%b8%ad%e0%b8%b2%e0%b8%aa%e0%b8%b2%e0%b8%84%e0%b8%b1%e0%b8%94%e0%b9%81%e0%b8%a2%e0%b8%81%e0%b9%81%e0%b8%a7%e0%b9%88%e0%b8%99%e0%b8%95%e0%b8%b2-%e0%b8%ad%e0%b8%b2%e0%b8%aa%e0%b8%b2%e0%b8%9b%e0%b8%a5/50494/",
-   "sourceUrl": "https://www.volunteerspirit.org/%e0%b8%ad%e0%b8%b2%e0%b8%aa%e0%b8%b2%e0%b8%84%e0%b8%b1%e0%b8%94%e0%b9%81%e0%b8%a2%e0%b8%81%e0%b9%81%e0%b8%a7%e0%b9%88%e0%b8%99%e0%b8%95%e0%b8%b2-%e0%b8%ad%e0%b8%b2%e0%b8%aa%e0%b8%b2%e0%b8%9b%e0%b8%a5/50494/",
-   "sourceName": "VolunteerSpirit (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
-  },
-  {
-   "id": "auto-VolunteerSpirit-2",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน VolunteerSpirit",
-   "area": "—",
-   "icon": "🔎",
-   "title": "อาสาลงลายกระเป๋าผ้า/อาสาเขียนศิลป์บนเสื้อ/อาสาสร้างสื่อการเรียนรู้บนผืนผ้า/อาสาผลิตแฟลชการ์ด/อาสาคัดแยกแว่นตา/อาสาหมอนหน",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": null,
-   "keyDate": null,
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://www.volunteerspirit.org/%e0%b8%ad%e0%b8%b2%e0%b8%aa%e0%b8%b2%e0%b8%a5%e0%b8%87%e0%b8%a5%e0%b8%b2%e0%b8%a2%e0%b8%81%e0%b8%a3%e0%b8%b0%e0%b9%80%e0%b8%9b%e0%b9%8b%e0%b8%b2%e0%b8%9c%e0%b9%89%e0%b8%b2-%e0%b8%ad%e0%b8%b2%e0%b8%aa/50492/",
-   "sourceUrl": "https://www.volunteerspirit.org/%e0%b8%ad%e0%b8%b2%e0%b8%aa%e0%b8%b2%e0%b8%a5%e0%b8%87%e0%b8%a5%e0%b8%b2%e0%b8%a2%e0%b8%81%e0%b8%a3%e0%b8%b0%e0%b9%80%e0%b8%9b%e0%b9%8b%e0%b8%b2%e0%b8%9c%e0%b9%89%e0%b8%b2-%e0%b8%ad%e0%b8%b2%e0%b8%aa/50492/",
-   "sourceName": "VolunteerSpirit (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
-  },
-  {
-   "id": "auto-VolunteerSpirit-3",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน VolunteerSpirit",
-   "area": "—",
-   "icon": "🔎",
-   "title": "รับสมัครจิตอาสาช่วยขายของyardsale#56 วันที่ 1 ธค. 2019 โครงการคนไทยสร้างใจแบ่งปันที่รพ.มิชชั่น",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": null,
-   "keyDate": null,
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://www.volunteerspirit.org/event/%e0%b8%a3%e0%b8%b1%e0%b8%9a%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3%e0%b8%88%e0%b8%b4%e0%b8%95%e0%b8%ad%e0%b8%b2%e0%b8%aa%e0%b8%b2%e0%b8%8a%e0%b9%88%e0%b8%a7%e0%b8%a2%e0%b8%82%e0%b8%b2%e0%b8%a2-3/",
-   "sourceUrl": "https://www.volunteerspirit.org/event/%e0%b8%a3%e0%b8%b1%e0%b8%9a%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3%e0%b8%88%e0%b8%b4%e0%b8%95%e0%b8%ad%e0%b8%b2%e0%b8%aa%e0%b8%b2%e0%b8%8a%e0%b9%88%e0%b8%a7%e0%b8%a2%e0%b8%82%e0%b8%b2%e0%b8%a2-3/",
-   "sourceName": "VolunteerSpirit (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
   }
  ]
 }

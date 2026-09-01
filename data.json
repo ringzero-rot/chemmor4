@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-31T17:57:46Z",
+ "updatedAt": "2026-09-01T03:26:18Z",
  "generatedBy": "scraper.py",
  "count": 40,
  "items": [
@@ -978,7 +978,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "1 วัน ปิด 1 ก.ย. 69 ทำหมอนรองแผลกดทับเพื่อผู้ป่วยติดเตียง",
+   "title": "ทำหมอนรองแผลกดทับเพื่อผู้ป่วยติดเตียง",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1040,7 +1040,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "auto-DekPort-3",
@@ -1148,7 +1148,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-pharmacy-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
    "id": "auto-DekPort-6",
@@ -1184,7 +1184,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-health-service-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
    "id": "auto-DekPort-7",

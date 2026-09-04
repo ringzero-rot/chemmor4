@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-03T14:56:09Z",
+ "updatedAt": "2026-09-04T02:47:44Z",
  "generatedBy": "scraper.py",
  "count": 40,
  "items": [
@@ -1040,7 +1040,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
    "id": "auto-DekPort-3",
@@ -1112,7 +1112,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-thai-traditional-medicine-volunteer-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "auto-DekPort-5",
@@ -1148,7 +1148,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-pharmacy-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "auto-DekPort-6",
@@ -1220,7 +1220,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "auto-DekPort-8",
@@ -1256,7 +1256,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-eye-clinic-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
    "id": "auto-DekPort-9",

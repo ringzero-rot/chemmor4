@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-06T14:02:38Z",
+ "updatedAt": "2026-09-07T02:45:43Z",
  "generatedBy": "scraper.py",
  "count": 41,
  "items": [
@@ -1112,7 +1112,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-thai-traditional-medicine-volunteer-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "auto-DekPort-5",

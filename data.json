@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-09-17T03:17:43Z",
+ "updatedAt": "2026-09-17T15:29:03Z",
  "generatedBy": "scraper.py",
- "count": 42,
+ "count": 44,
  "items": [
   {
    "id": "siriraj-blood",
@@ -978,6 +978,78 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
+   "title": "1 วัน ปิด 18 ก.ย. 69 หมอนหลอดแทนความห่วงใย เพื่อผู้ป่วยแผลกดทับ กิจกรรมอาสาทำที่บ้าน",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": null,
+   "keyDate": null,
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/อาสาทำหมอนรองแผลกดทับ",
+   "sourceUrl": "https://dekport.com/volunteer/อาสาทำหมอนรองแผลกดทับ",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "unknown"
+  },
+  {
+   "id": "auto-DekPort-2",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
+   "title": "54 วัน ปิด 10 พ.ย. 69 หมอนหัวใจ เพื่อผู้ป่วยมะเร็งเต้านม ส่งอุปกรณ์ทำที่บ้าน",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": null,
+   "keyDate": null,
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/หมอนหัวใจ-เพื่อ-ผู้ป่วย-มะเร็งเต้านม",
+   "sourceUrl": "https://dekport.com/volunteer/หมอนหัวใจ-เพื่อ-ผู้ป่วย-มะเร็งเต้านม",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "unknown"
+  },
+  {
+   "id": "auto-DekPort-3",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
    "title": "ทำหมอนรองแผลกดทับเพื่อผู้ป่วยติดเตียง",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
@@ -1007,7 +1079,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-2",
+   "id": "auto-DekPort-4",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1043,7 +1115,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-3",
+   "id": "auto-DekPort-5",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1076,10 +1148,10 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-bank-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-4",
+   "id": "auto-DekPort-6",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1115,7 +1187,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-5",
+   "id": "auto-DekPort-7",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1148,10 +1220,10 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-pharmacy-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
-   "id": "auto-DekPort-6",
+   "id": "auto-DekPort-8",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1187,7 +1259,7 @@
    "linkStatus": "closed"
   },
   {
-   "id": "auto-DekPort-7",
+   "id": "auto-DekPort-9",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1220,10 +1292,10 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
-   "id": "auto-DekPort-8",
+   "id": "auto-DekPort-10",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1259,7 +1331,7 @@
    "linkStatus": "closed"
   },
   {
-   "id": "auto-DekPort-9",
+   "id": "auto-DekPort-11",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1295,7 +1367,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-10",
+   "id": "auto-DekPort-12",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1331,7 +1403,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-11",
+   "id": "auto-DekPort-13",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1367,7 +1439,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-12",
+   "id": "auto-DekPort-14",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1403,7 +1475,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-13",
+   "id": "auto-DekPort-15",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1439,7 +1511,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-14",
+   "id": "auto-DekPort-16",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1475,7 +1547,7 @@
    "linkStatus": "unknown"
   },
   {
-   "id": "auto-DekPort-15",
+   "id": "auto-DekPort-17",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",

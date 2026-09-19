@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-09-19T03:00:31Z",
+ "updatedAt": "2026-09-19T14:14:18Z",
  "generatedBy": "scraper.py",
- "count": 40,
+ "count": 42,
  "items": [
   {
    "id": "siriraj-blood",
@@ -636,7 +636,7 @@
    "sourceUrl": "https://trcyvolunteer.redcross.or.th/",
    "sourceName": "trcyvolunteer.redcross.or.th",
    "note": "รับสมัครเป็นรอบต่อเนื่อง · แนะนำติดต่อสำนักงานยุวกาชาดเพื่อยืนยันรอบและกำหนดการปัจจุบัน",
-   "linkStatus": "empty"
+   "linkStatus": "open"
   },
   {
    "id": "trcy-leader",
@@ -678,7 +678,7 @@
    "sourceUrl": "https://redcross.or.th/",
    "sourceName": "สภากาชาดไทย · ยุวกาชาด",
    "note": "เป็นโครงการรายปี รอบตัวอย่างคือปี 2568 (ปิดแล้ว) · ติดตามรอบใหม่ทางสำนักงานยุวกาชาด เหมาะกับน้องสายผู้นำ/มีพอร์ตจิตอาสาอยู่แล้ว",
-   "linkStatus": "empty"
+   "linkStatus": "open"
   },
   {
    "id": "rtaf-tasamin",
@@ -1112,7 +1112,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-patient-assist-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "auto-DekPort-5",
@@ -1184,7 +1184,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-thai-traditional-medicine-volunteer-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "auto-DekPort-7",
@@ -1256,7 +1256,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-health-service-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "open"
   },
   {
    "id": "auto-DekPort-9",
@@ -1581,6 +1581,78 @@
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
    "linkStatus": "unknown"
+  },
+  {
+   "id": "auto-VolunteerSpirit-1",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน VolunteerSpirit",
+   "area": "—",
+   "icon": "🔎",
+   "title": "🌈 หมอนหลอดแทนความห่วงใย เพื่อผู้ป่วยแผลกดทับ กิจกรรมอาสาทำที่บ้าน",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": null,
+   "keyDate": null,
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://www.volunteerspirit.org/%f0%9f%8c%88-%e0%b8%ab%e0%b8%a1%e0%b8%ad%e0%b8%99%e0%b8%ab%e0%b8%a5%e0%b8%ad%e0%b8%94%e0%b9%81%e0%b8%97%e0%b8%99%e0%b8%84%e0%b8%a7%e0%b8%b2%e0%b8%a1%e0%b8%ab%e0%b9%88%e0%b8%a7%e0%b8%87%e0%b9%83/50525/",
+   "sourceUrl": "https://www.volunteerspirit.org/%f0%9f%8c%88-%e0%b8%ab%e0%b8%a1%e0%b8%ad%e0%b8%99%e0%b8%ab%e0%b8%a5%e0%b8%ad%e0%b8%94%e0%b9%81%e0%b8%97%e0%b8%99%e0%b8%84%e0%b8%a7%e0%b8%b2%e0%b8%a1%e0%b8%ab%e0%b9%88%e0%b8%a7%e0%b8%87%e0%b9%83/50525/",
+   "sourceName": "VolunteerSpirit (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "open"
+  },
+  {
+   "id": "auto-VolunteerSpirit-2",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน VolunteerSpirit",
+   "area": "—",
+   "icon": "🔎",
+   "title": "รับสมัครจิตอาสาช่วยขายของyardsale#56 วันที่ 1 ธค. 2019 โครงการคนไทยสร้างใจแบ่งปันที่รพ.มิชชั่น",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": null,
+   "keyDate": null,
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://www.volunteerspirit.org/event/%e0%b8%a3%e0%b8%b1%e0%b8%9a%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3%e0%b8%88%e0%b8%b4%e0%b8%95%e0%b8%ad%e0%b8%b2%e0%b8%aa%e0%b8%b2%e0%b8%8a%e0%b9%88%e0%b8%a7%e0%b8%a2%e0%b8%82%e0%b8%b2%e0%b8%a2-3/",
+   "sourceUrl": "https://www.volunteerspirit.org/event/%e0%b8%a3%e0%b8%b1%e0%b8%9a%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3%e0%b8%88%e0%b8%b4%e0%b8%95%e0%b8%ad%e0%b8%b2%e0%b8%aa%e0%b8%b2%e0%b8%8a%e0%b9%88%e0%b8%a7%e0%b8%a2%e0%b8%82%e0%b8%b2%e0%b8%a2-3/",
+   "sourceName": "VolunteerSpirit (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "open"
   }
  ]
 }

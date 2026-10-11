@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-10T16:09:08Z",
+ "updatedAt": "2026-10-11T03:50:41Z",
  "generatedBy": "scraper.py",
  "count": 42,
  "items": [
@@ -216,7 +216,7 @@
    "sourceUrl": "https://www.si.mahidol.ac.th/th/division/csr/volunteersiriraj/viewnews.asp?id=474",
    "sourceName": "ประกาศตำแหน่งนี้ (news.asp) — ศิริราช",
    "note": "เปิดรับอยู่จริง · ปิดรับ 31 ก.ค. 2569 · อายุ 16–25 ปี · สอบถาม 02-419-9350-1 · กดปุ่มแหล่งข้อมูลเพื่อดูรายละเอียดเต็มของตำแหน่งนี้",
-   "linkStatus": "open"
+   "linkStatus": "unknown"
   },
   {
    "id": "siriraj-pharmacy",
@@ -885,7 +885,7 @@
    "sourceUrl": "https://www.rama.mahidol.ac.th/",
    "sourceName": "คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี",
    "note": "เป็นงานรายปี · วันที่ยังเป็นประมาณการ โปรดยืนยันกำหนดการล่าสุดที่เพจ/เว็บคณะฯ",
-   "linkStatus": "empty"
+   "linkStatus": "open"
   },
   {
    "id": "vajira-student",
@@ -978,7 +978,7 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
-   "title": "31 วัน ปิด 10 พ.ย. 69 หมอนหัวใจ เพื่อผู้ป่วยมะเร็งเต้านม ส่งอุปกรณ์ทำที่บ้าน",
+   "title": "30 วัน ปิด 10 พ.ย. 69 หมอนหัวใจ เพื่อผู้ป่วยมะเร็งเต้านม ส่งอุปกรณ์ทำที่บ้าน",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
     "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
@@ -1256,7 +1256,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-health-service-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "auto-DekPort-9",
@@ -1292,7 +1292,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-blood-pressure-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
+   "linkStatus": "closed"
   },
   {
    "id": "auto-DekPort-10",

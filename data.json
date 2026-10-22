@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-10-22T03:11:07Z",
+ "updatedAt": "2026-10-22T15:49:52Z",
  "generatedBy": "scraper.py",
- "count": 43,
+ "count": 42,
  "items": [
   {
    "id": "siriraj-blood",
@@ -1620,42 +1620,6 @@
   },
   {
    "id": "auto-VolunteerSpirit-1",
-   "cat": "volunteer",
-   "unverified": true,
-   "hospital": "โครงการจากแหล่งรวมข่าว",
-   "org": "พบผ่าน VolunteerSpirit",
-   "area": "—",
-   "icon": "🔎",
-   "title": "🌈 หมอนหลอดแทนความห่วงใย เพื่อผู้ป่วยแผลกดทับ กิจกรรมอาสาทำที่บ้าน",
-   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
-   "scope": [
-    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
-   ],
-   "qual": [
-    "ตรวจคุณสมบัติที่หน้าต้นทาง"
-   ],
-   "quota": "ดูที่ต้นทาง",
-   "workDays": "ดูที่ต้นทาง",
-   "cost": "ดูที่ต้นทาง",
-   "cert": false,
-   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
-   "applyOpen": null,
-   "applyClose": null,
-   "keyDate": null,
-   "keyType": "close",
-   "dateConfirmed": false,
-   "status": "open",
-   "howTo": [
-    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
-   ],
-   "applyUrl": "https://www.volunteerspirit.org/%f0%9f%8c%88-%e0%b8%ab%e0%b8%a1%e0%b8%ad%e0%b8%99%e0%b8%ab%e0%b8%a5%e0%b8%ad%e0%b8%94%e0%b9%81%e0%b8%97%e0%b8%99%e0%b8%84%e0%b8%a7%e0%b8%b2%e0%b8%a1%e0%b8%ab%e0%b9%88%e0%b8%a7%e0%b8%87%e0%b9%83/50525/",
-   "sourceUrl": "https://www.volunteerspirit.org/%f0%9f%8c%88-%e0%b8%ab%e0%b8%a1%e0%b8%ad%e0%b8%99%e0%b8%ab%e0%b8%a5%e0%b8%ad%e0%b8%94%e0%b9%81%e0%b8%97%e0%b8%99%e0%b8%84%e0%b8%a7%e0%b8%b2%e0%b8%a1%e0%b8%ab%e0%b9%88%e0%b8%a7%e0%b8%87%e0%b9%83/50525/",
-   "sourceName": "VolunteerSpirit (แหล่งรวมข่าว)",
-   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "open"
-  },
-  {
-   "id": "auto-VolunteerSpirit-2",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",

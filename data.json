@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-23T03:16:30Z",
+ "updatedAt": "2026-10-23T15:41:27Z",
  "generatedBy": "scraper.py",
  "count": 42,
  "items": [
@@ -636,7 +636,7 @@
    "sourceUrl": "https://trcyvolunteer.redcross.or.th/",
    "sourceName": "trcyvolunteer.redcross.or.th",
    "note": "รับสมัครเป็นรอบต่อเนื่อง · แนะนำติดต่อสำนักงานยุวกาชาดเพื่อยืนยันรอบและกำหนดการปัจจุบัน",
-   "linkStatus": "open"
+   "linkStatus": "unknown"
   },
   {
    "id": "trcy-leader",
@@ -802,7 +802,7 @@
    "sourceUrl": "https://medcamp.docchula.com",
    "sourceName": "medcamp.docchula.com",
    "note": "เป็นค่ายรายปี · วันที่ยังเป็นประมาณการจากรอบก่อน โปรดยืนยันรอบล่าสุดที่เพจ/เว็บค่าย",
-   "linkStatus": "closed"
+   "linkStatus": "unknown"
   },
   {
    "id": "siriraj-medcamp",

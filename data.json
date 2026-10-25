@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-25T03:05:30Z",
+ "updatedAt": "2026-10-25T14:55:12Z",
  "generatedBy": "scraper.py",
  "count": 42,
  "items": [
@@ -802,7 +802,7 @@
    "sourceUrl": "https://medcamp.docchula.com",
    "sourceName": "medcamp.docchula.com",
    "note": "เป็นค่ายรายปี · วันที่ยังเป็นประมาณการจากรอบก่อน โปรดยืนยันรอบล่าสุดที่เพจ/เว็บค่าย",
-   "linkStatus": "unknown"
+   "linkStatus": "closed"
   },
   {
    "id": "siriraj-medcamp",
@@ -885,7 +885,7 @@
    "sourceUrl": "https://www.rama.mahidol.ac.th/",
    "sourceName": "คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี",
    "note": "เป็นงานรายปี · วันที่ยังเป็นประมาณการ โปรดยืนยันกำหนดการล่าสุดที่เพจ/เว็บคณะฯ",
-   "linkStatus": "empty"
+   "linkStatus": "open"
   },
   {
    "id": "vajira-student",

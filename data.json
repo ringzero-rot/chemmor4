@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-27T03:36:20Z",
+ "updatedAt": "2026-10-27T16:17:28Z",
  "generatedBy": "scraper.py",
  "count": 42,
  "items": [
@@ -885,7 +885,7 @@
    "sourceUrl": "https://www.rama.mahidol.ac.th/",
    "sourceName": "คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี",
    "note": "เป็นงานรายปี · วันที่ยังเป็นประมาณการ โปรดยืนยันกำหนดการล่าสุดที่เพจ/เว็บคณะฯ",
-   "linkStatus": "empty"
+   "linkStatus": "open"
   },
   {
    "id": "vajira-student",

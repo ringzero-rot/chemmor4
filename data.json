@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-28T03:52:33Z",
+ "updatedAt": "2026-10-28T17:03:16Z",
  "generatedBy": "scraper.py",
  "count": 42,
  "items": [
@@ -1256,7 +1256,7 @@
    "sourceUrl": "https://dekport.com/volunteer/siriraj-pharmacy-volunteer-may-july-2026",
    "sourceName": "DekPort (แหล่งรวมข่าว)",
    "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
-   "linkStatus": "closed"
+   "linkStatus": "unknown"
   },
   {
    "id": "auto-DekPort-9",

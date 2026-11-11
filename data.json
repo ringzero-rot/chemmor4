@@ -1,7 +1,7 @@
 {
- "updatedAt": "2026-11-11T04:35:22Z",
+ "updatedAt": "2026-11-11T18:29:30Z",
  "generatedBy": "scraper.py",
- "count": 43,
+ "count": 44,
  "items": [
   {
    "id": "siriraj-blood",
@@ -1014,6 +1014,42 @@
    "org": "พบผ่าน DekPort",
    "area": "—",
    "icon": "🔎",
+   "title": "จิตอาสา อาสาเพ้นท์เสื้อให้ผู้ป่วย คลายร้อน ตรวจสอบวันรับสมัครกับผู้จัด ระดับการศึกษาที่ระบุ ทั่วไป ค่าใช้จ่าย ตรวจสอบค่า",
+   "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
+   "scope": [
+    "รายละเอียดอยู่ที่หน้าต้นทาง (กดปุ่มแหล่งข้อมูล/สมัคร)"
+   ],
+   "qual": [
+    "ตรวจคุณสมบัติที่หน้าต้นทาง"
+   ],
+   "quota": "ดูที่ต้นทาง",
+   "workDays": "ดูที่ต้นทาง",
+   "cost": "ดูที่ต้นทาง",
+   "cert": false,
+   "certNote": "ตรวจสอบเรื่องเกียรติบัตรที่หน้าต้นทาง",
+   "applyOpen": null,
+   "applyClose": null,
+   "keyDate": null,
+   "keyType": "close",
+   "dateConfirmed": false,
+   "status": "open",
+   "howTo": [
+    "กดปุ่มด้านล่างไปยังหน้าต้นทาง แล้วทำตามขั้นตอนที่ระบุ"
+   ],
+   "applyUrl": "https://dekport.com/volunteer/อาสาเพ้นท์เสื้อ-ให้ผู้ป่วย-คลายร้อน",
+   "sourceUrl": "https://dekport.com/volunteer/อาสาเพ้นท์เสื้อ-ให้ผู้ป่วย-คลายร้อน",
+   "sourceName": "DekPort (แหล่งรวมข่าว)",
+   "note": "⚠️ ดึงอัตโนมัติจากแหล่งรวมข่าว ยังไม่ผ่านการตรวจด้วยมือ — โปรดยืนยันกับต้นทางก่อนสมัคร",
+   "linkStatus": "unknown"
+  },
+  {
+   "id": "auto-DekPort-3",
+   "cat": "volunteer",
+   "unverified": true,
+   "hospital": "โครงการจากแหล่งรวมข่าว",
+   "org": "พบผ่าน DekPort",
+   "area": "—",
+   "icon": "🔎",
    "title": "หมอนหัวใจ เพื่อผู้ป่วยมะเร็งเต้านม ส่งอุปกรณ์ทำที่บ้าน",
    "scopeShort": "รายการนี้ดึงอัตโนมัติจากเว็บรวมข่าว — โปรดกดลิงก์เพื่อตรวจรายละเอียดและวันสมัครก่อนสมัครทุกครั้ง",
    "scope": [
@@ -1043,7 +1079,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-3",
+   "id": "auto-DekPort-4",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1079,7 +1115,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-4",
+   "id": "auto-DekPort-5",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1115,7 +1151,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-5",
+   "id": "auto-DekPort-6",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1151,7 +1187,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-6",
+   "id": "auto-DekPort-7",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1187,7 +1223,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-7",
+   "id": "auto-DekPort-8",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1223,7 +1259,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-8",
+   "id": "auto-DekPort-9",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1259,7 +1295,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-9",
+   "id": "auto-DekPort-10",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1295,7 +1331,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-10",
+   "id": "auto-DekPort-11",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1331,7 +1367,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-11",
+   "id": "auto-DekPort-12",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1367,7 +1403,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-12",
+   "id": "auto-DekPort-13",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1403,7 +1439,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-13",
+   "id": "auto-DekPort-14",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1439,7 +1475,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-14",
+   "id": "auto-DekPort-15",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1475,7 +1511,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-15",
+   "id": "auto-DekPort-16",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1511,7 +1547,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-16",
+   "id": "auto-DekPort-17",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1547,7 +1583,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-17",
+   "id": "auto-DekPort-18",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",
@@ -1583,7 +1619,7 @@
    "linkStatus": "open"
   },
   {
-   "id": "auto-DekPort-18",
+   "id": "auto-DekPort-19",
    "cat": "volunteer",
    "unverified": true,
    "hospital": "โครงการจากแหล่งรวมข่าว",

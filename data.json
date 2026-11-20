@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-20T05:38:08Z",
+ "updatedAt": "2026-11-20T19:01:10Z",
  "generatedBy": "scraper.py",
  "count": 46,
  "items": [
@@ -636,7 +636,7 @@
    "sourceUrl": "https://trcyvolunteer.redcross.or.th/",
    "sourceName": "trcyvolunteer.redcross.or.th",
    "note": "รับสมัครเป็นรอบต่อเนื่อง · แนะนำติดต่อสำนักงานยุวกาชาดเพื่อยืนยันรอบและกำหนดการปัจจุบัน",
-   "linkStatus": "open"
+   "linkStatus": "unknown"
   },
   {
    "id": "trcy-leader",

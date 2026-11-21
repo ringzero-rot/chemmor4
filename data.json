@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-21T05:31:47Z",
+ "updatedAt": "2026-11-21T17:55:44Z",
  "generatedBy": "scraper.py",
  "count": 46,
  "items": [
@@ -302,7 +302,7 @@
    "sourceUrl": "https://www.si.mahidol.ac.th/th/division/csr/volunteersiriraj/viewnews.asp?id=476",
    "sourceName": "ประกาศตำแหน่งนี้ (news.asp) — ศิริราช",
    "note": "เปิดรับอยู่จริง · ปิดรับ 31 ก.ค. 2569 · อายุ 16–25 ปี · สอบถาม 02-419-9350-1 · กดปุ่มแหล่งข้อมูลเพื่อดูรายละเอียดเต็มของตำแหน่งนี้",
-   "linkStatus": "unknown"
+   "linkStatus": "open"
   },
   {
    "id": "siriraj-photo",

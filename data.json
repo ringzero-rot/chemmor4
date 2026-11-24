@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-24T08:16:37Z",
+ "updatedAt": "2026-11-24T21:03:02Z",
  "generatedBy": "scraper.py",
  "count": 25,
  "items": [
@@ -388,7 +388,7 @@
    "sourceUrl": "https://www.facebook.com/jitarsarama/",
    "sourceName": "เพจ จิตอาสารามาธิบดี",
    "note": "รอบสมัครเต็มเร็วมาก (ประมาณ 1–4 นาที) ควรเข้าระบบก่อนเวลาเปิดรับ",
-   "linkStatus": "empty"
+   "linkStatus": "unknown"
   },
   {
    "id": "rajavithi-timebank",

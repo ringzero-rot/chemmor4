@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-26T20:02:24Z",
+ "updatedAt": "2026-11-27T06:36:17Z",
  "generatedBy": "scraper.py",
  "count": 25,
  "items": [
@@ -173,7 +173,7 @@
    "sourceUrl": "https://www.si.mahidol.ac.th/th/division/csr/volunteersiriraj/viewnews.asp?id=473",
    "sourceName": "ประกาศตำแหน่งนี้ (news.asp) — ศิริราช",
    "note": "เปิดรับอยู่จริง · ปิดรับ 31 ก.ค. 2569 · อายุ 16–25 ปี · สอบถาม 02-419-9350-1 · กดปุ่มแหล่งข้อมูลเพื่อดูรายละเอียดเต็มของตำแหน่งนี้",
-   "linkStatus": "open"
+   "linkStatus": "unknown"
   },
   {
    "id": "siriraj-health",
@@ -388,7 +388,7 @@
    "sourceUrl": "https://www.facebook.com/jitarsarama/",
    "sourceName": "เพจ จิตอาสารามาธิบดี",
    "note": "รอบสมัครเต็มเร็วมาก (ประมาณ 1–4 นาที) ควรเข้าระบบก่อนเวลาเปิดรับ",
-   "linkStatus": "unknown"
+   "linkStatus": "empty"
   },
   {
    "id": "rajavithi-timebank",
